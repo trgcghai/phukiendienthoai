@@ -1,11 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="./assets/bootstrap-5.3.3-dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./css/index.css" />
+    <script src="./assets/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
     <title>Đề tài web</title>
-</head>
-<body>
-    <h1>hello world</h1>
-</body>
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <a href="index.html" class="header_link">Phukiendienthoai</a>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="form login_form">
+        <h2 class="form_title">Đăng nhập</h2>
+        <div class="form_ask">
+          Chưa có tài khoản ?
+          <button class="form_link toSignUp">Đăng ký tại đây</button>
+        </div>
+        <form>
+          <div class="form_section mb-3">
+            <label for="login_email" class="form-label">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="login_email"
+              aria-describedby="emailHelp"
+            />
+            <div id="emailHelp" class="form-text"></div>
+          </div>
+          <div class="form_section mb-3">
+            <label for="login_password" class="form-label">Mật khẩu</label>
+            <input type="password" class="form-control" id="login_password" />
+            <div id="emailHelp" class="form-text"></div>
+          </div>
+          <div class="form_section mb-3">
+            <a href="" class="form_forgetPassword">Quên mật khẩu ?</a>
+          </div>
+          <div class="form_section d-grid">
+            <button class="btn btn-primary submit_btn login_btn">
+              Đăng nhập
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="form signup_form">
+        <h2 class="form_title">Đăng ký</h2>
+        <div class="form_ask">
+          Đã có tài khoản ?
+          <button class="form_link toLogin">Đăng nhập tại đây</button>
+        </div>
+        <form>
+          <div class="form_section mb-3">
+            <label for="signup_email" class="form-label">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="signup_email"
+              aria-describedby="emailHelp"
+            />
+            <div id="emailHelp" class="form-text"></div>
+          </div>
+          <div class="form_section mb-3">
+            <label for="signup_password" class="form-label">Mật khẩu</label>
+            <input type="password" class="form-control" id="signup_password" />
+            <div id="emailHelp" class="form-text"></div>
+          </div>
+          <div class="form_section mb-3">
+            <label for="signup_cfpassword" class="form-label"
+              >Nhập lại mật khẩu</label
+            >
+            <input
+              type="password"
+              class="form-control"
+              id="signup_cfpassword"
+            />
+            <div id="emailHelp" class="form-text"></div>
+          </div>
+          <div class="form_section mb-3 mt-4 d-grid">
+            <button class="btn btn-primary submit_btn signup_btn">
+              Đăng ký
+            </button>
+          </div>
+          <div class="form_section">
+            <span class="form_policy"
+              >Bằng việc đăng ký, bạn đã đồng ý với chúng tôi về
+              <span class="policy">Điều khoản dịch vụ</span> &
+              <span class="policy">Chính sách bảo mật</span>
+            </span>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="infor">
+        22692311 - Trương Công Hải - Đại học Công nghiệp TPHCM
+      </div>
+
+      <div class="copyright">© 2024 - Bản quyền thuộc về Phukiendienthoai</div>
+    </footer>
+
+    <script>
+      const redirectLoginBtn = document.querySelector(".toLogin");
+      const redirectSignUpBtn = document.querySelector(".toSignUp");
+
+      redirectSignUpBtn.addEventListener("click", () => {
+        document.querySelector(".login_form").style.display = "none";
+        document.querySelector(".signup_form").style.display = "block";
+      });
+
+      redirectLoginBtn.addEventListener("click", () => {
+        document.querySelector(".login_form").style.display = "block";
+        document.querySelector(".signup_form").style.display = "none";
+      });
+    </script>
+  </body>
 </html>
