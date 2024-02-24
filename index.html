@@ -20,7 +20,7 @@
           <a href="index.html" class="header_link">Phukiendienthoai</a>
         </div>
 
-        <div class="categories">
+        <div class="categories" data-bs-toggle="modal">
           <div class="category_icon">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -201,6 +201,8 @@
       </div>
     </footer>
 
+    <div class="backdrop"></div>
+
     <script type="module">
       import {
         apple,
@@ -254,6 +256,31 @@
       loadData(taiNgheContainer, tainghe);
       loadData(appleContainer, apple);
       loadData(otherContainer, other);
+    </script>
+
+    <script>
+      const showCategoriesModal = document.querySelector(".categories");
+      const backDrop = document.querySelector(".backdrop");
+      const categories = document.querySelector(".categories_list_container");
+      const categoriesItems = document.querySelectorAll(".categories_item");
+
+      showCategoriesModal.addEventListener("click", () => {
+        window.scrollTo(0, 0);
+        backDrop.style.display = "block";
+        categories.style.zIndex = 2;
+      });
+
+      categoriesItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          backDrop.style.display = "none";
+          categories.style.zIndex = 0;
+        });
+      });
+
+      backDrop.addEventListener("click", () => {
+        backDrop.style.display = "none";
+        categories.style.zIndex = 0;
+      });
     </script>
   </body>
 </html>

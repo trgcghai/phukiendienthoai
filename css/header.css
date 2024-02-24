@@ -87,6 +87,7 @@
     cursor: pointer;
 }
 
+.track_order,
 .cart {
     border-radius: 4px;
 }
