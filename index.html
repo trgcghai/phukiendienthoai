@@ -121,6 +121,74 @@
       </div>
     </header>
 
+    <main class="container">
+      <div class="categories_list_container">
+        <ul class="categories_list">
+          <li class="categories_item">
+            <a href="#bosac" class="categories_item_link">Bộ sạc</a>
+          </li>
+          <li class="categories_item">
+            <a href="#daysac" class="categories_item_link">Dây sạc</a>
+          </li>
+          <li class="categories_item">
+            <a href="#pinduphong" class="categories_item_link">Pin dự phòng</a>
+          </li>
+          <li class="categories_item">
+            <a href="#tainghe" class="categories_item_link">Tai nghe</a>
+          </li>
+          <li class="categories_item">
+            <a href="#apple" class="categories_item_link">Phụ kiện Apple</a>
+          </li>
+          <li class="categories_item">
+            <a href="#other" class="categories_item_link">Khác </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="product_sample" id="bosac">
+        <div class="product_sample_title">Bộ sạc</div>
+        <div class="product_sample_link">
+          <a href="" class="all_link">Xem tất cả ></a>
+        </div>
+        <div class="product_list"></div>
+      </div>
+      <div class="product_sample" id="daysac">
+        <div class="product_sample_title">Dây sạc</div>
+        <div class="product_sample_link">
+          <a href="" class="all_link">Xem tất cả ></a>
+        </div>
+        <div class="product_list"></div>
+      </div>
+      <div class="product_sample" id="pinduphong">
+        <div class="product_sample_title">Pin dự phòng</div>
+        <div class="product_sample_link">
+          <a href="" class="all_link">Xem tất cả ></a>
+        </div>
+        <div class="product_list"></div>
+      </div>
+      <div class="product_sample" id="tainghe">
+        <div class="product_sample_title">Tai nghe</div>
+        <div class="product_sample_link">
+          <a href="" class="all_link">Xem tất cả ></a>
+        </div>
+        <div class="product_list"></div>
+      </div>
+      <div class="product_sample" id="apple">
+        <div class="product_sample_title">Phụ kiện apple</div>
+        <div class="product_sample_link">
+          <a href="" class="all_link">Xem tất cả ></a>
+        </div>
+        <div class="product_list"></div>
+      </div>
+      <div class="product_sample" id="other">
+        <div class="product_sample_title">Khác</div>
+        <div class="product_sample_link">
+          <a href="" class="all_link">Xem tất cả ></a>
+        </div>
+        <div class="product_list"></div>
+      </div>
+    </main>
+
     <footer class="footer">
       <div class="footer_container">
         <div class="infor">
@@ -133,6 +201,59 @@
       </div>
     </footer>
 
-    <script></script>
+    <script type="module">
+      import {
+        apple,
+        bosac,
+        daysac,
+        pinduphong,
+        tainghe,
+        other,
+      } from "./assets/images/prepareData.js";
+
+      const boSacContainer = document.getElementById("bosac");
+      const daySacContainer = document.getElementById("daysac");
+      const pinDuPhongContainer = document.getElementById("pinduphong");
+      const taiNgheContainer = document.getElementById("tainghe");
+      const appleContainer = document.getElementById("apple");
+      const otherContainer = document.getElementById("other");
+
+      const loadData = (container, data) => {
+        let html = "";
+        for (let i = 0; i < 5; i++) {
+          html += `
+          <div class="product_item">
+              <div class="card h-100">
+                <img src="./assets/images/${
+                  data[i].image
+                }" class="card-img-top item_image" alt="${data[i].ten}" />
+                <div class="card-body">
+                  <h5 class="card-title item_name">${data[i].ten}</h5>
+                  <p class="card-text item_price">${
+                    data[i].gia.toLocaleString("en", {
+                      minimumFractionDigits: 0,
+                      maximumFractionDigits: 3,
+                    }) + " VND"
+                  }</p>
+                </div>
+                <div class="card-footer d-grid">
+                    <a href="#" class="btn btn-primary item_link_btn"
+                      >Xem chi tiết</a
+                    >
+                  </div>
+              </div>
+            </div>
+          `;
+        }
+        container.querySelector(".product_list").innerHTML = html;
+      };
+
+      loadData(boSacContainer, bosac);
+      loadData(daySacContainer, daysac);
+      loadData(pinDuPhongContainer, pinduphong);
+      loadData(taiNgheContainer, tainghe);
+      loadData(appleContainer, apple);
+      loadData(otherContainer, other);
+    </script>
   </body>
 </html>
