@@ -33,6 +33,7 @@
           <div class="form_section mb-3">
             <label for="login_email" class="form-label">Email</label>
             <input
+              required
               type="email"
               class="form-control"
               id="login_email"
@@ -42,8 +43,14 @@
           </div>
           <div class="form_section mb-3">
             <label for="login_password" class="form-label">Mật khẩu</label>
-            <input type="password" class="form-control" id="login_password" />
-            <div id="emailHelp" class="form-text"></div>
+            <input
+              required
+              type="password"
+              class="form-control"
+              id="login_password"
+              aria-describedby="passwordHelp"
+            />
+            <div id="passwordHelp" class="form-text"></div>
           </div>
           <div class="form_section mb-3">
             <a href="" class="form_forgetPassword">Quên mật khẩu ?</a>
@@ -66,28 +73,37 @@
           <div class="form_section mb-3">
             <label for="signup_email" class="form-label">Email</label>
             <input
+              required
               type="email"
               class="form-control"
               id="signup_email"
-              aria-describedby="emailHelp"
+              aria-describedby="signup-emailHelp"
             />
-            <div id="emailHelp" class="form-text"></div>
+            <div id="signup-emailHelp" class="form-text"></div>
           </div>
           <div class="form_section mb-3">
             <label for="signup_password" class="form-label">Mật khẩu</label>
-            <input type="password" class="form-control" id="signup_password" />
-            <div id="emailHelp" class="form-text"></div>
+            <input
+              required
+              type="password"
+              class="form-control"
+              id="signup_password"
+              aria-describedby="signup-passwordHelp"
+            />
+            <div id="signup-passwordHelp" class="form-text"></div>
           </div>
           <div class="form_section mb-3">
             <label for="signup_cfpassword" class="form-label"
               >Nhập lại mật khẩu</label
             >
             <input
+              required
               type="password"
               class="form-control"
               id="signup_cfpassword"
+              aria-describedby="cfpasswordHelp"
             />
-            <div id="emailHelp" class="form-text"></div>
+            <div id="cfpasswordHelp" class="form-text"></div>
           </div>
           <div class="form_section mb-3 mt-4 d-grid">
             <button class="btn btn-primary submit_btn signup_btn">
@@ -120,15 +136,149 @@
     <script>
       const redirectLoginBtn = document.querySelector(".toLogin");
       const redirectSignUpBtn = document.querySelector(".toSignUp");
+      const submitLogin = document.querySelector(".login_btn");
+      const submitSignUp = document.querySelector(".signup_btn");
+
+      const resetLoginForm = () => {
+        const email = document.getElementById("login_email");
+        const password = document.getElementById("login_password");
+
+        document.getElementById("emailHelp").innerText = "";
+        document.getElementById("passwordHelp").innerText = "";
+        email.style.border = "1px solid #ccc";
+        password.style.border = "1px solid #ccc";
+        email.value = "";
+        password.value = "";
+      };
+
+      const resetSignUpForm = () => {
+        const email = document.getElementById("signup_email");
+        const password = document.getElementById("signup_password");
+        const cfpassword = document.getElementById("signup_cfpassword");
+
+        document.getElementById("signup-emailHelp").innerText = "";
+        document.getElementById("signup-passwordHelp").innerText = "";
+        document.getElementById("cfpasswordHelp").innerText = "";
+        email.style.border = "1px solid #ccc";
+        password.style.border = "1px solid #ccc";
+        cfpassword.style.border = "1px solid #ccc";
+        email.value = "";
+        password.value = "";
+        cfpassword.value = "";
+      };
 
       redirectSignUpBtn.addEventListener("click", () => {
         document.querySelector(".login_form").style.display = "none";
         document.querySelector(".signup_form").style.display = "block";
+        resetSignUpForm();
       });
 
       redirectLoginBtn.addEventListener("click", () => {
         document.querySelector(".login_form").style.display = "block";
         document.querySelector(".signup_form").style.display = "none";
+        resetLoginForm();
+      });
+
+      const handleLogin = () => {
+        const email = document.getElementById("login_email");
+        const password = document.getElementById("login_password");
+
+        if (!/\S+@\S+\.\S+/.test(email.value)) {
+          const emailText = document.getElementById("emailHelp");
+          emailText.style.color = "red";
+          emailText.innerText = "Email không hợp lệ!! Vui lòng thử lại";
+          email.style.border = "1px solid red";
+        } else {
+          const emailText = document.getElementById("emailHelp");
+          emailText.style.color = "green";
+          emailText.innerText = "Chính xác !!";
+          email.style.border = "1px solid green";
+        }
+        if (password.value !== "12345678") {
+          const passwordText = document.getElementById("passwordHelp");
+          passwordText.style.color = "red";
+          passwordText.innerText =
+            "Mật khẩu không chính xác!! Vui lòng thử lại";
+          password.style.border = "1px solid red";
+          return;
+        } else {
+          const passwordText = document.getElementById("passwordHelp");
+          passwordText.style.color = "green";
+          passwordText.innerText = "Chính xác !!";
+          password.style.border = "1px solid green";
+        }
+
+        window.location.href = "../index.html";
+        email.value = "";
+        password.value = "";
+      };
+      submitLogin.addEventListener("click", (e) => {
+        e.preventDefault();
+        handleLogin();
+      });
+
+      const handleSignUp = () => {
+        const email = document.getElementById("signup_email");
+        const password = document.getElementById("signup_password");
+        const cfpassword = document.getElementById("signup_cfpassword");
+
+        if (!/\S+@\S+\.\S+/.test(email.value)) {
+          const emailText = document.getElementById("signup-emailHelp");
+          emailText.style.color = "red";
+          emailText.innerText = "Email không hợp lệ!! Vui lòng thử lại";
+          email.style.border = "1px solid red";
+        } else {
+          const emailText = document.getElementById("signup-emailHelp");
+          emailText.style.color = "green";
+          emailText.innerText = "Email hợp lệ";
+          email.style.border = "1px solid green";
+        }
+        if (
+          password.value.trim().length < 8 ||
+          password.value.trim().length > 20
+        ) {
+          const passwordText = document.getElementById("signup-passwordHelp");
+          passwordText.style.color = "red";
+          passwordText.innerText = "Mật khẩu phải từ 8 đến 20 kí tự";
+          password.style.border = "1px solid red";
+        } else {
+          const passwordText = document.getElementById("signup-passwordHelp");
+          passwordText.style.color = "green";
+          passwordText.innerText = "Mật khẩu hợp lệ";
+          password.style.border = "1px solid green";
+        }
+        if (
+          cfpassword.value.trim().length < 8 ||
+          cfpassword.value.trim().length > 20
+        ) {
+          const cfpasswordText = document.getElementById("cfpasswordHelp");
+          cfpasswordText.style.color = "red";
+          cfpasswordText.innerText = "Mật khẩu phải từ 8 đến 20 kí tự";
+          cfpassword.style.border = "1px solid red";
+          return;
+        } else {
+          if (password.value.trim() !== cfpassword.value.trim()) {
+            const cfpasswordText = document.getElementById("cfpasswordHelp");
+            cfpasswordText.style.color = "red";
+            cfpasswordText.innerText = "Mật khẩu không trùng khớp";
+            cfpassword.style.border = "1px solid red";
+            return;
+          } else {
+            const cfpasswordText = document.getElementById("cfpasswordHelp");
+            cfpasswordText.style.color = "green";
+            cfpasswordText.innerText = "Mật khẩu trùng khớp";
+            cfpassword.style.border = "1px solid green";
+          }
+        }
+
+        window.location.href = "../index.html";
+        email.value = "";
+        password.value = "";
+        cfpassword.value = "";
+      };
+      submitSignUp.addEventListener("click", (e) => {
+        e.preventDefault();
+        handleSignUp();
       });
     </script>
   </body>
