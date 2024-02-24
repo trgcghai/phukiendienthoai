@@ -23,8 +23,21 @@ body {
     border-radius: 16px;
 }
 
+.login_form {
+    display: none;
+}
+
 .signup_form {
     display: none;
+}
+
+.form_icon {
+    margin-bottom: 4px;
+    cursor: pointer;
+}
+
+.form_back_btn:hover {
+    fill: var(--main-color);
 }
 
 .form_title {

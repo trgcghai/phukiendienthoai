@@ -119,6 +119,54 @@
           </div>
         </form>
       </div>
+
+      <div class="form resetPassword_form">
+        <div class="form_back_btn">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="22"
+            width="22"
+            viewBox="0 0 448 512"
+            class="form_icon"
+          >
+            <path
+              d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
+            />
+          </svg>
+        </div>
+        <h2 class="form_title mb-3">Đặt lại mật khẩu</h2>
+        <form>
+          <div class="form_section mb-3">
+            <label for="reset_password" class="form-label">Mật khẩu mới</label>
+            <input
+              required
+              type="password"
+              class="form-control"
+              id="reset_password"
+              aria-describedby="reset-passwordHelp"
+            />
+            <div id="reset-passwordHelp" class="form-text"></div>
+          </div>
+          <div class="form_section mb-3">
+            <label for="reset_cfpassword" class="form-label"
+              >Nhập lại mật khẩu</label
+            >
+            <input
+              required
+              type="password"
+              class="form-control"
+              id="reset_cfpassword"
+              aria-describedby="reset-cfpasswordHelp"
+            />
+            <div id="reset-cfpasswordHelp" class="form-text"></div>
+          </div>
+          <div class="form_section mb-3 mt-4 d-grid">
+            <button class="btn btn-primary submit_btn confirm_btn">
+              Xác nhận
+            </button>
+          </div>
+        </form>
+      </div>
     </main>
 
     <footer class="footer">
@@ -136,8 +184,11 @@
     <script>
       const redirectLoginBtn = document.querySelector(".toLogin");
       const redirectSignUpBtn = document.querySelector(".toSignUp");
+      const resetPasswordBtn = document.querySelector(".form_forgetPassword");
       const submitLogin = document.querySelector(".login_btn");
       const submitSignUp = document.querySelector(".signup_btn");
+      const backBtn = document.querySelector(".form_back_btn");
+      const submitReset = document.querySelector(".confirm_btn");
 
       const resetLoginForm = () => {
         const email = document.getElementById("login_email");
@@ -166,6 +217,30 @@
         password.value = "";
         cfpassword.value = "";
       };
+
+      const resetChangePassForm = () => {
+        const password = document.getElementById("reset_password");
+        const cfpassword = document.getElementById("reset_cfpassword");
+
+        document.getElementById("reset-passwordHelp").innerText = "";
+        document.getElementById("reset-cfpasswordHelp").innerText = "";
+        password.style.border = "1px solid #ccc";
+        cfpassword.style.border = "1px solid #ccc";
+        password.value = "";
+        cfpassword.value = "";
+      };
+
+      backBtn.addEventListener("click", () => {
+        document.querySelector(".resetPassword_form").style.display = "none";
+        document.querySelector(".login_form").style.display = "block";
+        resetLoginForm();
+      });
+
+      resetPasswordBtn.addEventListener("click", () => {
+        document.querySelector(".login_form").style.display = "none";
+        document.querySelector(".signup_form").style.display = "none";
+        document.querySelector(".resetPassword_form").style.display = "block";
+      });
 
       redirectSignUpBtn.addEventListener("click", () => {
         document.querySelector(".login_form").style.display = "none";
@@ -279,6 +354,66 @@
       submitSignUp.addEventListener("click", (e) => {
         e.preventDefault();
         handleSignUp();
+      });
+
+      const handleResetPass = () => {
+        const password = document.getElementById("reset_password");
+        const cfpassword = document.getElementById("reset_cfpassword");
+
+        if (
+          password.value.trim().length < 8 ||
+          password.value.trim().length > 20
+        ) {
+          const passwordText = document.getElementById("reset-passwordHelp");
+          passwordText.style.color = "red";
+          passwordText.innerText = "Mật khẩu phải từ 8 đến 20 kí tự";
+          password.style.border = "1px solid red";
+        } else {
+          const passwordText = document.getElementById("reset-passwordHelp");
+          passwordText.style.color = "green";
+          passwordText.innerText = "Mật khẩu hợp lệ";
+          password.style.border = "1px solid green";
+        }
+        if (
+          cfpassword.value.trim().length < 8 ||
+          cfpassword.value.trim().length > 20
+        ) {
+          const cfpasswordText = document.getElementById(
+            "reset-cfpasswordHelp"
+          );
+          cfpasswordText.style.color = "red";
+          cfpasswordText.innerText = "Mật khẩu phải từ 8 đến 20 kí tự";
+          cfpassword.style.border = "1px solid red";
+          return;
+        } else {
+          if (password.value.trim() !== cfpassword.value.trim()) {
+            const cfpasswordText = document.getElementById(
+              "reset-cfpasswordHelp"
+            );
+            cfpasswordText.style.color = "red";
+            cfpasswordText.innerText = "Mật khẩu không trùng khớp";
+            cfpassword.style.border = "1px solid red";
+            return;
+          } else {
+            const cfpasswordText = document.getElementById(
+              "reset-cfpasswordHelp"
+            );
+            cfpasswordText.style.color = "green";
+            cfpasswordText.innerText = "Mật khẩu trùng khớp";
+            cfpassword.style.border = "1px solid green";
+          }
+        }
+
+        document.querySelector(".resetPassword_form").style.display = "none";
+        document.querySelector(".login_form").style.display = "block";
+        resetLoginForm();
+
+        password.value = "";
+        cfpassword.value = "";
+      };
+      submitReset.addEventListener("click", (e) => {
+        e.preventDefault();
+        handleResetPass();
       });
     </script>
   </body>
