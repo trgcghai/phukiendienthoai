@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="../assets/bootstrap-5.3.3-dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="../css/library.css" />
+    <link rel="stylesheet" href="../css/header.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+    <link rel="stylesheet" href="../css/allCategoriesProduct.css" />
+    <script src="../assets/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
+    <title>Bộ sạc</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header_container">
+        <div class="logo">
+          <a href="../index.html" class="header_link">Phukiendienthoai</a>
+        </div>
+
+        <div class="categories" data-bs-toggle="modal">
+          <div class="category_icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 512 512"
+            >
+              <path
+                fill="white"
+                d="M40 48C26.7 48 16 58.7 16 72v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V72c0-13.3-10.7-24-24-24H40zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zM16 232v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V232c0-13.3-10.7-24-24-24H40c-13.3 0-24 10.7-24 24zM40 368c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V392c0-13.3-10.7-24-24-24H40z"
+              />
+            </svg>
+          </div>
+          Danh mục
+        </div>
+
+        <div class="search_box">
+          <input
+            type="text"
+            class="search_input"
+            placeholder="Bạn cần tìm gì ?"
+          />
+          <div class="search_icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 512 512"
+            >
+              <path
+                fill="gray"
+                d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <div class="track_order">
+          <a href="" class="track_order_link">
+            <div class="track_order_icon">
+              <svg
+                viewBox="0 0 18 24"
+                width="25"
+                height="25"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M13.9637 2.95195H10.7919C10.373 1.79337 9.27584 0.954399 7.97918 0.954399C6.68252 0.954399 5.58535 1.79337 5.16643 2.95195H1.99461C0.897441 2.95195 -0.000244141 3.85085 -0.000244141 4.9495L0.0462926 21.0481C0.0462926 22.1467 0.943978 23.0456 2.04115 23.0456H8.13543C7.54533 22.4721 7.32914 22.1792 6.98295 21.4322H1.67845L1.63191 4.58457H3.98947V5.39127C3.98947 6.48992 4.88715 7.38882 5.98432 7.38882H9.97404C11.0712 7.38882 11.9689 6.48992 11.9689 5.39127V4.58457H14.2811V10.4389C14.9893 10.5388 15.3402 10.7486 15.9586 11.0382V4.9495C15.9586 3.85085 15.0609 2.95195 13.9637 2.95195ZM7.97918 5.39127C7.34445 5.39127 6.52838 4.98792 6.52838 3.95073C6.52838 3.37451 6.93641 2.56781 7.97918 2.56781C8.52777 2.56781 9.38465 2.98544 9.38465 3.95073C9.38465 4.91601 8.65794 5.39127 7.97918 5.39127ZM13.0129 13.0579C10.26 13.0579 8.02572 15.2951 8.02572 18.0517C8.02572 20.8084 10.26 23.0456 13.0129 23.0456C15.7658 23.0456 18 20.8084 18 18.0517C18 15.2951 15.7658 13.0579 13.0129 13.0579ZM14.2995 20.0493L12.6538 18.4013C12.5607 18.3085 12.5071 18.1832 12.5042 18.0517V15.5648C12.5042 15.2851 12.7236 15.0654 13.0029 15.0654C13.2822 15.0654 13.5016 15.2851 13.5016 15.5648V17.852L14.9977 19.3501C15.0443 19.3959 15.0814 19.4504 15.1069 19.5106C15.1323 19.5708 15.1456 19.6354 15.1459 19.7007C15.1462 19.7661 15.1336 19.8308 15.1088 19.8913C15.084 19.9517 15.0474 20.0066 15.0013 20.0528C14.9551 20.099 14.9003 20.1356 14.84 20.1605C14.7796 20.1853 14.7149 20.198 14.6497 20.1976C14.5844 20.1973 14.5199 20.184 14.4598 20.1586C14.3997 20.1331 14.3452 20.096 14.2995 20.0493Z"
+                  fill="white"
+                ></path>
+              </svg>
+            </div>
+            <span class="track_order_text"> Tra cứu đơn hàng </span>
+          </a>
+        </div>
+
+        <div class="cart">
+          <a href="" class="cart_link">
+            <div class="cart_icon">
+              <svg
+                viewBox="0 0 20 20"
+                width="23"
+                height="23"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4.22111 3L3.84216 1H1M4.22111 3H19L15.2105 12.0455H5.73689M4.22111 3L5.73689 12.0455M5.73689 12.0455L3.56458 13.293C2.96774 13.923 3.5309 14.9091 4.375 14.9091H9.625H12.25L15.2105 15M15.2105 15C14.708 15 14.2261 15.2107 13.8708 15.5858C13.5154 15.9609 13.3158 16.4696 13.3158 17C13.3158 17.5304 13.5154 18.0391 13.8708 18.4142C14.2261 18.7893 14.708 19 15.2105 19C15.7131 19 16.195 18.7893 16.5503 18.4142C16.9056 18.0391 17.1053 17.5304 17.1053 17C17.1053 16.4696 16.9056 15.9609 16.5503 15.5858C16.195 15.2107 15.7131 15 15.2105 15ZM7.63162 17C7.63162 17.5304 7.432 18.0391 7.07667 18.4142C6.72134 18.7893 6.2394 19 5.73689 19C5.23438 19 4.75245 18.7893 4.39711 18.4142C4.04178 18.0391 3.84216 17.5304 3.84216 17C3.84216 16.4696 4.04178 15.9609 4.39711 15.5858C4.75245 15.2107 5.23438 15 5.73689 15C6.2394 15 6.72134 15.2107 7.07667 15.5858C7.432 15.9609 7.63162 16.4696 7.63162 17Z"
+                  stroke="white"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+            </div>
+            Giỏ hàng
+          </a>
+        </div>
+
+        <div class="user">
+          <a href="./login.html" class="user_link">
+            <div class="user_icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="23"
+                height="23"
+                viewBox="0 0 448 512"
+              >
+                <path
+                  fill="white"
+                  d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"
+                />
+              </svg>
+            </div>
+            Đăng nhập
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="categories_list_container">
+        <ul class="categories_list">
+          <li class="categories_item">
+            <a href="./allBoSacProducts.html" class="categories_item_link"
+              >Bộ sạc</a
+            >
+          </li>
+          <li class="categories_item">
+            <a href="./allDaySacProducts.html" class="categories_item_link"
+              >Dây sạc</a
+            >
+          </li>
+          <li class="categories_item">
+            <a href="./allPinDuPhongProducts.html" class="categories_item_link"
+              >Pin dự phòng</a
+            >
+          </li>
+          <li class="categories_item">
+            <a href="./allTaiNgheProducts.html" class="categories_item_link"
+              >Tai nghe</a
+            >
+          </li>
+          <li class="categories_item">
+            <a href="./allAppleProducts.html" class="categories_item_link"
+              >Phụ kiện Apple</a
+            >
+          </li>
+          <li class="categories_item">
+            <a href="./allOtherProducts.html" class="categories_item_link"
+              >Khác
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="product_list_container">
+        <div class="product_list_title">Bộ sạc</div>
+        <div class="product_action filter_action">
+          <div class="filter_selection">Chọn mức giá</div>
+          <div class="btn_wrapper">
+            <button
+              type="button"
+              class="btn btn-outline filter_btn"
+              id="under500"
+            >
+              Dưới 500 nghìn
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline filter_btn"
+              id="under1m"
+            >
+              Dưới 1 triệu
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline filter_btn"
+              id="under2m"
+            >
+              Dưới 2 triệu
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline filter_btn"
+              id="above2m"
+            >
+              Trên 2 triệu
+            </button>
+          </div>
+        </div>
+        <div class="product_action sort_action">
+          <div class="sort_selection">Sắp xếp theo</div>
+          <div class="btn_wrapper">
+            <button
+              type="button"
+              class="btn btn-outline sort_btn"
+              id="name_asc"
+            >
+              Tên A - Z
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline sort_btn"
+              id="name_desc"
+            >
+              Tên Z - A
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline sort_btn"
+              id="price_asc"
+            >
+              Giá tăng dần
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline sort_btn"
+              id="price_desc"
+            >
+              Giá giảm dần
+            </button>
+          </div>
+        </div>
+        <div class="line"></div>
+        <div class="product_list"></div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer_container">
+        <div class="infor">
+          22692311 - Trương Công Hải - Đại học Công nghiệp TPHCM
+        </div>
+
+        <div class="copyright">
+          © 2024 - Bản quyền thuộc về Phukiendienthoai
+        </div>
+      </div>
+    </footer>
+
+    <div class="backdrop"></div>
+
+    <script type="module">
+      import { bosac } from "../assets/images/prepareData.js";
+      const container = document.querySelector(".product_list_container");
+      let html = "";
+      bosac.forEach((data) => {
+        html += `
+            <div class="product_item">
+              <div class="card h-100">
+                <img src="../assets/images/${
+                  data.image
+                }" class="card-img-top item_image" alt="${data.ten}" />
+                <div class="card-body">
+                  <h5 class="card-title item_name">${data.ten}</h5>
+                  <p class="card-text item_price">${
+                    data.gia.toLocaleString("en", {
+                      minimumFractionDigits: 0,
+                      maximumFractionDigits: 3,
+                    }) + " VND"
+                  }</p>
+                </div>
+                <div class="card-footer d-grid">
+                    <a href="#" class="btn btn-primary item_link_btn"
+                      >Xem chi tiết</a
+                    >
+                  </div>
+              </div>
+            </div>
+            `;
+      });
+      container.querySelector(".product_list").innerHTML = html;
+    </script>
+
+    <script>
+      const showCategoriesModal = document.querySelector(".categories");
+      const backDrop = document.querySelector(".backdrop");
+      const categories = document.querySelector(".categories_list_container");
+      const categoriesItems = document.querySelectorAll(".categories_item");
+
+      showCategoriesModal.addEventListener("click", () => {
+        window.scrollTo(0, 0);
+        backDrop.style.display = "block";
+        categories.style.zIndex = 2;
+      });
+
+      categoriesItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          backDrop.style.display = "none";
+          categories.style.zIndex = 0;
+        });
+      });
+
+      backDrop.addEventListener("click", () => {
+        backDrop.style.display = "none";
+        categories.style.zIndex = 0;
+      });
+    </script>
+
+    <script class="handleActionScript" type="module">
+      import { bosac } from "../assets/images/prepareData.js";
+      const productContainer = document.querySelector(
+        ".product_list_container"
+      );
+      const filterBtns = document.querySelectorAll(".filter_btn");
+      const sortBtns = document.querySelectorAll(".sort_btn");
+      const under500Btn = document.getElementById("under500");
+      const under1mBtn = document.getElementById("under1m");
+      const under2mBtn = document.getElementById("under2m");
+      const above2mBtn = document.getElementById("above2m");
+      const nameAscBtn = document.getElementById("name_asc");
+      const nameDescBtn = document.getElementById("name_desc");
+      const priceAscBtn = document.getElementById("price_asc");
+      const priceDescBtn = document.getElementById("price_desc");
+
+      const loadData = (container, datas) => {
+        let html = "";
+        datas.forEach((data) => {
+          html += `
+            <div class="product_item">
+              <div class="card h-100">
+                <img src="../assets/images/${
+                  data.image
+                }" class="card-img-top item_image" alt="${data.ten}" />
+                <div class="card-body">
+                  <h5 class="card-title item_name">${data.ten}</h5>
+                  <p class="card-text item_price">${
+                    data.gia.toLocaleString("en", {
+                      minimumFractionDigits: 0,
+                      maximumFractionDigits: 3,
+                    }) + " VND"
+                  }</p>
+                </div>
+                <div class="card-footer d-grid">
+                    <a href="#" class="btn btn-primary item_link_btn"
+                      >Xem chi tiết</a
+                    >
+                  </div>
+              </div>
+            </div>
+            `;
+        });
+        container.querySelector(".product_list").innerHTML = html;
+      };
+
+      let curData = [...bosac];
+      let preData;
+      const loadDataWithConditionPrice = (
+        curData,
+        preData,
+        button,
+        condition
+      ) => {
+        if (button.classList.contains("active")) {
+          button.classList.remove("active");
+          if (
+            document.querySelector(".sort_action").querySelector(".active") ===
+            null
+          ) {
+            loadData(productContainer, bosac);
+            return { curData: bosac, preData };
+          } else {
+            loadData(productContainer, preData);
+            return { curData: preData, preData: curData };
+          }
+        }
+        preData = curData;
+        curData = curData.filter((item) => {
+          if (condition === "under500") {
+            return item.gia <= 500000;
+          } else if (condition === "under1m") {
+            return item.gia <= 1000000;
+          } else if (condition === "under2m") {
+            return item.gia <= 2000000;
+          } else if (condition === "above2m") {
+            return item.gia >= 2000000;
+          }
+        });
+
+        loadData(productContainer, curData);
+        filterBtns.forEach((btn) => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        return { curData, preData };
+      };
+
+      const sortWithCondition = (curData, preData, button, condition) => {
+        if (button.classList.contains("active")) {
+          button.classList.remove("active");
+          if (
+            document
+              .querySelector(".filter_action")
+              .querySelector(".active") === null
+          ) {
+            loadData(productContainer, bosac);
+            return { curData: bosac, preData };
+          } else {
+            loadData(productContainer, preData);
+            return { curData: preData, preData: curData };
+          }
+        }
+        preData = curData;
+        curData = curData.sort((a, b) => {
+          if (condition === "name_asc") {
+            return a.ten.localeCompare(b.ten);
+          } else if (condition === "name_desc") {
+            return b.ten.localeCompare(a.ten);
+          } else if (condition === "price_asc") {
+            return a.gia - b.gia;
+          } else if (condition === "price_desc") {
+            return b.gia - a.gia;
+          }
+        });
+
+        loadData(productContainer, curData);
+        sortBtns.forEach((btn) => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        return { curData, preData };
+      };
+
+      under500Btn.addEventListener("click", () => {
+        let res = loadDataWithConditionPrice(
+          curData,
+          preData,
+          under500Btn,
+          under500Btn.id
+        );
+        curData = res.curData;
+        preData = res.preData;
+      });
+      under1mBtn.addEventListener("click", () => {
+        let res = loadDataWithConditionPrice(
+          curData,
+          preData,
+          under1mBtn,
+          under1mBtn.id
+        );
+        curData = res.curData;
+        preData = res.preData;
+      });
+      under2mBtn.addEventListener("click", () => {
+        let res = loadDataWithConditionPrice(
+          curData,
+          preData,
+          under2mBtn,
+          under2mBtn.id
+        );
+        curData = res.curData;
+        preData = res.preData;
+      });
+      above2mBtn.addEventListener("click", () => {
+        let res = loadDataWithConditionPrice(
+          curData,
+          preData,
+          above2mBtn,
+          above2mBtn.id
+        );
+        curData = res.curData;
+        preData = res.preData;
+      });
+
+      nameAscBtn.addEventListener("click", () => {
+        let res = sortWithCondition(
+          curData,
+          preData,
+          nameAscBtn,
+          nameAscBtn.id
+        );
+        curData = res.curData;
+        preData = res.preData;
+      });
+      nameDescBtn.addEventListener("click", () => {
+        let res = sortWithCondition(
+          curData,
+          preData,
+          nameDescBtn,
+          nameDescBtn.id
+        );
+        curData = res.curData;
+        preData = res.preData;
+      });
+      priceAscBtn.addEventListener("click", () => {
+        let res = sortWithCondition(
+          curData,
+          preData,
+          priceAscBtn,
+          priceAscBtn.id
+        );
+        curData = res.curData;
+        preData = res.preData;
+      });
+      priceDescBtn.addEventListener("click", () => {
+        let res = sortWithCondition(
+          curData,
+          preData,
+          priceDescBtn,
+          priceDescBtn.id
+        );
+        curData = res.curData;
+        preData = res.preData;
+      });
+    </script>
+  </body>
+</html>

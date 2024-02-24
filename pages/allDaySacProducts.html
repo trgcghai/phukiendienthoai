@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
-      href="./assets/bootstrap-5.3.3-dist/css/bootstrap.min.css"
+      href="../assets/bootstrap-5.3.3-dist/css/bootstrap.min.css"
     />
-    <link rel="stylesheet" href="./css/library.css" />
-    <link rel="stylesheet" href="./css/header.css" />
-    <link rel="stylesheet" href="./css/footer.css" />
-    <link rel="stylesheet" href="./css/index.css" />
-    <script src="./assets/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
-    <title>Trang chủ</title>
+    <link rel="stylesheet" href="../css/library.css" />
+    <link rel="stylesheet" href="../css/header.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+    <link rel="stylesheet" href="../css/allCategoriesProduct.css" />
+    <script src="../assets/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
+    <title>Bộ sạc</title>
   </head>
   <body>
     <header class="header">
       <div class="header_container">
         <div class="logo">
-          <a href="index.html" class="header_link">Phukiendienthoai</a>
+          <a href="../index.html" class="header_link">Phukiendienthoai</a>
         </div>
 
         <div class="categories" data-bs-toggle="modal">
@@ -102,7 +102,7 @@
         </div>
 
         <div class="user">
-          <a href="./pages/login.html" class="user_link">
+          <a href="./login.html" class="user_link">
             <div class="user_icon">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -126,78 +126,107 @@
       <div class="categories_list_container">
         <ul class="categories_list">
           <li class="categories_item">
-            <a href="#bosac" class="categories_item_link">Bộ sạc</a>
+            <a href="./allBoSacProducts.html" class="categories_item_link"
+              >Bộ sạc</a
+            >
           </li>
           <li class="categories_item">
-            <a href="#daysac" class="categories_item_link">Dây sạc</a>
+            <a href="./allDaySacProducts.html" class="categories_item_link"
+              >Dây sạc</a
+            >
           </li>
           <li class="categories_item">
-            <a href="#pinduphong" class="categories_item_link">Pin dự phòng</a>
+            <a href="./allPinDuPhongProducts.html" class="categories_item_link"
+              >Pin dự phòng</a
+            >
           </li>
           <li class="categories_item">
-            <a href="#tainghe" class="categories_item_link">Tai nghe</a>
+            <a href="./allTaiNgheProducts.html" class="categories_item_link"
+              >Tai nghe</a
+            >
           </li>
           <li class="categories_item">
-            <a href="#apple" class="categories_item_link">Phụ kiện Apple</a>
+            <a href="./allAppleProducts.html" class="categories_item_link"
+              >Phụ kiện Apple</a
+            >
           </li>
           <li class="categories_item">
-            <a href="#other" class="categories_item_link">Khác </a>
+            <a href="./allOtherProducts.html" class="categories_item_link"
+              >Khác
+            </a>
           </li>
         </ul>
       </div>
 
-      <div class="product_sample" id="bosac">
-        <div class="product_sample_title">Bộ sạc</div>
-        <div class="product_sample_link">
-          <a href="./pages/allBoSacProducts.html" class="all_link"
-            >Xem tất cả ></a
-          >
+      <div class="product_list_container">
+        <div class="product_list_title">Dây sạc</div>
+        <div class="product_action filter_action">
+          <div class="filter_selection">Chọn mức giá</div>
+          <div class="btn_wrapper">
+            <button
+              type="button"
+              class="btn btn-outline filter_btn"
+              id="under500"
+            >
+              Dưới 500 nghìn
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline filter_btn"
+              id="under1m"
+            >
+              Dưới 1 triệu
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline filter_btn"
+              id="under2m"
+            >
+              Dưới 2 triệu
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline filter_btn"
+              id="above2m"
+            >
+              Trên 2 triệu
+            </button>
+          </div>
         </div>
-        <div class="product_list"></div>
-      </div>
-      <div class="product_sample" id="daysac">
-        <div class="product_sample_title">Dây sạc</div>
-        <div class="product_sample_link">
-          <a href="./pages/allDaySacProducts.html" class="all_link"
-            >Xem tất cả ></a
-          >
+        <div class="product_action sort_action">
+          <div class="sort_selection">Sắp xếp theo</div>
+          <div class="btn_wrapper">
+            <button
+              type="button"
+              class="btn btn-outline sort_btn"
+              id="name_asc"
+            >
+              Tên A - Z
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline sort_btn"
+              id="name_desc"
+            >
+              Tên Z - A
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline sort_btn"
+              id="price_asc"
+            >
+              Giá tăng dần
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline sort_btn"
+              id="price_desc"
+            >
+              Giá giảm dần
+            </button>
+          </div>
         </div>
-        <div class="product_list"></div>
-      </div>
-      <div class="product_sample" id="pinduphong">
-        <div class="product_sample_title">Pin dự phòng</div>
-        <div class="product_sample_link">
-          <a href="./pages/allPinDuPhongProducts.html" class="all_link"
-            >Xem tất cả ></a
-          >
-        </div>
-        <div class="product_list"></div>
-      </div>
-      <div class="product_sample" id="tainghe">
-        <div class="product_sample_title">Tai nghe</div>
-        <div class="product_sample_link">
-          <a href="./pages/allTaiNgheProducts.html" class="all_link"
-            >Xem tất cả ></a
-          >
-        </div>
-        <div class="product_list"></div>
-      </div>
-      <div class="product_sample" id="apple">
-        <div class="product_sample_title">Phụ kiện apple</div>
-        <div class="product_sample_link">
-          <a href="./pages/allAppleProducts.html" class="all_link"
-            >Xem tất cả ></a
-          >
-        </div>
-        <div class="product_list"></div>
-      </div>
-      <div class="product_sample" id="other">
-        <div class="product_sample_title">Khác</div>
-        <div class="product_sample_link">
-          <a href="./pages/allOtherProducts.html" class="all_link"
-            >Xem tất cả ></a
-          >
-        </div>
+        <div class="line"></div>
         <div class="product_list"></div>
       </div>
     </main>
@@ -217,35 +246,20 @@
     <div class="backdrop"></div>
 
     <script type="module">
-      import {
-        apple,
-        bosac,
-        daysac,
-        pinduphong,
-        tainghe,
-        other,
-      } from "./assets/images/prepareData.js";
-
-      const boSacContainer = document.getElementById("bosac");
-      const daySacContainer = document.getElementById("daysac");
-      const pinDuPhongContainer = document.getElementById("pinduphong");
-      const taiNgheContainer = document.getElementById("tainghe");
-      const appleContainer = document.getElementById("apple");
-      const otherContainer = document.getElementById("other");
-
-      const loadData = (container, data) => {
-        let html = "";
-        for (let i = 0; i < 5; i++) {
-          html += `
-          <div class="product_item">
+      import { daysac } from "../assets/images/prepareData.js";
+      const container = document.querySelector(".product_list_container");
+      let html = "";
+      daysac.forEach((data) => {
+        html += `
+            <div class="product_item">
               <div class="card h-100">
-                <img src="./assets/images/${
-                  data[i].image
-                }" class="card-img-top item_image" alt="${data[i].ten}" />
+                <img src="../assets/images/${
+                  data.image
+                }" class="card-img-top item_image" alt="${data.ten}" />
                 <div class="card-body">
-                  <h5 class="card-title item_name">${data[i].ten}</h5>
+                  <h5 class="card-title item_name">${data.ten}</h5>
                   <p class="card-text item_price">${
-                    data[i].gia.toLocaleString("en", {
+                    data.gia.toLocaleString("en", {
                       minimumFractionDigits: 0,
                       maximumFractionDigits: 3,
                     }) + " VND"
@@ -258,17 +272,9 @@
                   </div>
               </div>
             </div>
-          `;
-        }
-        container.querySelector(".product_list").innerHTML = html;
-      };
-
-      loadData(boSacContainer, bosac);
-      loadData(daySacContainer, daysac);
-      loadData(pinDuPhongContainer, pinduphong);
-      loadData(taiNgheContainer, tainghe);
-      loadData(appleContainer, apple);
-      loadData(otherContainer, other);
+            `;
+      });
+      container.querySelector(".product_list").innerHTML = html;
     </script>
 
     <script>
@@ -293,6 +299,125 @@
       backDrop.addEventListener("click", () => {
         backDrop.style.display = "none";
         categories.style.zIndex = 0;
+      });
+    </script>
+
+    <script class="handleActionScript" type="module">
+      import { daysac } from "../assets/images/prepareData.js";
+      const productContainer = document.querySelector(
+        ".product_list_container"
+      );
+      const filterBtns = document.querySelectorAll(".filter_btn");
+      const sortBtns = document.querySelectorAll(".sort_btn");
+      const under500Btn = document.getElementById("under500");
+      const under1mBtn = document.getElementById("under1m");
+      const under2mBtn = document.getElementById("under2m");
+      const above2mBtn = document.getElementById("above2m");
+      const nameAscBtn = document.getElementById("name_asc");
+      const nameDescBtn = document.getElementById("name_desc");
+      const priceAscBtn = document.getElementById("price_asc");
+      const priceDescBtn = document.getElementById("price_desc");
+
+      const loadData = (container, datas) => {
+        let html = "";
+        datas.forEach((data) => {
+          html += `
+            <div class="product_item">
+              <div class="card h-100">
+                <img src="../assets/images/${
+                  data.image
+                }" class="card-img-top item_image" alt="${data.ten}" />
+                <div class="card-body">
+                  <h5 class="card-title item_name">${data.ten}</h5>
+                  <p class="card-text item_price">${
+                    data.gia.toLocaleString("en", {
+                      minimumFractionDigits: 0,
+                      maximumFractionDigits: 3,
+                    }) + " VND"
+                  }</p>
+                </div>
+                <div class="card-footer d-grid">
+                    <a href="#" class="btn btn-primary item_link_btn"
+                      >Xem chi tiết</a
+                    >
+                  </div>
+              </div>
+            </div>
+            `;
+        });
+        container.querySelector(".product_list").innerHTML = html;
+      };
+
+      const dataBeforeSort = [...daysac];
+      let rawData = daysac;
+      const loadDataWithConditionPrice = (
+        button,
+        conditionPrice,
+        condition
+      ) => {
+        if (button.classList.contains("active")) {
+          loadData(productContainer, daysac);
+          button.classList.remove("active");
+          return;
+        }
+        rawData = rawData.filter((item) => {
+          if (condition === "duoi") {
+            return item.gia <= conditionPrice;
+          } else if (condition === "tren") {
+            return item.gia >= conditionPrice;
+          }
+        });
+        loadData(productContainer, rawData);
+        filterBtns.forEach((btn) => btn.classList.remove("active"));
+        button.classList.add("active");
+      };
+
+      const sortWithCondition = (button, condition) => {
+        if (button.classList.contains("active")) {
+          loadData(productContainer, dataBeforeSort);
+          button.classList.remove("active");
+          return;
+        }
+        rawData = rawData.sort((a, b) => {
+          if (condition === "name_asc") {
+            return a.ten.localeCompare(b.ten);
+          } else if (condition === "name_desc") {
+            return b.ten.localeCompare(a.ten);
+          } else if (condition === "price_asc") {
+            return a.gia - b.gia;
+          } else if (condition === "price_desc") {
+            return b.gia - a.gia;
+          }
+        });
+        loadData(productContainer, rawData);
+        sortBtns.forEach((btn) => btn.classList.remove("active"));
+        button.classList.add("active");
+      };
+
+      under500Btn.addEventListener("click", () => {
+        loadDataWithConditionPrice(under500Btn, 500000, "duoi");
+      });
+      under1mBtn.addEventListener("click", () => {
+        loadDataWithConditionPrice(under1mBtn, 1000000, "duoi");
+      });
+      under2mBtn.addEventListener("click", () => {
+        loadDataWithConditionPrice(under2mBtn, 2000000, "duoi");
+      });
+      above2mBtn.addEventListener("click", () => {
+        loadDataWithConditionPrice(above2mBtn, 2000000, "tren");
+      });
+
+      nameAscBtn.addEventListener("click", () => {
+        sortWithCondition(nameAscBtn, nameAscBtn.id);
+      });
+      nameDescBtn.addEventListener("click", () => {
+        sortWithCondition(nameDescBtn, nameDescBtn.id);
+      });
+      priceAscBtn.addEventListener("click", () => {
+        sortWithCondition(priceAscBtn, priceAscBtn.id);
+      });
+      priceDescBtn.addEventListener("click", () => {
+        sortWithCondition(priceDescBtn, priceDescBtn.id);
       });
     </script>
   </body>

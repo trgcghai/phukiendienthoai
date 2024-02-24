@@ -9,11 +9,11 @@
 }
 
 .footer {
+    clear: both;
     height: 30px;
-    position: fixed;
+    width: 100%;
+    position: absolute;
     bottom: 0;
-    right: 0;
-    left: 0;
     background-color: var(--main-color);
     color: #fff;
     display: flex;
