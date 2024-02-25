@@ -35,7 +35,9 @@ dataToImport[`${container.id}`].forEach((data) => {
                   }</p>
                 </div>
                 <div class="card-footer d-grid">
-                    <a href="#" class="btn btn-primary item_link_btn"
+                    <a href="#" class="btn btn-primary item_link_btn" id=${
+                      data.id
+                    }
                       >Xem chi tiết</a
                     >
                   </div>
@@ -44,3 +46,12 @@ dataToImport[`${container.id}`].forEach((data) => {
             `;
 });
 container.querySelector(".product_list").innerHTML = html;
+
+const detailBtns = document.querySelectorAll(".item_link_btn");
+detailBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    console.log(btn.id);
+    localStorage.setItem("productId", btn.id);
+    window.location.href = "./detailProduct.html";
+  });
+});

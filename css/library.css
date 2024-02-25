@@ -8,6 +8,7 @@ body {
     position: relative;
     min-height: calc(100vh - 50px);
     padding-bottom: 30px;
+    background-color: #f0f0f0;
 }
 
 :root {
@@ -79,6 +80,8 @@ body {
 
 .btn-outline {
     border: 1px solid #ccc;
+    background-color: #fff;
+    z-index: 0 !important;
 }
 
 .btn-outline:hover {

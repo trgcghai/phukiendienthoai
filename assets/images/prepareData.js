@@ -321,4 +321,13 @@ const other = [
   },
 ];
 
-export { apple, bosac, daysac, pinduphong, tainghe, other };
+const all = [
+  ...apple,
+  ...bosac,
+  ...daysac,
+  ...pinduphong,
+  ...tainghe,
+  ...other,
+];
+
+export { apple, bosac, daysac, pinduphong, tainghe, other, all };
