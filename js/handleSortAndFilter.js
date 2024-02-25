@@ -1,4 +1,11 @@
-import { bosac } from "../assets/images/prepareData.js";
+import {
+  bosac,
+  daysac,
+  tainghe,
+  pinduphong,
+  apple,
+  other,
+} from "../assets/images/prepareData.js";
 const productContainer = document.querySelector(".product_list_container");
 const filterBtns = document.querySelectorAll(".filter_btn");
 const sortBtns = document.querySelectorAll(".sort_btn");
@@ -10,6 +17,15 @@ const nameAscBtn = document.getElementById("name_asc");
 const nameDescBtn = document.getElementById("name_desc");
 const priceAscBtn = document.getElementById("price_asc");
 const priceDescBtn = document.getElementById("price_desc");
+
+const dataToImport = {
+  bosac,
+  daysac,
+  tainghe,
+  pinduphong,
+  apple,
+  other,
+};
 
 const loadData = (container, datas) => {
   let html = "";
@@ -69,140 +85,134 @@ const sortData = (data, dir) => {
   }));
 };
 
-const loadDataWithCondition = () => {
+const loadDataWithCondition = (dataToLoad) => {
   const activeBtns = document.querySelectorAll(".active");
 
   if (activeBtns.length === 0) {
-    loadData(productContainer, bosac);
+    loadData(productContainer, dataToLoad);
   } else if (activeBtns.length === 1) {
     let condition = activeBtns[0].id;
     switch (condition) {
       case "under500":
         loadData(
           productContainer,
-          [...bosac].filter((data) => data.gia <= 500000)
+          [...dataToLoad].filter((data) => data.gia <= 500000)
         );
         break;
       case "under1m":
         loadData(
           productContainer,
-          [...bosac].filter((data) => data.gia <= 1000000)
+          [...dataToLoad].filter((data) => data.gia <= 1000000)
         );
         break;
       case "under2m":
         loadData(
           productContainer,
-          [...bosac].filter((data) => data.gia <= 2000000)
+          [...dataToLoad].filter((data) => data.gia <= 2000000)
         );
         break;
       case "above2m":
         loadData(
           productContainer,
-          [...bosac].filter((data) => data.gia >= 2000000)
+          [...dataToLoad].filter((data) => data.gia >= 2000000)
         );
         break;
       case "name_asc":
         loadData(
           productContainer,
-          [...bosac].sort((a, b) => a.ten.localeCompare(b.ten))
+          [...dataToLoad].sort((a, b) => a.ten.localeCompare(b.ten))
         );
         break;
       case "name_desc":
         loadData(
           productContainer,
-          [...bosac].sort((a, b) => b.ten.localeCompare(a.ten))
+          [...dataToLoad].sort((a, b) => b.ten.localeCompare(a.ten))
         );
         break;
       case "price_asc":
         loadData(
           productContainer,
-          [...bosac].sort((a, b) => a.gia - b.gia)
+          [...dataToLoad].sort((a, b) => a.gia - b.gia)
         );
         break;
       case "price_desc":
         loadData(
           productContainer,
-          [...bosac].sort((a, b) => b.gia - a.gia)
+          [...dataToLoad].sort((a, b) => b.gia - a.gia)
         );
         break;
     }
   } else if (activeBtns.length === 2) {
-    let data = filterData([...bosac], activeBtns[0].id);
+    let data = filterData([...dataToLoad], activeBtns[0].id);
     data = sortData(data, activeBtns[1].id);
     loadData(productContainer, data);
   }
 };
 
-under500Btn.addEventListener("click", () => {
-  if (under500Btn.classList.contains("active")) {
-    under500Btn.classList.remove("active");
+const handleActionClick = (buttonGroup, button, data) => {
+  if (button.classList.contains("active")) {
+    button.classList.remove("active");
   } else {
-    filterBtns.forEach((btn) => btn.classList.remove("active"));
-    under500Btn.classList.add("active");
+    buttonGroup.forEach((btn) => btn.classList.remove("active"));
+    button.classList.add("active");
   }
-  loadDataWithCondition();
+  loadDataWithCondition(data);
+};
+
+under500Btn.addEventListener("click", () => {
+  handleActionClick(
+    filterBtns,
+    under500Btn,
+    dataToImport[`${productContainer.id}`]
+  );
 });
 under1mBtn.addEventListener("click", () => {
-  if (under1mBtn.classList.contains("active")) {
-    under1mBtn.classList.remove("active");
-  } else {
-    filterBtns.forEach((btn) => btn.classList.remove("active"));
-    under1mBtn.classList.add("active");
-  }
-  loadDataWithCondition();
+  handleActionClick(
+    filterBtns,
+    under1mBtn,
+    dataToImport[`${productContainer.id}`]
+  );
 });
 under2mBtn.addEventListener("click", () => {
-  if (under2mBtn.classList.contains("active")) {
-    under2mBtn.classList.remove("active");
-  } else {
-    filterBtns.forEach((btn) => btn.classList.remove("active"));
-    under2mBtn.classList.add("active");
-  }
-  loadDataWithCondition();
+  handleActionClick(
+    filterBtns,
+    under2mBtn,
+    dataToImport[`${productContainer.id}`]
+  );
 });
 above2mBtn.addEventListener("click", () => {
-  if (above2mBtn.classList.contains("active")) {
-    above2mBtn.classList.remove("active");
-  } else {
-    filterBtns.forEach((btn) => btn.classList.remove("active"));
-    above2mBtn.classList.add("active");
-  }
-  loadDataWithCondition();
+  handleActionClick(
+    filterBtns,
+    above2mBtn,
+    dataToImport[`${productContainer.id}`]
+  );
 });
 
 nameAscBtn.addEventListener("click", () => {
-  if (nameAscBtn.classList.contains("active")) {
-    nameAscBtn.classList.remove("active");
-  } else {
-    sortBtns.forEach((btn) => btn.classList.remove("active"));
-    nameAscBtn.classList.add("active");
-  }
-  loadDataWithCondition();
+  handleActionClick(
+    sortBtns,
+    nameAscBtn,
+    dataToImport[`${productContainer.id}`]
+  );
 });
 nameDescBtn.addEventListener("click", () => {
-  if (nameDescBtn.classList.contains("active")) {
-    nameDescBtn.classList.remove("active");
-  } else {
-    sortBtns.forEach((btn) => btn.classList.remove("active"));
-    nameDescBtn.classList.add("active");
-  }
-  loadDataWithCondition();
+  handleActionClick(
+    sortBtns,
+    nameDescBtn,
+    dataToImport[`${productContainer.id}`]
+  );
 });
 priceAscBtn.addEventListener("click", () => {
-  if (priceAscBtn.classList.contains("active")) {
-    priceAscBtn.classList.remove("active");
-  } else {
-    sortBtns.forEach((btn) => btn.classList.remove("active"));
-    priceAscBtn.classList.add("active");
-  }
-  loadDataWithCondition();
+  handleActionClick(
+    sortBtns,
+    priceAscBtn,
+    dataToImport[`${productContainer.id}`]
+  );
 });
 priceDescBtn.addEventListener("click", () => {
-  if (priceDescBtn.classList.contains("active")) {
-    priceDescBtn.classList.remove("active");
-  } else {
-    sortBtns.forEach((btn) => btn.classList.remove("active"));
-    priceDescBtn.classList.add("active");
-  }
-  loadDataWithCondition();
+  handleActionClick(
+    sortBtns,
+    priceDescBtn,
+    dataToImport[`${productContainer.id}`]
+  );
 });

@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../css/footer.css" />
     <link rel="stylesheet" href="../css/allCategoriesProduct.css" />
     <script src="../assets/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
-    <title>Bộ sạc</title>
+    <title>Dây sạc</title>
   </head>
   <body>
     <header class="header">
@@ -158,7 +158,7 @@
         </ul>
       </div>
 
-      <div class="product_list_container">
+      <div class="product_list_container" id="daysac">
         <div class="product_list_title">Dây sạc</div>
         <div class="product_action filter_action">
           <div class="filter_selection">Chọn mức giá</div>
@@ -277,148 +277,12 @@
       container.querySelector(".product_list").innerHTML = html;
     </script>
 
-    <script>
-      const showCategoriesModal = document.querySelector(".categories");
-      const backDrop = document.querySelector(".backdrop");
-      const categories = document.querySelector(".categories_list_container");
-      const categoriesItems = document.querySelectorAll(".categories_item");
+    <script src="../js/handleCategoryModal.js"></script>
 
-      showCategoriesModal.addEventListener("click", () => {
-        window.scrollTo(0, 0);
-        backDrop.style.display = "block";
-        categories.style.zIndex = 2;
-      });
-
-      categoriesItems.forEach((item) => {
-        item.addEventListener("click", () => {
-          backDrop.style.display = "none";
-          categories.style.zIndex = 0;
-        });
-      });
-
-      backDrop.addEventListener("click", () => {
-        backDrop.style.display = "none";
-        categories.style.zIndex = 0;
-      });
-    </script>
-
-    <script class="handleActionScript" type="module">
-      import { daysac } from "../assets/images/prepareData.js";
-      const productContainer = document.querySelector(
-        ".product_list_container"
-      );
-      const filterBtns = document.querySelectorAll(".filter_btn");
-      const sortBtns = document.querySelectorAll(".sort_btn");
-      const under500Btn = document.getElementById("under500");
-      const under1mBtn = document.getElementById("under1m");
-      const under2mBtn = document.getElementById("under2m");
-      const above2mBtn = document.getElementById("above2m");
-      const nameAscBtn = document.getElementById("name_asc");
-      const nameDescBtn = document.getElementById("name_desc");
-      const priceAscBtn = document.getElementById("price_asc");
-      const priceDescBtn = document.getElementById("price_desc");
-
-      const loadData = (container, datas) => {
-        let html = "";
-        datas.forEach((data) => {
-          html += `
-            <div class="product_item">
-              <div class="card h-100">
-                <img src="../assets/images/${
-                  data.image
-                }" class="card-img-top item_image" alt="${data.ten}" />
-                <div class="card-body">
-                  <h5 class="card-title item_name">${data.ten}</h5>
-                  <p class="card-text item_price">${
-                    data.gia.toLocaleString("en", {
-                      minimumFractionDigits: 0,
-                      maximumFractionDigits: 3,
-                    }) + " VND"
-                  }</p>
-                </div>
-                <div class="card-footer d-grid">
-                    <a href="#" class="btn btn-primary item_link_btn"
-                      >Xem chi tiết</a
-                    >
-                  </div>
-              </div>
-            </div>
-            `;
-        });
-        container.querySelector(".product_list").innerHTML = html;
-      };
-
-      const dataBeforeSort = [...daysac];
-      let rawData = daysac;
-      const loadDataWithConditionPrice = (
-        button,
-        conditionPrice,
-        condition
-      ) => {
-        if (button.classList.contains("active")) {
-          loadData(productContainer, daysac);
-          button.classList.remove("active");
-          return;
-        }
-        rawData = rawData.filter((item) => {
-          if (condition === "duoi") {
-            return item.gia <= conditionPrice;
-          } else if (condition === "tren") {
-            return item.gia >= conditionPrice;
-          }
-        });
-        loadData(productContainer, rawData);
-        filterBtns.forEach((btn) => btn.classList.remove("active"));
-        button.classList.add("active");
-      };
-
-      const sortWithCondition = (button, condition) => {
-        if (button.classList.contains("active")) {
-          loadData(productContainer, dataBeforeSort);
-          button.classList.remove("active");
-          return;
-        }
-        rawData = rawData.sort((a, b) => {
-          if (condition === "name_asc") {
-            return a.ten.localeCompare(b.ten);
-          } else if (condition === "name_desc") {
-            return b.ten.localeCompare(a.ten);
-          } else if (condition === "price_asc") {
-            return a.gia - b.gia;
-          } else if (condition === "price_desc") {
-            return b.gia - a.gia;
-          }
-        });
-        loadData(productContainer, rawData);
-        sortBtns.forEach((btn) => btn.classList.remove("active"));
-        button.classList.add("active");
-      };
-
-      under500Btn.addEventListener("click", () => {
-        loadDataWithConditionPrice(under500Btn, 500000, "duoi");
-      });
-      under1mBtn.addEventListener("click", () => {
-        loadDataWithConditionPrice(under1mBtn, 1000000, "duoi");
-      });
-      under2mBtn.addEventListener("click", () => {
-        loadDataWithConditionPrice(under2mBtn, 2000000, "duoi");
-      });
-      above2mBtn.addEventListener("click", () => {
-        loadDataWithConditionPrice(above2mBtn, 2000000, "tren");
-      });
-
-      nameAscBtn.addEventListener("click", () => {
-        sortWithCondition(nameAscBtn, nameAscBtn.id);
-      });
-      nameDescBtn.addEventListener("click", () => {
-        sortWithCondition(nameDescBtn, nameDescBtn.id);
-      });
-      priceAscBtn.addEventListener("click", () => {
-        sortWithCondition(priceAscBtn, priceAscBtn.id);
-      });
-      priceDescBtn.addEventListener("click", () => {
-        sortWithCondition(priceDescBtn, priceDescBtn.id);
-      });
-    </script>
+    <script
+      class="handleActionScript"
+      type="module"
+      src="../js/handleSortAndFilter.js"
+    ></script>
   </body>
 </html>
