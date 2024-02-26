@@ -18,10 +18,10 @@
     <header class="header">
       <div class="header_container">
         <div class="logo">
-          <a href="../index.html" class="header_link">Phukiendienthoai</a>
+          <a href="index.html" class="header_link">Phukiendienthoai</a>
         </div>
 
-        <div class="categories" data-bs-toggle="modal">
+        <div class="categories">
           <div class="category_icon">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -116,7 +116,7 @@
                 />
               </svg>
             </div>
-            Đăng nhập
+            <span class="user_text">Đăng nhập</span>
           </a>
         </div>
       </div>
@@ -241,12 +241,28 @@
 
     <script src="../js/handleCategoryModal.js"></script>
 
+    <script>
+      const username = localStorage.getItem("userName");
+      if (username === null) {
+        window.location.href = "./login.html";
+      }
+      const userText = document.querySelector(".user_text");
+      const userLink = document.querySelector(".user_link");
+      userLink.href = "./userPage.html";
+      userText.innerText =
+        username.length >= 10 ? username.substring(0, 11) + "..." : username;
+    </script>
+
     <script type="module">
+      if (localStorage.getItem("productId") === null) {
+        window.location.href = "../index.html";
+      }
+
       import { all } from "../assets/images/prepareData.js";
-      const allLink = document.querySelector(".all_link");
       const curProduct = all.find(
         (item) => item.id == localStorage.getItem("productId")
       );
+      const allLink = document.querySelector(".all_link");
       const productImage = document.getElementById("product_image");
       const productName = document.getElementById("product_name");
       const productPrice = document.getElementById("product_price");

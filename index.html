@@ -116,7 +116,7 @@
                 />
               </svg>
             </div>
-            Đăng nhập
+            <span class="user_text">Đăng nhập</span>
           </a>
         </div>
       </div>
@@ -215,6 +215,18 @@
     </footer>
 
     <div class="backdrop"></div>
+
+    <script>
+      const username = localStorage.getItem("userName");
+      if (username === null) {
+        window.location.href = "./pages/login.html";
+      }
+      const userText = document.querySelector(".user_text");
+      const userLink = document.querySelector(".user_link");
+      userLink.href = "./pages/userPage.html";
+      userText.innerText =
+        username.length >= 10 ? username.substring(0, 11) + "..." : username;
+    </script>
 
     <script type="module">
       import {

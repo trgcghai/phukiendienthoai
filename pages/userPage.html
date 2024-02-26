@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="../css/library.css" />
     <link rel="stylesheet" href="../css/header.css" />
     <link rel="stylesheet" href="../css/footer.css" />
-    <link rel="stylesheet" href="../css/allCategoriesProduct.css" />
+    <link rel="stylesheet" href="../css/detailProduct.css" />
     <script src="../assets/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
-    <title>Tai nghe</title>
+    <title>Document</title>
   </head>
   <body>
     <header class="header">
@@ -21,26 +21,10 @@
           <a href="../index.html" class="header_link">Phukiendienthoai</a>
         </div>
 
-        <div class="categories" data-bs-toggle="modal">
-          <div class="category_icon">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 512 512"
-            >
-              <path
-                fill="white"
-                d="M40 48C26.7 48 16 58.7 16 72v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V72c0-13.3-10.7-24-24-24H40zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zM16 232v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V232c0-13.3-10.7-24-24-24H40c-13.3 0-24 10.7-24 24zM40 368c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V392c0-13.3-10.7-24-24-24H40z"
-              />
-            </svg>
-          </div>
-          Danh mục
-        </div>
-
         <div class="search_box">
           <input
             type="text"
+            style="width: 450px"
             class="search_input"
             placeholder="Bạn cần tìm gì ?"
           />
@@ -122,114 +106,7 @@
       </div>
     </header>
 
-    <main class="container">
-      <div class="categories_list_container">
-        <ul class="categories_list">
-          <li class="categories_item">
-            <a href="./allBoSacProducts.html" class="categories_item_link"
-              >Bộ sạc</a
-            >
-          </li>
-          <li class="categories_item">
-            <a href="./allDaySacProducts.html" class="categories_item_link"
-              >Dây sạc</a
-            >
-          </li>
-          <li class="categories_item">
-            <a href="./allPinDuPhongProducts.html" class="categories_item_link"
-              >Pin dự phòng</a
-            >
-          </li>
-          <li class="categories_item">
-            <a href="./allTaiNgheProducts.html" class="categories_item_link"
-              >Tai nghe</a
-            >
-          </li>
-          <li class="categories_item">
-            <a href="./allAppleProducts.html" class="categories_item_link"
-              >Phụ kiện Apple</a
-            >
-          </li>
-          <li class="categories_item">
-            <a href="./allOtherProducts.html" class="categories_item_link"
-              >Khác
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="product_list_container" id="tainghe">
-        <div class="product_list_title">Tai nghe</div>
-        <div class="product_action filter_action">
-          <div class="filter_selection">Chọn mức giá</div>
-          <div class="btn_wrapper">
-            <button
-              type="button"
-              class="btn btn-outline filter_btn"
-              id="under500"
-            >
-              Dưới 500 nghìn
-            </button>
-            <button
-              type="button"
-              class="btn btn-outline filter_btn"
-              id="under1m"
-            >
-              Dưới 1 triệu
-            </button>
-            <button
-              type="button"
-              class="btn btn-outline filter_btn"
-              id="under2m"
-            >
-              Dưới 2 triệu
-            </button>
-            <button
-              type="button"
-              class="btn btn-outline filter_btn"
-              id="above2m"
-            >
-              Trên 2 triệu
-            </button>
-          </div>
-        </div>
-        <div class="product_action sort_action">
-          <div class="sort_selection">Sắp xếp theo</div>
-          <div class="btn_wrapper">
-            <button
-              type="button"
-              class="btn btn-outline sort_btn"
-              id="name_asc"
-            >
-              Tên A - Z
-            </button>
-            <button
-              type="button"
-              class="btn btn-outline sort_btn"
-              id="name_desc"
-            >
-              Tên Z - A
-            </button>
-            <button
-              type="button"
-              class="btn btn-outline sort_btn"
-              id="price_asc"
-            >
-              Giá tăng dần
-            </button>
-            <button
-              type="button"
-              class="btn btn-outline sort_btn"
-              id="price_desc"
-            >
-              Giá giảm dần
-            </button>
-          </div>
-        </div>
-        <div class="line"></div>
-        <div class="product_list"></div>
-      </div>
-    </main>
+    <main class="container"></main>
 
     <footer class="footer">
       <div class="footer_container">
@@ -243,8 +120,6 @@
       </div>
     </footer>
 
-    <div class="backdrop"></div>
-
     <script>
       const username = localStorage.getItem("userName");
       if (username === null) {
@@ -256,15 +131,5 @@
       userText.innerText =
         username.length >= 10 ? username.substring(0, 11) + "..." : username;
     </script>
-
-    <script type="module" src="../js/loadData.js"></script>
-
-    <script src="../js/handleCategoryModal.js"></script>
-
-    <script
-      class="handleActionScript"
-      type="module"
-      src="../js/handleSortAndFilter.js"
-    ></script>
   </body>
 </html>

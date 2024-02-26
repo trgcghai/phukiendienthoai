@@ -1,109 +1,109 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 :root {
-    --main-color: rgb(221, 61, 61);
+  --main-color: rgb(221, 61, 61);
 }
 
 .header {
-    height: 50px;
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 1;
-    background-color: var(--main-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  background-color: var(--main-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .header_container {
-    width: 1200px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
+  width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
 }
 
 .header_link {
-    display: block;
-    height: 40px;
-    color: #fff;
-    font-size: 28px;
-    cursor: pointer;
-    text-decoration: none;
+  display: block;
+  height: 40px;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  text-decoration: none;
 }
-
 
 .user_link,
 .categories {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    border: 1px solid #fff;
-    padding: 7px 8px;
-    border-radius: 4px;
-    color: #fff;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  border: 1px solid #fff;
+  padding: 7px 8px;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
 }
 
 .track_order_link,
 .cart_link,
 .user_link {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .user:hover,
 .categories:hover {
-    background: hsla(0,0%,100%,.2);
+  background: hsla(0, 0%, 100%, 0.2);
 }
 
-.category_icon {    
-    margin-top: -2px;
+.category_icon {
+  margin-top: -2px;
 }
 
 .search_box {
-    display: flex;
-    align-items: center;
-    position: relative;
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
 .search_input {
-    outline: none;
-    border: none;
-    padding: 8px 12px;
-    width: 350px;
-    border-radius: 4px;
+  outline: none;
+  border: none;
+  padding: 8px 12px;
+  width: 350px;
+  border-radius: 4px;
 }
 
 .search_icon {
-    position: absolute;
-    right: 10px;
-    top: 6px;
-    cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 6px;
+  cursor: pointer;
 }
 
 .track_order,
 .cart {
-    border-radius: 4px;
+  border-radius: 4px;
 }
 
 .cart_link,
 .track_order_link {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 7px 8px;
-    border-radius: 4px;
-    color: #fff;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 8px;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
 }
 
 .cart:hover,
 .track_order:hover {
-    background: hsla(0,0%,100%,.2);
+  background: hsla(0, 0%, 100%, 0.2);
 }

@@ -32,15 +32,15 @@
         </div>
         <form>
           <div class="form_section mb-3">
-            <label for="login_email" class="form-label">Email</label>
+            <label for="login_username" class="form-label">Username</label>
             <input
               required
-              type="email"
+              type="text"
               class="form-control"
-              id="login_email"
-              aria-describedby="emailHelp"
+              id="login_username"
+              aria-describedby="login-usernameHelp"
             />
-            <div id="emailHelp" class="form-text"></div>
+            <div id="login-usernameHelp" class="form-text"></div>
           </div>
           <div class="form_section mb-3">
             <label for="login_password" class="form-label">Mật khẩu</label>
@@ -81,6 +81,17 @@
               aria-describedby="signup-emailHelp"
             />
             <div id="signup-emailHelp" class="form-text"></div>
+          </div>
+          <div class="form_section mb-3">
+            <label for="signup_username" class="form-label">Username</label>
+            <input
+              required
+              type="email"
+              class="form-control"
+              id="signup_username"
+              aria-describedby="signup-usernameHelp"
+            />
+            <div id="signup-usernameHelp" class="form-text"></div>
           </div>
           <div class="form_section mb-3">
             <label for="signup_password" class="form-label">Mật khẩu</label>
@@ -192,18 +203,19 @@
       const submitReset = document.querySelector(".confirm_btn");
 
       const resetLoginForm = () => {
-        const email = document.getElementById("login_email");
+        const username = document.getElementById("login_username");
         const password = document.getElementById("login_password");
 
-        document.getElementById("emailHelp").innerText = "";
+        document.getElementById("login-usernameHelp").innerText = "";
         document.getElementById("passwordHelp").innerText = "";
-        email.style.border = "1px solid #ccc";
+        username.style.border = "1px solid #ccc";
         password.style.border = "1px solid #ccc";
-        email.value = "";
+        username.value = "";
         password.value = "";
       };
 
       const resetSignUpForm = () => {
+        const username = document.getElementById("signup_username");
         const email = document.getElementById("signup_email");
         const password = document.getElementById("signup_password");
         const cfpassword = document.getElementById("signup_cfpassword");
@@ -211,12 +223,15 @@
         document.getElementById("signup-emailHelp").innerText = "";
         document.getElementById("signup-passwordHelp").innerText = "";
         document.getElementById("cfpasswordHelp").innerText = "";
+        document.getElementById("signup-usernameHelp").innerText = "";
         email.style.border = "1px solid #ccc";
         password.style.border = "1px solid #ccc";
         cfpassword.style.border = "1px solid #ccc";
+        username.style.border = "1px solid #ccc";
         email.value = "";
         password.value = "";
         cfpassword.value = "";
+        username.value = "";
       };
 
       const resetChangePassForm = () => {
@@ -256,27 +271,33 @@
       });
 
       const handleLogin = () => {
-        const email = document.getElementById("login_email");
+        const username = document.getElementById("login_username");
         const password = document.getElementById("login_password");
+        let valid = true;
 
-        if (!/\S+@\S+\.\S+/.test(email.value)) {
-          const emailText = document.getElementById("emailHelp");
-          emailText.style.color = "red";
-          emailText.innerText = "Email không hợp lệ!! Vui lòng thử lại";
-          email.style.border = "1px solid red";
+        if (
+          username.value.trim().length === 0 ||
+          !/^[a-zA-Z0-9]+$/.test(username.value)
+        ) {
+          const usernameText = document.getElementById("login-usernameHelp");
+          usernameText.style.color = "red";
+          usernameText.innerText = "Username không hợp lệ!! Vui lòng thử lại";
+          username.style.border = "1px solid red";
+          valid = false;
         } else {
-          const emailText = document.getElementById("emailHelp");
-          emailText.style.color = "green";
-          emailText.innerText = "Chính xác !!";
-          email.style.border = "1px solid green";
+          const usernameText = document.getElementById("login-usernameHelp");
+          usernameText.style.color = "green";
+          usernameText.innerText = "Chính xác !!";
+          username.style.border = "1px solid green";
         }
+
         if (password.value !== "12345678") {
           const passwordText = document.getElementById("passwordHelp");
           passwordText.style.color = "red";
           passwordText.innerText =
             "Mật khẩu không chính xác!! Vui lòng thử lại";
           password.style.border = "1px solid red";
-          return;
+          valid = false;
         } else {
           const passwordText = document.getElementById("passwordHelp");
           passwordText.style.color = "green";
@@ -284,8 +305,13 @@
           password.style.border = "1px solid green";
         }
 
+        if (!valid) {
+          return;
+        }
+
+        localStorage.setItem("userName", username.value);
         window.location.href = "../index.html";
-        email.value = "";
+        username.value = "";
         password.value = "";
       };
       submitLogin.addEventListener("click", (e) => {
@@ -295,19 +321,37 @@
 
       const handleSignUp = () => {
         const email = document.getElementById("signup_email");
+        const username = document.getElementById("signup_username");
         const password = document.getElementById("signup_password");
         const cfpassword = document.getElementById("signup_cfpassword");
+        let valid = true;
 
         if (!/\S+@\S+\.\S+/.test(email.value)) {
           const emailText = document.getElementById("signup-emailHelp");
           emailText.style.color = "red";
           emailText.innerText = "Email không hợp lệ!! Vui lòng thử lại";
           email.style.border = "1px solid red";
+          valid = false;
         } else {
           const emailText = document.getElementById("signup-emailHelp");
           emailText.style.color = "green";
           emailText.innerText = "Email hợp lệ";
           email.style.border = "1px solid green";
+        }
+        if (
+          username.value.trim().length === 0 ||
+          !/^[a-zA-Z0-9]+$/.test(username.value)
+        ) {
+          const usernameText = document.getElementById("signup-usernameHelp");
+          usernameText.style.color = "red";
+          usernameText.innerText = "Username không hợp lệ!! Vui lòng thử lại";
+          username.style.border = "1px solid red";
+          valid = false;
+        } else {
+          const usernameText = document.getElementById("signup-usernameHelp");
+          usernameText.style.color = "green";
+          usernameText.innerText = "Username hợp lệ";
+          username.style.border = "1px solid green";
         }
         if (
           password.value.trim().length < 8 ||
@@ -317,6 +361,7 @@
           passwordText.style.color = "red";
           passwordText.innerText = "Mật khẩu phải từ 8 đến 20 kí tự";
           password.style.border = "1px solid red";
+          valid = false;
         } else {
           const passwordText = document.getElementById("signup-passwordHelp");
           passwordText.style.color = "green";
@@ -331,14 +376,14 @@
           cfpasswordText.style.color = "red";
           cfpasswordText.innerText = "Mật khẩu phải từ 8 đến 20 kí tự";
           cfpassword.style.border = "1px solid red";
-          return;
+          valid = false;
         } else {
           if (password.value.trim() !== cfpassword.value.trim()) {
             const cfpasswordText = document.getElementById("cfpasswordHelp");
             cfpasswordText.style.color = "red";
             cfpasswordText.innerText = "Mật khẩu không trùng khớp";
             cfpassword.style.border = "1px solid red";
-            return;
+            valid = false;
           } else {
             const cfpasswordText = document.getElementById("cfpasswordHelp");
             cfpasswordText.style.color = "green";
@@ -347,6 +392,11 @@
           }
         }
 
+        if (!valid) {
+          return;
+        }
+
+        localStorage.setItem("userName", username.value);
         window.location.href = "../index.html";
         email.value = "";
         password.value = "";
