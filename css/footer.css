@@ -1,29 +1,14 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 :root {
-    --main-color: rgb(221, 61, 61);
+  --main-color: rgb(221, 61, 61);
 }
 
 .footer {
-    clear: both;
-    height: 30px;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    background-color: var(--main-color);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.footer_container {
-    width: 1200px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  height: 30px;
+  background-color: var(--main-color);
 }

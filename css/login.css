@@ -1,108 +1,107 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 :root {
-    --main-color: rgb(221, 61, 61);
+  --main-color: rgb(221, 61, 61);
 }
 
 body {
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .form {
-    width: 500px;
-    padding: 16px;
-    border: 1px solid #ccc;
-    border-radius: 16px;
-    background-color: #fff;
+  width: 500px;
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  background-color: #fff;
 }
 
 .signup_form {
-    display: none;
+  display: none;
 }
 
 .resetPassword_form {
-    display: none;
+  display: none;
 }
 
 .form_icon {
-    margin-bottom: 4px;
-    cursor: pointer;
+  margin-bottom: 4px;
+  cursor: pointer;
 }
 
 .form_back_btn:hover {
-    fill: var(--main-color);
+  fill: var(--main-color);
 }
 
 .form_title {
-    text-align: center;
-    color: var(--main-color);
+  text-align: center;
+  color: var(--main-color);
 }
 
 .form-label {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 .form_ask {
-    font-size: 14px;
-    text-align: center;
-    margin-top: -8px;
-    margin-bottom: 8px;
+  font-size: 14px;
+  text-align: center;
+  margin-top: -8px;
+  margin-bottom: 8px;
 }
 
 .form_link {
-    font-size: 14px;
-    color: #000;
-    background: none;
-    border: none;
-    outline: none
+  font-size: 14px;
+  color: #000;
+  background: none;
+  border: none;
+  outline: none;
 }
 
 .form_link:hover {
-    color: blue;
-    text-decoration: underline;
+  color: blue;
+  text-decoration: underline;
 }
 
 .form_forgetPassword {
-    color: #000;
-    font-size: 16px;
-    text-decoration: none;
-    cursor: pointer;
+  color: #000;
+  font-size: 16px;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .form_forgetPassword:hover {
-    color: blue;
-    text-decoration: underline;
+  color: blue;
+  text-decoration: underline;
 }
 
 .form_policy {
-    display: inline-block;
-    font-size: 15px;
-    text-align: center;
+  display: inline-block;
+  font-size: 15px;
+  text-align: center;
 }
 
 .policy {
-    color: var(--main-color);
-    cursor: pointer;
+  color: var(--main-color);
+  cursor: pointer;
 }
 
 .submit_btn {
-    background-color: var(--main-color);
-    border: none;
+  background-color: var(--main-color);
+  border: none;
 }
 
 .submit_btn:hover {
-    background-color: var(--main-color);
+  background-color: var(--main-color);
 }
 
 .submit_btn:active {
-    background-color: var(--main-color);
+  background-color: var(--main-color);
 }
-
