@@ -31,7 +31,7 @@
         </div>
 
         <div
-          class="categories d-flex align-items-center justify-content-between text-light cursor-pointer"
+          class="categories d-none d-sm-none d-md-none d-lg-flex d-xl-flex d-xxl-flex align-items-center justify-content-between text-light cursor-pointer"
         >
           <div class="category_icon">
             <svg
@@ -46,10 +46,12 @@
               />
             </svg>
           </div>
-          Danh mục
+          <span class="categories_text">Danh mục</span>
         </div>
 
-        <div class="search_box d-flex align-items-center position-relative">
+        <div
+          class="search_box d-none d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex align-items-center position-relative"
+        >
           <input
             type="text"
             class="search_input border-0"
@@ -70,9 +72,11 @@
           </div>
         </div>
 
-        <div class="track_order">
+        <div
+          class="track_order d-none d-sm-none d-md-none d-lg-none d-xl-block d-xxl-block"
+        >
           <a
-            href=""
+            href="./pages/userPage.html"
             class="track_order_link text-decoration-none d-flex align-items-center text-light cursor-pointer"
           >
             <div class="track_order_icon">
@@ -92,9 +96,11 @@
           </a>
         </div>
 
-        <div class="cart">
+        <div
+          class="cart d-none d-sm-block d-md-block d-lg-block d-xl-block d-xxl-block"
+        >
           <a
-            href=""
+            href="./pages/cart.html"
             class="cart_link text-decoration-none d-flex align-items-center text-light cursor-pointer"
           >
             <div class="cart_icon">
@@ -114,11 +120,13 @@
                 ></path>
               </svg>
             </div>
-            Giỏ hàng
+            <span class="cart_link_text">Giỏ hàng</span>
           </a>
         </div>
 
-        <div class="user">
+        <div
+          class="user d-none d-sm-block d-md-block d-lg-block d-xl-block d-xxl-block"
+        >
           <a
             href="./pages/login.html"
             class="user_link d-flex align-items-center justify-content-between text-light cursor-pointer text-decoration-none"
@@ -138,6 +146,82 @@
             </div>
             <span class="user_text">Đăng nhập</span>
           </a>
+        </div>
+
+        <div
+          class="icon_toggle d-block d-sm-none d-md-none d-lg-none d-xl-none d-xxl-none"
+        >
+          <div class="icon px-3" style="cursor: pointer">
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+              onclick="document.querySelector('.toggle_list').classList.toggle('d-none')"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 512 512"
+              >
+                <path
+                  fill="white"
+                  d="M40 48C26.7 48 16 58.7 16 72v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V72c0-13.3-10.7-24-24-24H40zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zM16 232v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V232c0-13.3-10.7-24-24-24H40c-13.3 0-24 10.7-24 24zM40 368c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V392c0-13.3-10.7-24-24-24H40z"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <ul
+            class="d-none toggle_list position-absolute start-0 list-unstyled w-100"
+          >
+            <li class="toggle_item py-2 position-relative">
+              <input
+                type="text"
+                class="search_input border-0 w-100"
+                placeholder="Bạn cần tìm gì ?"
+              />
+              <div
+                class="position-absolute cursor-pointer"
+                style="right: 12px; top: 13px"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 512 512"
+                  style="cursor: pointer"
+                >
+                  <path
+                    fill="gray"
+                    d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
+                  />
+                </svg>
+              </div>
+            </li>
+            <li class="toggle_item text-light py-2">Danh mục</li>
+
+            <li class="toggle_item text-light py-2">Tra cứu đơn hàng</li>
+
+            <li class="toggle_item text-light py-2">
+              <a
+                href="./pages/cart.html"
+                class="toggle_link d-inline-block w-100 text-decoration-none text-light"
+                >Giỏ hàng</a
+              >
+            </li>
+            <li class="toggle_item text-light py-2">
+              <a
+                href="./pages/login.html"
+                class="toggle_link d-inline-block w-100 text-decoration-none text-light"
+                >Đăng nhập</a
+              >
+            </li>
+          </ul>
         </div>
       </div>
     </header>
@@ -236,17 +320,17 @@
 
     <div class="backdrop"></div>
 
-    <!-- <script>
+    <script>
       const username = localStorage.getItem("userName");
-      if (username === null) {
-        window.location.href = "./pages/login.html";
-      }
-      const userText = document.querySelector(".user_text");
-      const userLink = document.querySelector(".user_link");
-      userLink.href = "./pages/userPage.html";
-      userText.innerText =
-        username.length >= 10 ? username.substring(0, 11) + "..." : username;
-    </script> -->
+      const userText = $(".user_text");
+      const userLink = $(".user_link");
+      userLink.attr("href", "./pages/userPage.html");
+      userText.text(
+        username !== null && username.length >= 10
+          ? username.substring(0, 11) + "..."
+          : username
+      );
+    </script>
 
     <script type="module">
       import {
