@@ -1,67 +1,67 @@
 .product_list_title {
-    font-size: 24px;
-    font-weight: 500;
+  font-size: 24px;
+  font-weight: 500;
 }
 
 .product_action {
-    margin: 16px 0;
+  margin: 16px 0;
 }
 
 .filter_selection,
 .sort_selection {
-    margin-bottom: 8px;
-    font-size: 18px;
+  margin-bottom: 8px;
+  font-size: 18px;
 }
 
 .product_list {
-    margin: 16px 0;
-    display: grid;
-    grid-template-columns: repeat(5, 224px);
-    gap: 20px;
+  margin: 16px 0;
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  gap: 20px;
 }
 
 .card-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .item_name {
-    font-size: 15px; 
-    text-overflow: ellipsis;
+  font-size: 15px;
+  text-overflow: ellipsis;
 }
 
 .item_image {
-    width: 222px;
+  width: 222px;
 }
 
 .item_price {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 .card-footer {
-    background-color: #fff !important;
-    border: none;
+  background-color: #fff !important;
+  border: none;
 }
 
 .item_link_btn {
-    background-color: var(--main-color);
-    outline: none;
-    border: none;
-    position: relative;
+  background-color: var(--main-color);
+  outline: none;
+  border: none;
+  position: relative;
 }
 
 .item_link_btn:hover {
-    background-color: var(--main-color);
+  background-color: var(--main-color);
 }
 
 .item_link_btn:active {
-    background-color: var(--main-color) !important;
-    top: 2px;
+  background-color: var(--main-color) !important;
+  top: 2px;
 }
 
 .btn_wrapper {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }

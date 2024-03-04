@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../css/footer.css" />
     <link rel="stylesheet" href="../css/detailProduct.css" />
     <script src="../assets/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
+    <script src="../js/jquery-3.7.1.min.js"></script>
     <title>Document</title>
   </head>
   <body>
@@ -264,17 +265,17 @@
 
     <script src="../js/handleCategoryModal.js"></script>
 
-    <script>
+    <!-- <script>
       const username = localStorage.getItem("userName");
       if (username === null) {
         window.location.href = "./login.html";
       }
-      const userText = document.querySelector(".user_text");
-      const userLink = document.querySelector(".user_link");
+      const userText = $(".user_text");
+      const userLink = $(".user_link");
       userLink.href = "./userPage.html";
       userText.innerText =
         username.length >= 10 ? username.substring(0, 11) + "..." : username;
-    </script>
+    </script> -->
 
     <script type="module">
       if (localStorage.getItem("productId") === null) {
@@ -285,11 +286,11 @@
       const curProduct = all.find(
         (item) => item.id == localStorage.getItem("productId")
       );
-      const allLink = document.querySelector(".all_link");
-      const productImage = document.getElementById("product_image");
-      const productName = document.getElementById("product_name");
-      const productPrice = document.getElementById("product_price");
-      const productDescription = document.getElementById("product_description");
+      const allLink = $(".all_link");
+      const productImage = $("#product_image");
+      const productName = $("#product_name");
+      const productPrice = $("#product_price");
+      const productDescription = $("#product_description");
 
       document.title = curProduct.ten;
       if (curProduct.loai[0] === "apple") {
@@ -306,16 +307,18 @@
         allLink.href = "./allDaySacProducts.html";
       }
 
-      productImage.src = `../assets/images/${curProduct.image}`;
-      productImage.alt = `${curProduct.ten}`;
-      productName.innerText = `${curProduct.ten}`;
-      productPrice.innerText = `${
-        curProduct.gia.toLocaleString("en", {
-          minimumFractionDigits: 0,
-          maximumFractionDigits: 3,
-        }) + " VND"
-      }`;
-      productDescription.innerText = `${curProduct.mota}`;
+      productImage.attr("src", `../assets/images/${curProduct.image}`);
+      productImage.attr("alt", `${curProduct.ten}`);
+      productName.text(`${curProduct.ten}`);
+      productPrice.text(
+        `${
+          curProduct.gia.toLocaleString("en", {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 3,
+          }) + " VND"
+        }`
+      );
+      productDescription.text(`${curProduct.mota}`);
 
       const loadData = (data) => {
         let html = "";
@@ -348,14 +351,14 @@
             </div>
           `;
           });
-        document.querySelector(".product_list").innerHTML = html;
+        $(".product_list").html(html);
       };
 
       loadData([...all].filter((item) => item.loai[0] === curProduct.loai[0]));
 
-      const detailBtns = document.querySelectorAll(".item_link_btn");
-      detailBtns.forEach((btn) => {
-        btn.addEventListener("click", () => {
+      const detailBtns = $(".item_link_btn");
+      detailBtns.each(() => {
+        $(this).click(() => {
           localStorage.setItem("productId", btn.id);
           window.location.href = "./detailProduct.html";
         });
@@ -363,19 +366,20 @@
     </script>
 
     <script>
-      const addBtn = document.getElementById("add_btn");
-      const minusBtn = document.getElementById("minus_btn");
-      const quantityInput = document.getElementById("quantity_input");
+      const addBtn = $("#add_btn");
+      const minusBtn = $("#minus_btn");
+      const quantityInput = $("#quantity_input");
 
-      addBtn.addEventListener("click", () => {
-        quantityInput.value = parseInt(quantityInput.value) + 1;
+      addBtn.click(() => {
+        quantityInput.val(parseInt(quantityInput.val()) + 1);
       });
 
-      minusBtn.addEventListener("click", () => {
-        quantityInput.value =
-          parseInt(quantityInput.value) - 1 <= 0
+      minusBtn.click(() => {
+        quantityInput.val(
+          parseInt(quantityInput.val()) - 1 <= 0
             ? 1
-            : parseInt(quantityInput.value) - 1;
+            : parseInt(quantityInput.val()) - 1
+        );
       });
     </script>
   </body>
