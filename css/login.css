@@ -105,3 +105,17 @@ body {
 .submit_btn:active {
   background-color: var(--main-color);
 }
+
+@media (max-width: 576px) {
+  body {
+    overflow: hidden;
+  }
+
+  .main {
+    width: 100%;
+  }
+
+  .form {
+    width: 100%;
+  }
+}
