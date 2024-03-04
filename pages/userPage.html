@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../css/footer.css" />
     <link rel="stylesheet" href="../css/detailProduct.css" />
     <script src="../assets/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
+    <script src="../js/jquery-3.7.1.min.js"></script>
     <title>Document</title>
   </head>
   <body>
@@ -241,14 +242,14 @@
 
     <script>
       const username = localStorage.getItem("userName");
-      if (username === null) {
-        window.location.href = "./login.html";
-      }
-      const userText = document.querySelector(".user_text");
-      const userLink = document.querySelector(".user_link");
-      userLink.href = "./userPage.html";
-      userText.innerText =
-        username.length >= 10 ? username.substring(0, 11) + "..." : username;
+      const userText = $(".user_text");
+      const userLink = $(".user_link");
+      userLink.attr("href", "./userPage.html");
+      userText.text(
+        username !== null && username.length >= 10
+          ? username.substring(0, 11) + "..."
+          : username
+      );
     </script>
   </body>
 </html>
