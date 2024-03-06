@@ -24,7 +24,7 @@
       >
         <div class="logo">
           <a
-            href="index.html"
+            href="../index.html"
             class="header_link d-block text-light cursor-pointer text-decoration-none"
             >Phukiendienthoai</a
           >
@@ -236,36 +236,36 @@
 
     <main class="container">
       <div class="categories_list_container">
-        <ul class="categories_list">
-          <li class="categories_item">
-            <a href="./allBoSacProducts.html" class="categories_item_link"
-              >Bộ sạc</a
-            >
+        <ul class="categories_list row mx-0">
+          <li
+            class="categories_item p-0 col col-6 col-md-4 col-lg-2 col-xl-2 col-xxl-2"
+          >
+            <a href="#bosac" class="categories_item_link">Bộ sạc</a>
           </li>
-          <li class="categories_item">
-            <a href="./allDaySacProducts.html" class="categories_item_link"
-              >Dây sạc</a
-            >
+          <li
+            class="categories_item p-0 col col-6 col-md-4 col-lg-2 col-xl-2 col-xxl-2"
+          >
+            <a href="#daysac" class="categories_item_link">Dây sạc</a>
           </li>
-          <li class="categories_item">
-            <a href="./allPinDuPhongProducts.html" class="categories_item_link"
-              >Pin dự phòng</a
-            >
+          <li
+            class="categories_item p-0 col col-6 col-md-4 col-lg-2 col-xl-2 col-xxl-2"
+          >
+            <a href="#pinduphong" class="categories_item_link">Pin dự phòng</a>
           </li>
-          <li class="categories_item">
-            <a href="./allTaiNgheProducts.html" class="categories_item_link"
-              >Tai nghe</a
-            >
+          <li
+            class="categories_item p-0 col col-6 col-md-4 col-lg-2 col-xl-2 col-xxl-2"
+          >
+            <a href="#tainghe" class="categories_item_link">Tai nghe</a>
           </li>
-          <li class="categories_item">
-            <a href="./allAppleProducts.html" class="categories_item_link"
-              >Phụ kiện Apple</a
-            >
+          <li
+            class="categories_item p-0 col col-6 col-md-4 col-lg-2 col-xl-2 col-xxl-2"
+          >
+            <a href="#apple" class="categories_item_link">Phụ kiện Apple</a>
           </li>
-          <li class="categories_item">
-            <a href="./allOtherProducts.html" class="categories_item_link"
-              >Khác
-            </a>
+          <li
+            class="categories_item p-0 col col-6 col-md-4 col-lg-2 col-xl-2 col-xxl-2"
+          >
+            <a href="#other" class="categories_item_link">Khác </a>
           </li>
         </ul>
       </div>
@@ -361,12 +361,13 @@
       const username = localStorage.getItem("userName");
       const userText = $(".user_text");
       const userLink = $(".user_link");
-      userLink.attr("href", "./userPage.html");
-      userText.text(
-        username !== null && username.length >= 10
-          ? username.substring(0, 11) + "..."
-          : username
-      );
+
+      if (username !== null) {
+        userLink.attr("href", "./userPage.html");
+        userText.text(
+          username.length >= 10 ? username.substring(0, 11) + "..." : username
+        );
+      }
     </script>
 
     <script type="module" src="../js/loadData.js"></script>

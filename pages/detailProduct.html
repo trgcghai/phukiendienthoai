@@ -24,7 +24,7 @@
       >
         <div class="logo">
           <a
-            href="index.html"
+            href="../index.html"
             class="header_link d-block text-light cursor-pointer text-decoration-none"
             >Phukiendienthoai</a
           >
@@ -361,12 +361,13 @@
       const username = localStorage.getItem("userName");
       const userText = $(".user_text");
       const userLink = $(".user_link");
-      userLink.attr("href", "./userPage.html");
-      userText.text(
-        username !== null && username.length >= 10
-          ? username.substring(0, 11) + "..."
-          : username
-      );
+
+      if (username !== null) {
+        userLink.attr("href", "./userPage.html");
+        userText.text(
+          username.length >= 10 ? username.substring(0, 11) + "..." : username
+        );
+      }
     </script>
 
     <script type="module">

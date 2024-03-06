@@ -77,10 +77,6 @@
 }
 
 @media only screen and (max-width: 575px) {
-  body {
-    overflow: hidden;
-  }
-
   .header_link {
     font-size: 18px;
     line-height: 40px;

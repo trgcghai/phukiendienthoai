@@ -6,7 +6,7 @@ const categoriesItems = document.querySelectorAll(".categories_item");
 
 showCollapseCategories.addEventListener('click' , () => {
   window.scrollTo(0, 0);
-  document.querySelector('.toggle_list').style.display = 'none'
+  document.querySelector('.toggle_list').classList.add('d-none')
   backDrop.style.display = "block";
   categories.style.zIndex = 2;
 })

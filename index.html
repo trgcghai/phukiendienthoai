@@ -236,23 +236,35 @@
 
     <main class="container">
       <div class="categories_list_container">
-        <ul class="categories_list">
-          <li class="categories_item">
+        <ul class="categories_list row mx-0">
+          <li
+            class="categories_item p-0 col col-6 col-md-4 col-lg-2 col-xl-2 col-xxl-2"
+          >
             <a href="#bosac" class="categories_item_link">Bộ sạc</a>
           </li>
-          <li class="categories_item">
+          <li
+            class="categories_item p-0 col col-6 col-md-4 col-lg-2 col-xl-2 col-xxl-2"
+          >
             <a href="#daysac" class="categories_item_link">Dây sạc</a>
           </li>
-          <li class="categories_item">
+          <li
+            class="categories_item p-0 col col-6 col-md-4 col-lg-2 col-xl-2 col-xxl-2"
+          >
             <a href="#pinduphong" class="categories_item_link">Pin dự phòng</a>
           </li>
-          <li class="categories_item">
+          <li
+            class="categories_item p-0 col col-6 col-md-4 col-lg-2 col-xl-2 col-xxl-2"
+          >
             <a href="#tainghe" class="categories_item_link">Tai nghe</a>
           </li>
-          <li class="categories_item">
+          <li
+            class="categories_item p-0 col col-6 col-md-4 col-lg-2 col-xl-2 col-xxl-2"
+          >
             <a href="#apple" class="categories_item_link">Phụ kiện Apple</a>
           </li>
-          <li class="categories_item">
+          <li
+            class="categories_item p-0 col col-6 col-md-4 col-lg-2 col-xl-2 col-xxl-2"
+          >
             <a href="#other" class="categories_item_link">Khác </a>
           </li>
         </ul>
@@ -265,7 +277,9 @@
             >Xem tất cả ></a
           >
         </div>
-        <div class="product_list"></div>
+        <div class="product_list container">
+          <div class="row gy-4"></div>
+        </div>
       </div>
       <div class="product_sample" id="daysac">
         <div class="product_sample_title">Dây sạc</div>
@@ -274,7 +288,9 @@
             >Xem tất cả ></a
           >
         </div>
-        <div class="product_list"></div>
+        <div class="product_list container">
+          <div class="row gy-4"></div>
+        </div>
       </div>
       <div class="product_sample" id="pinduphong">
         <div class="product_sample_title">Pin dự phòng</div>
@@ -283,7 +299,9 @@
             >Xem tất cả ></a
           >
         </div>
-        <div class="product_list"></div>
+        <div class="product_list container">
+          <div class="row gy-4"></div>
+        </div>
       </div>
       <div class="product_sample" id="tainghe">
         <div class="product_sample_title">Tai nghe</div>
@@ -292,7 +310,9 @@
             >Xem tất cả ></a
           >
         </div>
-        <div class="product_list"></div>
+        <div class="product_list container">
+          <div class="row gy-4"></div>
+        </div>
       </div>
       <div class="product_sample" id="apple">
         <div class="product_sample_title">Phụ kiện apple</div>
@@ -301,7 +321,9 @@
             >Xem tất cả ></a
           >
         </div>
-        <div class="product_list"></div>
+        <div class="product_list container">
+          <div class="row gy-4"></div>
+        </div>
       </div>
       <div class="product_sample" id="other">
         <div class="product_sample_title">Khác</div>
@@ -310,7 +332,9 @@
             >Xem tất cả ></a
           >
         </div>
-        <div class="product_list"></div>
+        <div class="product_list container">
+          <div class="row gy-4"></div>
+        </div>
       </div>
     </main>
 
@@ -332,14 +356,13 @@
       const username = localStorage.getItem("userName");
       const userText = $(".user_text");
       const userLink = $(".user_link");
-      userLink.attr("href", "./pages/userPage.html");
-      userText.text(
-        username !== null
-          ? username.length >= 10
-            ? username.substring(0, 11) + "..."
-            : username
-          : "Đăng nhập"
-      );
+
+      if (username !== null) {
+        userLink.attr("href", "./pages/userPage.html");
+        userText.text(
+          username.length >= 10 ? username.substring(0, 11) + "..." : username
+        );
+      }
     </script>
 
     <script type="module">
@@ -361,9 +384,9 @@
 
       const loadData = (container, data) => {
         let html = "";
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 4; i++) {
           html += `
-          <div class="product_item">
+          <div class="product_item col col-6 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
               <div class="card h-100">
                 <img src="./assets/images/${
                   data[i].image
@@ -388,7 +411,7 @@
             </div>
           `;
         }
-        container.querySelector(".product_list").innerHTML = html;
+        container.querySelector(".row").innerHTML = html;
       };
 
       loadData(boSacContainer, bosac);
