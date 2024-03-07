@@ -76,7 +76,7 @@
           class="track_order d-none d-sm-none d-md-none d-lg-none d-xl-block d-xxl-block"
         >
           <a
-            href="./pages/userPage.html"
+            href="./userPage.html"
             class="track_order_link text-decoration-none d-flex align-items-center text-light cursor-pointer"
           >
             <div class="track_order_icon">
@@ -100,7 +100,7 @@
           class="cart d-none d-sm-block d-md-block d-lg-block d-xl-block d-xxl-block"
         >
           <a
-            href="./pages/cart.html"
+            href="./cart.html"
             class="cart_link text-decoration-none d-flex align-items-center text-light cursor-pointer"
           >
             <div class="cart_icon">
@@ -128,7 +128,7 @@
           class="user d-none d-sm-block d-md-block d-lg-block d-xl-block d-xxl-block"
         >
           <a
-            href="./pages/login.html"
+            href="./login.html"
             class="user_link d-flex align-items-center justify-content-between text-light cursor-pointer text-decoration-none"
           >
             <div class="user_icon">
@@ -209,7 +209,7 @@
 
             <li class="toggle_item text-light py-2">
               <a
-                href="./pages/userPage.html"
+                href="./userPage.html"
                 class="toggle_link d-inline-block w-100 text-decoration-none text-light"
                 >Tra cứu đơn hàng</a
               >
@@ -217,14 +217,14 @@
 
             <li class="toggle_item text-light py-2">
               <a
-                href="./pages/cart.html"
+                href="./cart.html"
                 class="toggle_link d-inline-block w-100 text-decoration-none text-light"
                 >Giỏ hàng</a
               >
             </li>
             <li class="toggle_item text-light py-2">
               <a
-                href="./pages/login.html"
+                href="./login.html"
                 class="toggle_link d-inline-block w-100 text-decoration-none text-light"
                 >Đăng nhập</a
               >
@@ -236,33 +236,45 @@
 
     <main class="container">
       <div class="categories_list_container">
-        <ul class="categories_list">
-          <li class="categories_item">
+        <ul class="categories_list row mx-0">
+          <li
+            class="categories_item p-0 col col-6 col-md-4 col-lg-2 col-xl-2 col-xxl-2"
+          >
             <a href="./allBoSacProducts.html" class="categories_item_link"
               >Bộ sạc</a
             >
           </li>
-          <li class="categories_item">
+          <li
+            class="categories_item p-0 col col-6 col-md-4 col-lg-2 col-xl-2 col-xxl-2"
+          >
             <a href="./allDaySacProducts.html" class="categories_item_link"
               >Dây sạc</a
             >
           </li>
-          <li class="categories_item">
+          <li
+            class="categories_item p-0 col col-6 col-md-4 col-lg-2 col-xl-2 col-xxl-2"
+          >
             <a href="./allPinDuPhongProducts.html" class="categories_item_link"
               >Pin dự phòng</a
             >
           </li>
-          <li class="categories_item">
+          <li
+            class="categories_item p-0 col col-6 col-md-4 col-lg-2 col-xl-2 col-xxl-2"
+          >
             <a href="./allTaiNgheProducts.html" class="categories_item_link"
               >Tai nghe</a
             >
           </li>
-          <li class="categories_item">
+          <li
+            class="categories_item p-0 col col-6 col-md-4 col-lg-2 col-xl-2 col-xxl-2"
+          >
             <a href="./allAppleProducts.html" class="categories_item_link"
               >Phụ kiện Apple</a
             >
           </li>
-          <li class="categories_item">
+          <li
+            class="categories_item p-0 col col-6 col-md-4 col-lg-2 col-xl-2 col-xxl-2"
+          >
             <a href="./allOtherProducts.html" class="categories_item_link"
               >Khác
             </a>
@@ -271,53 +283,70 @@
       </div>
 
       <div class="product_container">
-        <div class="product_wrapper">
-          <div class="product_image_container">
-            <img
-              src="../assets/images/bosac/cu-sac-nhanh-65w-ugreen-15579-robogan-mini-247x247.jpg"
-              class="product_image"
-              alt=""
-              id="product_image"
-            />
-          </div>
-          <div class="product_info_container">
-            <div class="product_info">
-              <div class="info_name" id="product_name">tên sản phẩm</div>
-              <div class="info_price" id="product_price">giá sản phẩm</div>
-              <div class="info_quantity">
-                <div class="input_label">Chọn số lượng</div>
-                <div class="input-group">
-                  <button class="btn btn-outline" id="minus_btn" type="button">
-                    -
-                  </button>
-                  <input
-                    type="text"
-                    id="quantity_input"
-                    class="form-control"
-                    value="1"
-                    aria-label="Example text with two button addons"
-                  />
-                  <button class="btn btn-outline" id="add_btn" type="button">
-                    +
+        <div class="product_wrapper container p-0 m-0">
+          <div class="row m-0">
+            <div
+              class="col col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 product_image_container"
+            >
+              <img
+                src="../assets/images/bosac/cu-sac-nhanh-65w-ugreen-15579-robogan-mini-247x247.jpg"
+                class="product_image w-100"
+                style="
+                  border-top-left-radius: 8px;
+                  border-bottom-left-radius: 8px;
+                "
+                alt=""
+                id="product_image"
+              />
+            </div>
+            <div
+              class="col col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-8 product_info_container"
+            >
+              <div class="product_info mt-4 px-2">
+                <div class="info_name" id="product_name">tên sản phẩm</div>
+                <div class="info_price" id="product_price">giá sản phẩm</div>
+                <div class="info_quantity d-flex align-items-center">
+                  <div class="input_label">Chọn số lượng</div>
+                  <div class="input-group d-flex align-items-center">
+                    <button
+                      class="btn btn-outline"
+                      id="minus_btn"
+                      type="button"
+                    >
+                      -
+                    </button>
+                    <input
+                      type="text"
+                      id="quantity_input"
+                      class="form-control"
+                      value="1"
+                      aria-label="Example text with two button addons"
+                    />
+                    <button class="btn btn-outline" id="add_btn" type="button">
+                      +
+                    </button>
+                  </div>
+                </div>
+                <div class="info_btn">
+                  <button
+                    type="button"
+                    class="btn btn-primary addToCart_btn border-0"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="22"
+                      width="22"
+                      fill="white"
+                      class="btn_icon"
+                      viewBox="0 0 576 512"
+                    >
+                      <path
+                        d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96zM252 160c0 11 9 20 20 20h44v44c0 11 9 20 20 20s20-9 20-20V180h44c11 0 20-9 20-20s-9-20-20-20H356V96c0-11-9-20-20-20s-20 9-20 20v44H272c-11 0-20 9-20 20z"
+                      />
+                    </svg>
+                    Thêm vào giỏ hàng
                   </button>
                 </div>
-              </div>
-              <div class="info_btn">
-                <button type="button" class="btn btn-primary addToCart_btn">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="22"
-                    width="22"
-                    fill="white"
-                    class="btn_icon"
-                    viewBox="0 0 576 512"
-                  >
-                    <path
-                      d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96zM252 160c0 11 9 20 20 20h44v44c0 11 9 20 20 20s20-9 20-20V180h44c11 0 20-9 20-20s-9-20-20-20H356V96c0-11-9-20-20-20s-20 9-20 20v44H272c-11 0-20 9-20 20z"
-                    />
-                  </svg>
-                  Thêm vào giỏ hàng
-                </button>
               </div>
             </div>
           </div>
@@ -328,12 +357,16 @@
         </div>
       </div>
 
-      <div class="product_related">
+      <div class="product_related position-relative">
         <div class="product_related_title">Sản phẩm liên quan</div>
-        <div class="product_related_link">
-          <a href="" class="all_link">Xem tất cả ></a>
+        <div class="product_related_link position-absolute top-0 end-0">
+          <a href="" class="all_link text-dark text-decoration-none"
+            >Xem tất cả ></a
+          >
         </div>
-        <div class="product_list"></div>
+        <div class="product_list container p-0">
+          <div class="product_list_related row mx-0 gy-3"></div>
+        </div>
       </div>
     </main>
 
@@ -341,12 +374,8 @@
       class="footer clearfix position-absolute bottom-0 w-100 text-light d-flex align-items-center justify-content-center"
     >
       <div
-        class="footer_container container d-flex align-items-center justify-content-between p-0"
+        class="footer_container container d-flex align-items-center justify-content-center p-0"
       >
-        <div class="infor">
-          22692311 - Trương Công Hải - Đại học Công nghiệp TPHCM
-        </div>
-
         <div class="copyright">
           © 2024 - Bản quyền thuộc về Phukiendienthoai
         </div>
@@ -387,17 +416,17 @@
 
       document.title = curProduct.ten;
       if (curProduct.loai[0] === "apple") {
-        allLink.href = "./allAppleProducts.html";
+        allLink.attr("href", "./allAppleProducts.html");
       } else if (curProduct.loai[0] === "other") {
-        allLink.href = "./allOtherProducts.html";
+        allLink.attr("href", "./allOtherProducts.html");
       } else if (curProduct.loai[0] === "tainghe") {
-        allLink.href = "./allTaiNgheProducts.html";
+        allLink.attr("href", "./allTaiNgheProducts.html");
       } else if (curProduct.loai[0] === "pinduphong") {
-        allLink.href = "./allPinDuPhongProducts.html";
+        allLink.attr("href", "./allPinDuPhongProducts.html");
       } else if (curProduct.loai[0] === "bosac") {
-        allLink.href = "./allBoSacProducts.html";
+        allLink.attr("href", "./allBoSacProducts.html");
       } else if (curProduct.loai[0] === "daysac") {
-        allLink.href = "./allDaySacProducts.html";
+        allLink.attr("href", "./allDaySacProducts.html");
       }
 
       productImage.attr("src", `../assets/images/${curProduct.image}`);
@@ -419,12 +448,12 @@
           .filter((item) => item !== curProduct)
           .forEach((item) => {
             html += `
-          <div class="product_item">
+          <div class="product_item col col-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
               <div class="card h-100">
                 <img src="../assets/images/${
                   item.image
                 }" class="card-img-top item_image" alt="${item.ten}" />
-                <div class="card-body">
+                <div class="card-body d-flex flex-column justify-content-between">
                   <h5 class="card-title item_name">${item.ten}</h5>
                   <p class="card-text item_price">${
                     item.gia.toLocaleString("en", {
@@ -433,8 +462,8 @@
                     }) + " VND"
                   }</p>
                 </div>
-                <div class="card-footer d-grid">
-                    <a href="#" class="btn btn-primary item_link_btn" id=${
+                <div class="card-footer border-0 d-grid">
+                    <a href="#" class="btn btn-primary item_link_btn border-0 position relative" id=${
                       item.id
                     }
                       >Xem chi tiết</a
@@ -444,7 +473,7 @@
             </div>
           `;
           });
-        $(".product_list").html(html);
+        $(".product_list_related").html(html);
       };
 
       loadData([...all].filter((item) => item.loai[0] === curProduct.loai[0]));
