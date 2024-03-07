@@ -20,7 +20,7 @@ const dataToImport = {
 let html = "";
 dataToImport[`${container.id}`].forEach((data) => {
   html += `
-            <div class="product_item">
+            <div class="product_item col col-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
               <div class="card h-100">
                 <img src="../assets/images/${
                   data.image
@@ -45,7 +45,7 @@ dataToImport[`${container.id}`].forEach((data) => {
             </div>
             `;
 });
-container.querySelector(".product_list").innerHTML = html;
+container.querySelector(".row").innerHTML = html;
 
 const detailBtns = document.querySelectorAll(".item_link_btn");
 detailBtns.forEach((btn) => {

@@ -15,9 +15,6 @@
 
 .product_list {
   margin: 16px 0;
-  display: grid;
-  grid-template-columns: repeat(5, auto);
-  gap: 20px;
 }
 
 .card-body {
@@ -29,10 +26,6 @@
 .item_name {
   font-size: 15px;
   text-overflow: ellipsis;
-}
-
-.item_image {
-  width: 222px;
 }
 
 .item_price {
@@ -63,5 +56,6 @@
 .btn_wrapper {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 20px;
 }
