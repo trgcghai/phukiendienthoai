@@ -17,12 +17,6 @@
   margin: 16px 0;
 }
 
-.card-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
 .item_name {
   font-size: 15px;
   text-overflow: ellipsis;
@@ -34,14 +28,11 @@
 
 .card-footer {
   background-color: #fff !important;
-  border: none;
 }
 
 .item_link_btn {
   background-color: var(--main-color);
   outline: none;
-  border: none;
-  position: relative;
 }
 
 .item_link_btn:hover {
@@ -54,8 +45,5 @@
 }
 
 .btn_wrapper {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
   gap: 20px;
 }

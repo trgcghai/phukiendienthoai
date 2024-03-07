@@ -25,7 +25,7 @@ dataToImport[`${container.id}`].forEach((data) => {
                 <img src="../assets/images/${
                   data.image
                 }" class="card-img-top item_image" alt="${data.ten}" />
-                <div class="card-body">
+                <div class="card-body d-flex justify-content-between flex-column">
                   <h5 class="card-title item_name">${data.ten}</h5>
                   <p class="card-text item_price">${
                     data.gia.toLocaleString("en", {
@@ -34,8 +34,8 @@ dataToImport[`${container.id}`].forEach((data) => {
                     }) + " VND"
                   }</p>
                 </div>
-                <div class="card-footer d-grid">
-                    <a href="#" class="btn btn-primary item_link_btn" id=${
+                <div class="card-footer border-0 d-grid">
+                    <a href="#" class="btn btn-primary item_link_btn border-0 position-relative" id=${
                       data.id
                     }
                       >Xem chi tiết</a
