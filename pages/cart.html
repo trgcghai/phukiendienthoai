@@ -200,7 +200,7 @@
             <li class="toggle_item text-light py-2">
               <a
                 href="./userPage.html"
-                class="toggle_link track_order_link d-inline-block w-100 text-decoration-none text-light"
+                class="toggle_link px-0 track_order_link d-inline-block w-100 text-decoration-none text-light"
                 >Tra cứu đơn hàng</a
               >
             </li>
@@ -208,14 +208,14 @@
             <li class="toggle_item text-light py-2">
               <a
                 href="./cart.html"
-                class="toggle_link cart_link d-inline-block w-100 text-decoration-none text-light"
+                class="toggle_link px-0 cart_link d-inline-block w-100 text-decoration-none text-light"
                 >Giỏ hàng</a
               >
             </li>
             <li class="toggle_item text-light py-2">
               <a
                 href="./login.html"
-                class="toggle_link user_link d-inline-block w-100 text-decoration-none text-light"
+                class="toggle_link px-0 border-0 user_link d-inline-block w-100 text-decoration-none text-light"
                 >Đăng nhập</a
               >
             </li>
@@ -223,5 +223,37 @@
         </div>
       </div>
     </header>
+
+    <script>
+      const username = localStorage.getItem("userName");
+      const userLink = $(".user_link");
+      const userText = $(".user_text");
+      const trackOrderLink = $(".track_order_link");
+      const cartLink = $(".cart_link");
+
+      if (username !== null) {
+        userText.text(
+          username.length >= 10 ? username.substring(0, 11) + "..." : username
+        );
+        userLink.each((index, elem) => {
+          $(elem).attr("href", "./userPage.html");
+          if (index !== 0) {
+            $(elem).text(
+              username.length >= 10
+                ? username.substring(0, 11) + "..."
+                : username
+            );
+          }
+        });
+      } else {
+        trackOrderLink.each((index, elem) => {
+          $(elem).attr("href", "./login.html");
+        });
+
+        cartLink.each((index, elem) => {
+          $(elem).attr("href", "./login.html");
+        });
+      }
+    </script>
   </body>
 </html>
