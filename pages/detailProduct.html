@@ -498,9 +498,9 @@
       loadData([...all].filter((item) => item.loai[0] === curProduct.loai[0]));
 
       const detailBtns = $(".item_link_btn");
-      detailBtns.each(() => {
-        $(this).click(() => {
-          localStorage.setItem("productId", btn.id);
+      detailBtns.each((index, elem) => {
+        $(elem).click(() => {
+          localStorage.setItem("productId", elem.id);
           window.location.href = "./detailProduct.html";
         });
       });
