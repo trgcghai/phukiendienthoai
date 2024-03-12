@@ -8,3 +8,15 @@
   background-color: var(--main-color);
   border-radius: 8px;
 }
+
+.quantity_input {
+  width: 70px !important;
+  flex: 0 0 auto !important;
+}
+
+.link_to_product {
+  white-space: nowrap; /* Prevent wrapping to next line */
+  overflow: hidden; /* Hide overflow initially */
+  text-overflow: ellipsis; /* Add ellipsis on overflow */
+  width: 150px;
+}
