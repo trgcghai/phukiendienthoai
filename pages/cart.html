@@ -3,7 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="../assets/bootstrap-5.3.3-dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="../css/library.css" />
+    <link rel="stylesheet" href="../css/header.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+    <link rel="stylesheet" href="../css/cart.css" />
+    <script src="../assets/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <title>Giỏ hàng</title>
   </head>
   <body>
     <header
@@ -224,36 +234,330 @@
       </div>
     </header>
 
-    <script>
-      const username = localStorage.getItem("userName");
-      const userLink = $(".user_link");
-      const userText = $(".user_text");
-      const trackOrderLink = $(".track_order_link");
-      const cartLink = $(".cart_link");
+    <main class="container">
+      <div
+        class="row mx-0 mb-4 p-2 bg-white"
+        style="border: 1px solid #ccc; border-radius: 8px"
+      >
+        <div class="col fs-5 col-4">
+          <input type="checkbox" class="me-1" id="checkAllProduct" />
+          <span>Sản phẩm</span>
+        </div>
+        <div class="col fs-5 text-center col-2">Đơn giá</div>
+        <div class="col fs-5 text-center col-2">Số lượng</div>
+        <div class="col fs-5 text-center col-2">Thành tiền</div>
+        <div class="col fs-5 text-center col-2">Thao tác</div>
+      </div>
 
-      if (username !== null) {
-        userText.text(
-          username.length >= 10 ? username.substring(0, 11) + "..." : username
-        );
-        userLink.each((index, elem) => {
-          $(elem).attr("href", "./userPage.html");
-          if (index !== 0) {
-            $(elem).text(
-              username.length >= 10
-                ? username.substring(0, 11) + "..."
-                : username
+      <div
+        class="cart_product_container container p-2 my-2 bg-white"
+        style="border-radius: 8px; border: 1px solid #ccc"
+      ></div>
+
+      <div
+        class="pay_section row mx-0 mb-4 p-2 bg-white"
+        style="border: 1px solid #ccc; border-radius: 8px"
+      >
+        <div class="col fs-5 col-8">Tổng tiền</div>
+        <div class="col fs-5 text-center col-2">
+          <span class="total_price">0 VNĐ</span>
+        </div>
+        <div
+          class="col text-center d-flex align-items-center justify-content-center col-2"
+        >
+          <span class="pay_btn text-white" style="cursor: pointer"
+            >Thanh toán</span
+          >
+        </div>
+      </div>
+    </main>
+
+    <footer
+      class="footer clearfix position-absolute bottom-0 w-100 text-light d-flex align-items-center justify-content-center"
+    >
+      <div
+        class="footer_container container d-flex align-items-center justify-content-center p-0"
+      >
+        <div class="copyright">
+          © 2024 - Bản quyền thuộc về Phukiendienthoai
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      $(document).ready(() => {
+        const username = localStorage.getItem("userName");
+        const userLink = $(".user_link");
+        const userText = $(".user_text");
+        const trackOrderLink = $(".track_order_link");
+        const cartLink = $(".cart_link");
+
+        if (username !== null) {
+          userText.text(
+            username.length >= 10 ? username.substring(0, 11) + "..." : username
+          );
+          userLink.each((index, elem) => {
+            $(elem).attr("href", "./userPage.html");
+            if (index !== 0) {
+              $(elem).text(
+                username.length >= 10
+                  ? username.substring(0, 11) + "..."
+                  : username
+              );
+            }
+          });
+        } else {
+          trackOrderLink.each((index, elem) => {
+            $(elem).attr("href", "./login.html");
+          });
+
+          cartLink.each((index, elem) => {
+            $(elem).attr("href", "./login.html");
+          });
+        }
+      });
+    </script>
+
+    <script type="module">
+      import { all } from "../assets/images/prepareData.js";
+
+      $(document).ready(() => {
+        function loadDataFromCart() {
+          const cart = JSON.parse(localStorage.getItem("cart"));
+          if (cart.length === 0) {
+            $(".cart_product_container").html(
+              '<div class="d-flex align-items-center justify-content-center">' +
+                '<img src="../assets/images/empty-cart.png" alt="empty cart" /></div>'
             );
+
+            $(".pay_section").addClass("d-none");
+          } else {
+            let html = "";
+
+            cart.forEach((item) => {
+              const product = all.find((prod) => prod.id == item.productId);
+              html += `
+              <div class="product_container row mx-0 mb-2 py-2">
+                <div class="col col-4 d-flex">
+                  <input type="checkbox" class="checkBoxProduct me-1" id="checkProduct-${
+                    product.id
+                  }" />
+                  <div class="product_info d-flex align-items-center">
+                    <img
+                      src="../assets/images/${product.image}"
+                      class="product_image mx-3"
+                      height="100"
+                      alt="${product.ten}"
+                    />
+                    <span class="product_name">${product.ten}</span>
+                  </div>
+                </div>
+                <div class="col text-center col-2">
+                  <div
+                    class="product_price d-flex align-items-center justify-content-center h-100"
+                  >
+                    ${
+                      product.gia.toLocaleString("en", {
+                        minimumFractionDigits: 0,
+                        maximumFractionDigits: 3,
+                      }) + " VND"
+                    }
+                  </div>
+                </div>
+                <div class="col text-center col-2">
+                  <div
+                    class="product_quantity d-flex align-items-center justify-content-center h-100"
+                  >
+                    <div class="input-group d-flex align-items-center">
+                      <button class="btn btn-outline minus_btn" id="${
+                        product.id
+                      }-minus" type="button">
+                        -
+                      </button>
+                      <input
+                        type="text"
+                        class="form-control quantity_input"
+                        style="text-align: center"
+                        value="${item.quantity}"
+                        id="${product.id}-quantity"
+                        aria-label="Example text with two button addons"
+                      />
+                      <button class="btn btn-outline add_btn" id="${
+                        product.id
+                      }-add" type="button">
+                        +
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col text-center col-2">
+                  <div
+                    class="product_total d-flex align-items-center justify-content-center h-100"
+                    id="${product.id}-total"
+                    aria-price="${product.gia}"
+                  >
+                  ${
+                    (product.gia * item.quantity).toLocaleString("en", {
+                      minimumFractionDigits: 0,
+                      maximumFractionDigits: 3,
+                    }) + " VND"
+                  }
+                  </div>
+                </div>
+                <div class="col text-center col-2">
+                  <div
+                    class="remove_btn_container d-flex align-items-center justify-content-center h-100"
+                  >
+                    <button
+                      type="button"
+                      class="remove_btn border-0 bg-white"
+                      style="outline: none; cursor-pointer"
+                      id="${product.id}"
+                    >
+                      Xóa
+                    </button>
+                  </div>
+                </div>
+              </div>
+              `;
+            });
+
+            $(".cart_product_container").html(html);
+          }
+        }
+        loadDataFromCart();
+
+        const checkAllBtn = $("#checkAllProduct");
+        const removeBtns = $(".remove_btn");
+        const addBtns = $(".add_btn");
+        const minusBtns = $(".minus_btn");
+        const checkBoxProducts = $(".checkBoxProduct");
+
+        removeBtns.each((index, button) => {
+          $(button).click(() => {
+            const id = button.id;
+            let cart = localStorage.getItem("cart");
+            if (cart !== null) {
+              cart = JSON.parse(cart);
+              cart = cart.filter((item) => item.productId !== id);
+              localStorage.setItem("cart", JSON.stringify(cart));
+            }
+
+            window.location.reload();
+          });
+        });
+
+        const updateTotalPrice = () => {
+          let totalPrice = 0;
+          const checkBoxProducts = $(".checkBoxProduct");
+          checkBoxProducts.each((index, item) => {
+            if (item.checked) {
+              const singlePrice = item.parentNode.parentNode
+                .querySelector(".product_total")
+                .getAttribute("aria-price");
+              const quantity =
+                item.parentNode.parentNode.querySelector(
+                  ".quantity_input"
+                ).value;
+              totalPrice += parseInt(singlePrice) * parseInt(quantity);
+            }
+          });
+          $(".total_price").text(
+            totalPrice.toLocaleString("en", {
+              minimumFractionDigits: 0,
+              maximumFractionDigits: 3,
+            }) + " VND"
+          );
+        };
+
+        addBtns.each((index, button) => {
+          $(button).click(() => {
+            const productId = button.id.split("-")[0];
+            const quantityInput = $(`#${productId}-quantity`);
+            quantityInput.val(parseInt(quantityInput.val()) + 1);
+
+            const productTotal = $(`#${productId}-total`);
+            productTotal.text(
+              (
+                parseInt(productTotal.attr("aria-price")) *
+                parseInt(quantityInput.val())
+              ).toLocaleString("en", {
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 3,
+              }) + " VND"
+            );
+
+            let cart = JSON.parse(localStorage.getItem("cart"));
+            cart.forEach((item) => {
+              if (item.productId == productId) {
+                item.quantity = quantityInput.val();
+              }
+            });
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+          });
+        });
+
+        minusBtns.each((index, button) => {
+          $(button).click(() => {
+            const productId = button.id.split("-")[0];
+            const quantityInput = $(`#${productId}-quantity`);
+            quantityInput.val(
+              parseInt(quantityInput.val()) - 1 <= 0
+                ? 1
+                : parseInt(quantityInput.val()) - 1
+            );
+
+            const productTotal = $(`#${productId}-total`);
+            productTotal.text(
+              (
+                parseInt(productTotal.attr("aria-price")) *
+                parseInt(quantityInput.val())
+              ).toLocaleString("en", {
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 3,
+              }) + " VND"
+            );
+
+            let cart = JSON.parse(localStorage.getItem("cart"));
+            cart.forEach((item) => {
+              if (item.productId == productId) {
+                item.quantity = quantityInput.val();
+              }
+            });
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+          });
+        });
+
+        checkAllBtn.change(() => {
+          if (checkAllBtn.prop("checked")) {
+            const checkBoxProducts = $(".checkBoxProduct");
+            checkBoxProducts.each((index, item) => {
+              item.checked = true;
+            });
+
+            updateTotalPrice();
+          } else {
+            const checkBoxProducts = $(".checkBoxProduct");
+            checkBoxProducts.each((index, item) => {
+              item.checked = false;
+            });
+            updateTotalPrice();
           }
         });
-      } else {
-        trackOrderLink.each((index, elem) => {
-          $(elem).attr("href", "./login.html");
-        });
 
-        cartLink.each((index, elem) => {
-          $(elem).attr("href", "./login.html");
+        checkBoxProducts.each((index, item) => {
+          item.addEventListener("change", () => {
+            const allChecked =
+              checkBoxProducts.length ===
+              checkBoxProducts.filter((index, item) => item.checked).length;
+            checkAllBtn.prop("checked", allChecked);
+
+            updateTotalPrice();
+          });
         });
-      }
+      });
     </script>
   </body>
 </html>

@@ -384,7 +384,48 @@
 
     <div class="backdrop"></div>
 
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+      <div
+        id="liveToast"
+        class="toast"
+        style="background-color: rgba(255, 255, 255, 1) !important"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+        data-bs-autohide="true"
+        data-bs-delay="5000"
+      >
+        <div class="d-flex">
+          <div class="toast-body fs-6">Thêm vào giỏ hành thành công !!</div>
+          <button
+            type="button"
+            class="btn-close me-2 m-auto"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+      </div>
+    </div>
+
     <script src="../js/handleCategoryModal.js"></script>
+
+    <script src="../js/handleAddToCart.js"></script>
+
+    <script>
+      $(document).ready(() => {
+        const toast = new bootstrap.Toast($("#liveToast"));
+
+        const showToast = $(".addToCart_btn");
+        showToast.click(() => {
+          toast.show();
+        });
+
+        const closeToast = $(".btn-close");
+        closeToast.click(() => {
+          toast.hide();
+        });
+      });
+    </script>
 
     <script>
       const username = localStorage.getItem("userName");

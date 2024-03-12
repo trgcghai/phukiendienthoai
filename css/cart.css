@@ -1,0 +1,10 @@
+.remove_btn:hover {
+  color: var(--main-color);
+  text-decoration: underline;
+}
+
+.pay_btn {
+  padding: 4px 8px;
+  background-color: var(--main-color);
+  border-radius: 8px;
+}
