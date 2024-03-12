@@ -349,7 +349,13 @@
                       height="100"
                       alt="${product.ten}"
                     />
-                    <span class="product_name">${product.ten}</span>
+                    <span class="product_name" style="cursor:pointer">
+                      <a href="./detailProduct.html" aria-id="${
+                        product.id
+                      }" class="link_to_product text-dark text-decoration-none">${
+                product.ten
+              }</a>
+                    </span>
                   </div>
                 </div>
                 <div class="col text-center col-2">
@@ -432,6 +438,7 @@
         const addBtns = $(".add_btn");
         const minusBtns = $(".minus_btn");
         const checkBoxProducts = $(".checkBoxProduct");
+        const linkToProducts = $(".link_to_product");
 
         removeBtns.each((index, button) => {
           $(button).click(() => {
@@ -444,6 +451,13 @@
             }
 
             window.location.reload();
+          });
+        });
+
+        linkToProducts.each((index, link) => {
+          $(link).on("click", () => {
+            localStorage.setItem("productId", link.getAttribute("aria-id"));
+            window.location.href = "./detailProduct.html";
           });
         });
 
