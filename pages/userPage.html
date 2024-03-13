@@ -73,30 +73,6 @@
         </div>
 
         <div
-          class="track_order d-none d-sm-none d-md-none d-lg-none d-xl-block d-xxl-block"
-        >
-          <a
-            href="./userPage.html"
-            class="track_order_link text-decoration-none d-flex align-items-center text-light cursor-pointer"
-          >
-            <div class="track_order_icon">
-              <svg
-                viewBox="0 0 18 24"
-                width="25"
-                height="25"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M13.9637 2.95195H10.7919C10.373 1.79337 9.27584 0.954399 7.97918 0.954399C6.68252 0.954399 5.58535 1.79337 5.16643 2.95195H1.99461C0.897441 2.95195 -0.000244141 3.85085 -0.000244141 4.9495L0.0462926 21.0481C0.0462926 22.1467 0.943978 23.0456 2.04115 23.0456H8.13543C7.54533 22.4721 7.32914 22.1792 6.98295 21.4322H1.67845L1.63191 4.58457H3.98947V5.39127C3.98947 6.48992 4.88715 7.38882 5.98432 7.38882H9.97404C11.0712 7.38882 11.9689 6.48992 11.9689 5.39127V4.58457H14.2811V10.4389C14.9893 10.5388 15.3402 10.7486 15.9586 11.0382V4.9495C15.9586 3.85085 15.0609 2.95195 13.9637 2.95195ZM7.97918 5.39127C7.34445 5.39127 6.52838 4.98792 6.52838 3.95073C6.52838 3.37451 6.93641 2.56781 7.97918 2.56781C8.52777 2.56781 9.38465 2.98544 9.38465 3.95073C9.38465 4.91601 8.65794 5.39127 7.97918 5.39127ZM13.0129 13.0579C10.26 13.0579 8.02572 15.2951 8.02572 18.0517C8.02572 20.8084 10.26 23.0456 13.0129 23.0456C15.7658 23.0456 18 20.8084 18 18.0517C18 15.2951 15.7658 13.0579 13.0129 13.0579ZM14.2995 20.0493L12.6538 18.4013C12.5607 18.3085 12.5071 18.1832 12.5042 18.0517V15.5648C12.5042 15.2851 12.7236 15.0654 13.0029 15.0654C13.2822 15.0654 13.5016 15.2851 13.5016 15.5648V17.852L14.9977 19.3501C15.0443 19.3959 15.0814 19.4504 15.1069 19.5106C15.1323 19.5708 15.1456 19.6354 15.1459 19.7007C15.1462 19.7661 15.1336 19.8308 15.1088 19.8913C15.084 19.9517 15.0474 20.0066 15.0013 20.0528C14.9551 20.099 14.9003 20.1356 14.84 20.1605C14.7796 20.1853 14.7149 20.198 14.6497 20.1976C14.5844 20.1973 14.5199 20.184 14.4598 20.1586C14.3997 20.1331 14.3452 20.096 14.2995 20.0493Z"
-                  fill="white"
-                ></path>
-              </svg>
-            </div>
-            <span class="track_order_text"> Tra cứu đơn hàng </span>
-          </a>
-        </div>
-
-        <div
           class="cart d-none d-sm-block d-md-block d-lg-block d-xl-block d-xxl-block"
         >
           <a
@@ -209,14 +185,6 @@
 
             <li class="toggle_item text-light py-2">
               <a
-                href="./userPage.html"
-                class="toggle_link px-0 track_order_link d-inline-block w-100 text-decoration-none text-light"
-                >Tra cứu đơn hàng</a
-              >
-            </li>
-
-            <li class="toggle_item text-light py-2">
-              <a
                 href="./cart.html"
                 class="toggle_link px-0 cart_link d-inline-block w-100 text-decoration-none text-light"
                 >Giỏ hàng</a
@@ -234,7 +202,64 @@
       </div>
     </header>
 
-    <main class="container"></main>
+    <div class="header_wrapper"></div>
+
+    <main class="container position-relative">
+      <div class="row m-0 p-0">
+        <div class="col col-4 bg-primary border">fdsa</div>
+        <div class="col col-8 bg-primary border">fdsa</div>
+      </div>
+
+      <div
+        class="categories_list_container position-absolute d-none"
+        style="top: 12px; right: 0; left: 0"
+      >
+        <ul class="categories_list row m-0">
+          <li
+            class="categories_item p-0 col col-6 col-md-4 col-lg-2 col-xl-2 col-xxl-2"
+          >
+            <a href="./allBoSacProducts.html" class="categories_item_link"
+              >Bộ sạc</a
+            >
+          </li>
+          <li
+            class="categories_item p-0 col col-6 col-md-4 col-lg-2 col-xl-2 col-xxl-2"
+          >
+            <a href="./allDaySacProducts.html" class="categories_item_link"
+              >Dây sạc</a
+            >
+          </li>
+          <li
+            class="categories_item p-0 col col-6 col-md-4 col-lg-2 col-xl-2 col-xxl-2"
+          >
+            <a href="./allPinDuPhongProducts.html" class="categories_item_link"
+              >Pin dự phòng</a
+            >
+          </li>
+          <li
+            class="categories_item p-0 col col-6 col-md-4 col-lg-2 col-xl-2 col-xxl-2"
+          >
+            <a href="./allTaiNgheProducts.html" class="categories_item_link"
+              >Tai nghe</a
+            >
+          </li>
+          <li
+            class="categories_item p-0 col col-6 col-md-4 col-lg-2 col-xl-2 col-xxl-2"
+          >
+            <a href="./allAppleProducts.html" class="categories_item_link"
+              >Phụ kiện Apple</a
+            >
+          </li>
+          <li
+            class="categories_item p-0 col col-6 col-md-4 col-lg-2 col-xl-2 col-xxl-2"
+          >
+            <a href="./allOtherProducts.html" class="categories_item_link"
+              >Khác
+            </a>
+          </li>
+        </ul>
+      </div>
+    </main>
 
     <footer
       class="footer clearfix position-absolute bottom-0 w-100 text-light d-flex align-items-center justify-content-center"
@@ -247,6 +272,8 @@
         </div>
       </div>
     </footer>
+
+    <div class="backdrop"></div>
 
     <script>
       const username = localStorage.getItem("userName");
@@ -279,5 +306,21 @@
         });
       }
     </script>
+
+    <script src="../js/handleCategoryModal.js"></script>
+
+    <script>
+      const categoriesShow = $(".categories");
+      categoriesShow.click(() => {
+        $(".categories_list_container").removeClass("d-none");
+      });
+
+      const backdropHide = $(".backdrop");
+      backdropHide.click(() => {
+        $(".categories_list_container").addClass("d-none");
+      });
+    </script>
+
+    <script type="module" src="../js/handleSearchBar.js"></script>
   </body>
 </html>
