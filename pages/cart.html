@@ -15,7 +15,7 @@
     <script src="../js/jquery-3.7.1.min.js"></script>
     <title>Giỏ hàng</title>
   </head>
-  <body>
+  <body class="position-relative">
     <header
       class="header position-fixed top-0 start-0 end-0 z-1 d-flex align-items-center justify-content-center"
     >
@@ -234,7 +234,7 @@
       </div>
     </header>
 
-    <main class="container">
+    <main class="container position-relative">
       <div
         class="row mx-0 mb-4 p-2 bg-white"
         style="border: 1px solid #ccc; border-radius: 8px"
@@ -292,6 +292,56 @@
           >
         </div>
       </div>
+
+      <div
+        class="categories_list_container position-absolute d-none"
+        style="top: 12px; right: 0; left: 0"
+      >
+        <ul class="categories_list row m-0">
+          <li
+            class="categories_item p-0 col col-6 col-md-4 col-lg-2 col-xl-2 col-xxl-2"
+          >
+            <a href="./allBoSacProducts.html" class="categories_item_link"
+              >Bộ sạc</a
+            >
+          </li>
+          <li
+            class="categories_item p-0 col col-6 col-md-4 col-lg-2 col-xl-2 col-xxl-2"
+          >
+            <a href="./allDaySacProducts.html" class="categories_item_link"
+              >Dây sạc</a
+            >
+          </li>
+          <li
+            class="categories_item p-0 col col-6 col-md-4 col-lg-2 col-xl-2 col-xxl-2"
+          >
+            <a href="./allPinDuPhongProducts.html" class="categories_item_link"
+              >Pin dự phòng</a
+            >
+          </li>
+          <li
+            class="categories_item p-0 col col-6 col-md-4 col-lg-2 col-xl-2 col-xxl-2"
+          >
+            <a href="./allTaiNgheProducts.html" class="categories_item_link"
+              >Tai nghe</a
+            >
+          </li>
+          <li
+            class="categories_item p-0 col col-6 col-md-4 col-lg-2 col-xl-2 col-xxl-2"
+          >
+            <a href="./allAppleProducts.html" class="categories_item_link"
+              >Phụ kiện Apple</a
+            >
+          </li>
+          <li
+            class="categories_item p-0 col col-6 col-md-4 col-lg-2 col-xl-2 col-xxl-2"
+          >
+            <a href="./allOtherProducts.html" class="categories_item_link"
+              >Khác
+            </a>
+          </li>
+        </ul>
+      </div>
     </main>
 
     <footer
@@ -305,6 +355,8 @@
         </div>
       </div>
     </footer>
+
+    <div class="backdrop"></div>
 
     <script>
       $(document).ready(() => {
@@ -337,6 +389,20 @@
             $(elem).attr("href", "./login.html");
           });
         }
+      });
+    </script>
+
+    <script src="../js/handleCategoryModal.js"></script>
+
+    <script>
+      const categoriesShow = $(".categories");
+      categoriesShow.click(() => {
+        $(".categories_list_container").removeClass("d-none");
+      });
+
+      const backdropHide = $(".backdrop");
+      backdropHide.click(() => {
+        $(".categories_list_container").addClass("d-none");
       });
     </script>
 
