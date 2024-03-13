@@ -165,28 +165,28 @@ under500Btn.addEventListener("click", () => {
   handleActionClick(
     filterBtns,
     under500Btn,
-    dataToImport[`${productContainer.id}`]
+    productContainer.id != 'sorted' ? dataToImport[`${productContainer.id}`] : JSON.parse(localStorage.getItem('searchResult')).data
   );
 });
 under1mBtn.addEventListener("click", () => {
   handleActionClick(
     filterBtns,
     under1mBtn,
-    dataToImport[`${productContainer.id}`]
+    productContainer.id != 'sorted' ? dataToImport[`${productContainer.id}`] : JSON.parse(localStorage.getItem('searchResult')).data
   );
 });
 under2mBtn.addEventListener("click", () => {
   handleActionClick(
     filterBtns,
     under2mBtn,
-    dataToImport[`${productContainer.id}`]
+    productContainer.id != 'sorted' ? dataToImport[`${productContainer.id}`] : JSON.parse(localStorage.getItem('searchResult')).data
   );
 });
 above2mBtn.addEventListener("click", () => {
   handleActionClick(
     filterBtns,
     above2mBtn,
-    dataToImport[`${productContainer.id}`]
+    productContainer.id != 'sorted' ? dataToImport[`${productContainer.id}`] : JSON.parse(localStorage.getItem('searchResult')).data
   );
 });
 
@@ -194,27 +194,27 @@ nameAscBtn.addEventListener("click", () => {
   handleActionClick(
     sortBtns,
     nameAscBtn,
-    dataToImport[`${productContainer.id}`]
+    productContainer.id != 'sorted' ? dataToImport[`${productContainer.id}`] : JSON.parse(localStorage.getItem('searchResult')).data
   );
 });
 nameDescBtn.addEventListener("click", () => {
   handleActionClick(
     sortBtns,
     nameDescBtn,
-    dataToImport[`${productContainer.id}`]
+    productContainer.id != 'sorted' ? dataToImport[`${productContainer.id}`] : JSON.parse(localStorage.getItem('searchResult')).data
   );
 });
 priceAscBtn.addEventListener("click", () => {
   handleActionClick(
     sortBtns,
     priceAscBtn,
-    dataToImport[`${productContainer.id}`]
+    productContainer.id != 'sorted' ? dataToImport[`${productContainer.id}`] : JSON.parse(localStorage.getItem('searchResult')).data
   );
 });
 priceDescBtn.addEventListener("click", () => {
   handleActionClick(
     sortBtns,
     priceDescBtn,
-    dataToImport[`${productContainer.id}`]
+    productContainer.id != 'sorted' ? dataToImport[`${productContainer.id}`] : JSON.parse(localStorage.getItem('searchResult')).data
   );
 });

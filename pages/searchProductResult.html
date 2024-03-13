@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../css/allCategoriesProduct.css" />
     <script src="../assets/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
     <script src="../js/jquery-3.7.1.min.js"></script>
-    <title>Phụ kiện khác</title>
+    <title>Kết quả tìm kiếm</title>
   </head>
   <body>
     <header
@@ -282,8 +282,8 @@
         </ul>
       </div>
 
-      <div class="product_list_container" id="other">
-        <div class="product_list_title">Phụ kiện khác</div>
+      <div class="product_list_container" id="sorted">
+        <div class="product_list_title">Kết quả tìm kiếm</div>
         <div class="product_action filter_action">
           <div class="filter_selection">Chọn mức giá</div>
           <div class="btn_wrapper d-flex align-items-center flex-wrap">
@@ -372,6 +372,52 @@
     <div class="backdrop"></div>
 
     <script>
+      $(document).ready(() => {
+        const title = $(".product_list_title");
+        const searchResult = JSON.parse(localStorage.getItem("searchResult"));
+        title.text(
+          searchResult.data.length + " kết quả tìm kiếm cho " + searchResult.key
+        );
+        let html = "";
+        searchResult.data.forEach((item) => {
+          html += `
+            <div class="product_item col col-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
+              <div class="card h-100">
+                <img src="../assets/images/${
+                  item.image
+                }" class="card-img-top item_image" alt="${item.ten}" />
+                <div class="card-body d-flex justify-content-between flex-column">
+                  <h5 class="card-title item_name">${item.ten}</h5>
+                  <p class="card-text item_price">${
+                    item.gia.toLocaleString("en", {
+                      minimumFractionDigits: 0,
+                      maximumFractionDigits: 3,
+                    }) + " VND"
+                  }</p>
+                </div>
+                <div class="card-footer border-0 d-grid">
+                    <a href="./detailProduct.html" class="btn btn-primary item_link_btn border-0 position-relative" id=${
+                      item.id
+                    }
+                      >Xem chi tiết</a
+                    >
+                  </div>
+              </div>
+            </div>
+            `;
+        });
+        $(".product_list").find(".row").html(html);
+
+        const detailBtns = $(".item_link_btn");
+        detailBtns.each((index, btn) => {
+          btn.addEventListener("click", () => {
+            localStorage.setItem("productId", btn.id);
+          });
+        });
+      });
+    </script>
+
+    <script>
       const username = localStorage.getItem("userName");
       const userLink = $(".user_link");
       const userText = $(".user_text");
@@ -402,8 +448,6 @@
         });
       }
     </script>
-
-    <script type="module" src="../js/loadData.js"></script>
 
     <script src="../js/handleCategoryModal.js"></script>
 
