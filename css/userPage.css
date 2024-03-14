@@ -6,3 +6,31 @@
 .link_item:hover {
   color: blue !important;
 }
+
+.form {
+  width: 500px;
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  background-color: #fff;
+  z-index: 10;
+}
+
+.form_icon {
+  margin-bottom: 4px;
+  cursor: pointer;
+}
+
+.form_icon:hover {
+  fill: var(--main-color);
+}
+
+.confirm_btn {
+  outline: none;
+}
+
+.resetPassword_form {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -80%);
+}

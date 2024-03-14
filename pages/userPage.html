@@ -15,7 +15,7 @@
     <script src="../js/jquery-3.7.1.min.js"></script>
     <title>Document</title>
   </head>
-  <body>
+  <body class="position-relative">
     <header
       class="header position-fixed top-0 start-0 end-0 z-1 d-flex align-items-center justify-content-center"
     >
@@ -272,7 +272,7 @@
                   </div>
                 </div>
               </div>
-              <div class="mb-3 row m-0 p-0 gap-2">
+              <div class="mb-3 row p-0 m-0 gap-2">
                 <button
                   type="button"
                   class="m-0 update_btn col btn btn-primary border-0"
@@ -282,10 +282,16 @@
                 <a
                   href="./webInfo.html"
                   type="button"
-                  class="m-0 web_detail col btn btn-primary border-0"
+                  class="m-0 web_detail col col-auto btn btn-primary border-0"
                 >
                   Thông tin trang web
                 </a>
+                <button
+                  type="button"
+                  class="m-0 changepass_btn col btn btn-primary border-0"
+                >
+                  Đổi mật khẩu
+                </button>
                 <button
                   type="button"
                   class="m-0 logout_btn col btn btn-primary border-0"
@@ -364,15 +370,204 @@
 
     <div class="backdrop"></div>
 
+    <div class="form resetPassword_form d-none position-absolute">
+      <div
+        class="wrapper_icon p-2 position-absolute"
+        style="top: 12px; right: 12px"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="22"
+          class="form_icon"
+          viewBox="0 0 384 512"
+        >
+          <path
+            d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+          />
+        </svg>
+      </div>
+      <h2 class="form_title mb-3">Đặt lại mật khẩu</h2>
+      <form>
+        <div class="form_section mb-3">
+          <label for="reset_password" class="form-label">Mật khẩu mới</label>
+          <input
+            required
+            type="password"
+            class="form-control"
+            id="reset_password"
+            aria-describedby="reset-passwordHelp"
+          />
+          <div id="reset-passwordHelp" class="form-text"></div>
+        </div>
+        <div class="form_section mb-3">
+          <label for="reset_cfpassword" class="form-label"
+            >Nhập lại mật khẩu</label
+          >
+          <input
+            required
+            type="password"
+            class="form-control"
+            id="reset_cfpassword"
+            aria-describedby="reset-cfpasswordHelp"
+          />
+          <div id="reset-cfpasswordHelp" class="form-text"></div>
+        </div>
+        <div class="form_section mb-3 mt-4 d-grid">
+          <button class="btn btn-primary confirm_btn border-0">Xác nhận</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+      <div
+        id="liveToast"
+        class="toast"
+        style="background-color: rgba(255, 255, 255, 1) !important"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+        data-bs-autohide="true"
+        data-bs-delay="5000"
+      >
+        <div class="d-flex">
+          <div class="toast-body fs-6">Cập nhật thông tin thành công !!</div>
+          <button
+            type="button"
+            class="btn-close me-2 m-auto"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+      </div>
+    </div>
     <script src="../js/checkLogin.js"></script>
 
     <script src="../js/handleCategoryModal.js"></script>
 
     <script>
       $(document).ready(() => {
+        const userEmail = $("#userEmail");
+        const userName = $("#userName");
+        const userRealName = $("#userRealName");
+        const userPhone = $("#userPhone");
+        const userAddress = $("#userAddress");
+        const userBirthday = $("#userBirthday");
+        const userGenderMale = $("#male-check");
+        const userGenderFemale = $("#female-check");
+        const showChangePass = $(".changepass_btn");
+        const hideChangePass = $(".wrapper_icon");
+        const toast = new bootstrap.Toast($("#liveToast"));
+
+        const validateDataUpdate = () => {
+          const isUserNameValid = /^[a-zA-Z0-9_-]{8,}$/.test(userName.val());
+          const isRealNameValid = /^[a-zA-Z0-9-_]{8,}$/.test(
+            userRealName.val()
+          );
+          const isEmailValid =
+            /^[a-zA-Z0-9]{6,}\.[a-zA-Z]{4,}\@[a-zA-Z]{5,}\.[a-zA-Z]{3,}$/.test(
+              userEmail.val()
+            );
+          const isPhoneValid = /^[0-9]{10,}$/.test(userPhone.val());
+          const isAddressValid = /^[a-zA-Z0-9-_]{1,}$/.test(userAddress.val());
+          const isBirthdayValid = /^[0-9]{4,}-[0-9]{2}-[0-9]{2}$/.test(
+            userBirthday.val()
+          );
+
+          if (!isUserNameValid) {
+            userName.val("");
+          }
+
+          if (!isRealNameValid) {
+            userRealName.val("");
+          }
+
+          if (!isPhoneValid) {
+            userPhone.val("");
+          }
+
+          if (!isAddressValid) {
+            userAddress.val("");
+          }
+
+          if (!isBirthdayValid) {
+            userBirthday.val("");
+          }
+
+          if (!isEmailValid) {
+            userEmail.val("");
+          }
+
+          return (
+            isEmailValid ||
+            isUserNameValid ||
+            isRealNameValid ||
+            isAddressValid ||
+            isPhoneValid ||
+            isBirthdayValid
+          );
+        };
+
+        const closeToast = $(".btn-close");
+        closeToast.click(() => {
+          toast.hide();
+        });
+
+        showChangePass.click(() => {
+          $(".resetPassword_form").removeClass("d-none");
+          $(".backdrop").addClass("d-block");
+        });
+
+        hideChangePass.click(() => {
+          $(".resetPassword_form").addClass("d-none");
+          $(".backdrop").removeClass("d-block");
+        });
+
+        $(".backdrop").click(() => {
+          $(".resetPassword_form").addClass("d-none");
+          $(".backdrop").removeClass("d-block");
+        });
+
+        const user = JSON.parse(localStorage.getItem("user") || "null");
+        if (user) {
+          userName.val(user.name);
+          userEmail.val(user.email);
+          userRealName.val(user.realName);
+          userAddress.val(user.address);
+          userBirthday.val(user.birthday);
+          userPhone.val(user.phone);
+          if (user.gender === "male" || user.gender === null) {
+            userGenderMale.prop("checked", true);
+          } else if (user.gender === "female") {
+            userGenderFemale.prop("checked", true);
+          }
+        } else {
+          userGenderMale.prop("checked", true);
+        }
+
+        $(".update_btn").click(() => {
+          if (validateDataUpdate()) {
+            toast.show();
+          }
+
+          localStorage.setItem(
+            "user",
+            JSON.stringify({
+              name: userName.val().trim(),
+              email: userEmail.val().trim(),
+              realName: userRealName.val().trim(),
+              address: userAddress.val().trim(),
+              birthday: userBirthday.val().trim(),
+              phone: userPhone.val().trim(),
+              gender: userGenderMale.prop("checked")
+                ? userGenderMale.val()
+                : userGenderFemale.val(),
+            })
+          );
+        });
+
         $(".logout_btn").click((e) => {
           e.preventDefault();
-          localStorage.removeItem("userName");
+          localStorage.removeItem("user");
           window.location.href = "./login.html";
         });
       });
