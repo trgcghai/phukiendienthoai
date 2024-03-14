@@ -2,6 +2,11 @@ const addToCartBtn = document.querySelector(".addToCart_btn")
 const productQuantities = document.getElementById('quantity_input')
 
 addToCartBtn.addEventListener('click', () => {
+    if (localStorage.getItem('user') === null) {
+        window.location.href = '../pages/login.html'
+        return
+    }
+
     const currProduct = {
         productId: localStorage.getItem('productId'),
         quantity: productQuantities.value
@@ -25,7 +30,6 @@ addToCartBtn.addEventListener('click', () => {
     }
 
     localStorage.setItem('cart', JSON.stringify(cart))
-
     productQuantities.value = 1
 })
 

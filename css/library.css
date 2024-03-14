@@ -81,9 +81,13 @@ body {
   z-index: 0 !important;
 }
 
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
 .btn-outline:hover {
   background-color: var(--main-color) !important;
   color: #fff;
+  outline: none;
 }
 
 .btn-outline:active {

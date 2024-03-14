@@ -395,37 +395,7 @@
       });
     </script>
 
-    <script>
-      const username = localStorage.getItem("userName");
-      const userLink = $(".user_link");
-      const userText = $(".user_text");
-      const trackOrderLink = $(".track_order_link");
-      const cartLink = $(".cart_link");
-
-      if (username !== null) {
-        userText.text(
-          username.length >= 10 ? username.substring(0, 11) + "..." : username
-        );
-        userLink.each((index, elem) => {
-          $(elem).attr("href", "./userPage.html");
-          if (index !== 0) {
-            $(elem).text(
-              username.length >= 10
-                ? username.substring(0, 11) + "..."
-                : username
-            );
-          }
-        });
-      } else {
-        trackOrderLink.each((index, elem) => {
-          $(elem).attr("href", "./login.html");
-        });
-
-        cartLink.each((index, elem) => {
-          $(elem).attr("href", "./login.html");
-        });
-      }
-    </script>
+    <script src="../js/checkLogin.js"></script>
 
     <script type="module">
       if (localStorage.getItem("productId") === null) {

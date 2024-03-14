@@ -79,7 +79,7 @@
           Đã có tài khoản ?
           <button class="form_link toLogin">Đăng nhập tại đây</button>
         </div>
-        <form>
+        <form class="row p-0 m-0">
           <div class="form_section mb-3">
             <label for="signup_email" class="form-label">Email</label>
             <input
@@ -95,7 +95,7 @@
             <label for="signup_username" class="form-label">Username</label>
             <input
               required
-              type="email"
+              type="text"
               class="form-control"
               id="signup_username"
               aria-describedby="signup-usernameHelp"
@@ -126,7 +126,7 @@
             />
             <div id="cfpasswordHelp" class="form-text"></div>
           </div>
-          <div class="form_section mb-3 mt-4 d-grid">
+          <div class="form_section mb-3 d-grid">
             <button class="btn btn-primary submit_btn signup_btn">
               Đăng ký
             </button>
@@ -310,7 +310,10 @@
             return;
           }
 
-          localStorage.setItem("userName", username.val());
+          localStorage.setItem(
+            "user",
+            JSON.stringify({ name: username.val() })
+          );
           window.location.href = "../index.html";
           username.val("");
           password.val("");
@@ -398,7 +401,10 @@
             return;
           }
 
-          localStorage.setItem("userName", username.val());
+          localStorage.setItem(
+            "user",
+            JSON.stringify({ name: username.val(), email: email.val() })
+          );
           window.location.href = "../index.html";
           email.val("");
           password.val("");

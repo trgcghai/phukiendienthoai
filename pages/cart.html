@@ -202,7 +202,7 @@
       </div>
     </header>
 
-    <main class="container position-relative">
+    <main class="container mb-4 position-relative">
       <div
         class="row mx-0 mb-4 p-2 bg-white"
         style="border: 1px solid #ccc; border-radius: 8px"
@@ -326,39 +326,7 @@
 
     <div class="backdrop"></div>
 
-    <script>
-      $(document).ready(() => {
-        const username = localStorage.getItem("userName");
-        const userLink = $(".user_link");
-        const userText = $(".user_text");
-        const trackOrderLink = $(".track_order_link");
-        const cartLink = $(".cart_link");
-
-        if (username !== null) {
-          userText.text(
-            username.length >= 10 ? username.substring(0, 11) + "..." : username
-          );
-          userLink.each((index, elem) => {
-            $(elem).attr("href", "./userPage.html");
-            if (index !== 0) {
-              $(elem).text(
-                username.length >= 10
-                  ? username.substring(0, 11) + "..."
-                  : username
-              );
-            }
-          });
-        } else {
-          trackOrderLink.each((index, elem) => {
-            $(elem).attr("href", "./login.html");
-          });
-
-          cartLink.each((index, elem) => {
-            $(elem).attr("href", "./login.html");
-          });
-        }
-      });
-    </script>
+    <script src="../js/checkLogin.js"></script>
 
     <script src="../js/handleCategoryModal.js"></script>
 
@@ -380,10 +348,10 @@
       $(document).ready(() => {
         function loadDataFromCart() {
           const cart = JSON.parse(localStorage.getItem("cart"));
-          if (cart.length === 0) {
+          if (cart === null || cart.length === 0) {
             $(".cart_product_container").html(
               '<div class="d-flex align-items-center justify-content-center">' +
-                '<img src="../assets/images/empty-cart.png" alt="empty cart" /></div>'
+                '<img src="../assets/images/empty-cart.png" class="w-100" style="max-width: 800px" alt="empty cart" /></div>'
             );
 
             $(".pay_section").addClass("d-none");
