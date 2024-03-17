@@ -3,150 +3,230 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="../assets/bootstrap-5.3.3-dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="../css/library.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+    <link rel="stylesheet" href="../css/webInfo.css" />
+    <script src="../assets/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
+    <script src="../js/jquery-3.7.1.min.js"></script>
     <title>Document</title>
   </head>
   <body>
-    <div
-      class="col"
-      style="
-        background-color: #fff;
-        border-radius: 12px;
-        border: 1px solid #ccc;
-      "
+    <header
+      class="header position-fixed top-0 end-0 start-0 d-flex align-items-center justify-content-center"
+      style="height: 50px; background-color: var(--main-color); z-index: 1"
     >
-      <div class="web_title fs-4 my-2">Thông tin trang web</div>
-      <div class="fs-6 mt-2 mb-4">
-        Thành viên thực hiện:
-        <ul class="list-unstyled ms-4">
-          <li>Họ và tên: Trương Công Hải - MSSV: 22692311</li>
-        </ul>
-      </div>
+      <a
+        href="#slide"
+        class="link text-capitalize text-decoration-none text-light p-2 mx-4 active_link"
+        >Home</a
+      >
+      <a
+        href="#author"
+        class="link text-capitalize text-decoration-none text-light p-2 mx-4"
+        >author</a
+      >
+      <a
+        href="#sitemap"
+        class="link text-capitalize text-decoration-none text-light p-2 mx-4"
+        >Sitemap</a
+      >
+      <a
+        href="#references"
+        class="link text-capitalize text-decoration-none text-light p-2 mx-4"
+        >references</a
+      >
+    </header>
 
-      <div class="fs-6 my-4">
-        Layout được tham khảo từ các trang web:
-        <ul class="list-unstyled ms-4">
-          <li class="row p-0 m-0">
-            <div class="p-0 col col-2">Cellphones:</div>
+    <div class="container mb-0 p-0">
+      <div id="slide" class="row p-3 m-0">
+        <div class="col col-6 d-flex justify-content-center flex-column">
+          <h3 class="text-light">Phukiendienthoai</h3>
+          <p class="text-light">
+            Chúng tôi cung cấp các sản phẩm phụ kiện điện thoại chính hãng, giá
+            tốt nhất trên thị trường. Với phương châm "Chất lượng tạo nên thương
+            hiệu", chúng tôi cam kết mang đến cho bạn những sản phẩm chất lượng
+            nhất, uy tín nhất.
+          </p>
+          <div class="wrapper">
             <a
-              class="p-0 col col-2"
-              href="https://cellphones.com.vn/"
-              target="_blank"
-              >https://cellphones.com.vn/</a
-            >
-          </li>
-          <li class="row p-0 m-0">
-            <div class="p-0 col col-2">Gearvn:</div>
-            <a class="p-0 col col-2" href="https://gearvn.com/" target="_blank"
-              >https://gearvn.com/</a
-            >
-          </li>
-          <li class="row p-0 m-0">
-            <div class="p-0 col col-2">Shopee:</div>
-            <a class="p-0 col col-2" href="https://shopee.vn/" target="_blank"
-              >https://gearvn.com/</a
-            >
-          </li>
-        </ul>
-      </div>
-
-      <div class="fs-6 my-4">
-        Site map:
-        <ul class="list-unstyled ms-4">
-          <li>
-            <a
-              class="text-decoration-none text-dark link_item"
               href="../index.html"
-              >index.html</a
-            >
-          </li>
-          <li class="ms-4">
-            |-
+              class="btn btn-light shop_btn text-decoration-none"
+              >Shop now !!
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div id="author" class="p-3 pb-5 position-relative bg-light">
+        <h3 class="text-center">Author</h3>
+        <span class="text-center mb-4 pb-2 d-block" style="color: #4b4a4a">
+          Các thành viên thực hiện trang web
+        </span>
+        <div class="d-flex align-items-center justify-content-around py-3">
+          <div
+            class="card"
+            style="width: 18rem; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px"
+          >
+            <div class="card-body d-flex flex-column gap-2">
+              <h5 class="card-title text-capitalize">trương công hải</h5>
+              <h6 class="card-subtitle mb-2 text-body-secondary">
+                Trưởng nhóm
+              </h6>
+              <p class="card-text">
+                MSSV: 22692311 <br />
+                Lớp: DHKTPM18ATT
+              </p>
+            </div>
+          </div>
+          <div
+            class="card"
+            style="width: 18rem; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px"
+          >
+            <div class="card-body d-flex flex-column gap-2">
+              <h5 class="card-title text-capitalize">trương công hải</h5>
+              <h6 class="card-subtitle mb-2 text-body-secondary">
+                Trưởng nhóm
+              </h6>
+              <p class="card-text">
+                MSSV: 22692311 <br />
+                Lớp: DHKTPM18ATT
+              </p>
+            </div>
+          </div>
+          <div
+            class="card"
+            style="width: 18rem; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px"
+          >
+            <div class="card-body d-flex flex-column gap-2">
+              <h5 class="card-title text-capitalize">trương công hải</h5>
+              <h6 class="card-subtitle mb-2 text-body-secondary">
+                Trưởng nhóm
+              </h6>
+              <p class="card-text">
+                MSSV: 22692311 <br />
+                Lớp: DHKTPM18ATT
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        id="sitemap"
+        class="p-3 m-0"
+        style="
+          background-image: linear-gradient(
+            to left,
+            #e78181,
+            var(--main-color)
+          );
+        "
+      >
+        <h3 class="text-center text-capitalize text-light">Site map</h3>
+        <span class="text-center mb-4 pb-2 d-block text-light">
+          Bản đồ cấu trúc trang web
+        </span>
+        <div class="d-flex align-items-center justify-content-center">
+          <img
+            src="../assets/images/sitemap.drawio.png"
+            class="p-3"
+            alt="sitemap"
+          />
+        </div>
+      </div>
+
+      <div id="references" class="p-3 m-0 bg-light">
+        <h3 class="text-center text-capitalize text-dark">references</h3>
+        <span class="text-center mb-4 pb-2 d-block" style="color: #4b4a4a">
+          Trang web được tham khảo giao diện từ các trang web bên dưới
+        </span>
+        <div
+          class="card mb-4"
+          style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px"
+        >
+          <div class="card-body">
+            <h5 class="card-title text-capitalize">Cellphones</h5>
+            <p class="card-text">
+              Cellphones là công ty hoạt động trong lĩnh vực bán lẻ các sản phẩm
+              công nghệ, cùng với dịch vụ sửa chữa điện thoại, máy tính và lĩnh
+              vực truyền thông giải trí.
+            </p>
             <a
-              class="text-decoration-none text-dark link_item"
-              href="allAppleProducts.html"
-              >allAppleProducts.html</a
-            >
-          </li>
-          <li class="ms-4">
-            |-
+              href="https://cellphones.com.vn/"
+              class="btn btn-primary border-0"
+              style="outline: none"
+              >Ghé thăm trang web
+            </a>
+          </div>
+        </div>
+        <div
+          class="card mb-4"
+          style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px"
+        >
+          <div class="card-body">
+            <h5 class="card-title text-capitalize">Gearvn</h5>
+            <p class="card-text">
+              GearVN là thương hiệu được sinh ra từ giấc mơ của một game thủ,
+              phát triển bởi tập thể các game thủ để phục vụ cho cộng đồng game
+              thủ Việt.
+            </p>
             <a
-              class="text-decoration-none text-dark link_item"
-              href="allBoSacProducts.html"
-              >allBoSacProducts.html</a
-            >
-          </li>
-          <li class="ms-4">
-            |-
+              href="https://cellphones.com.vn/"
+              class="btn btn-primary border-0"
+              style="outline: none"
+              >Ghé thăm trang web
+            </a>
+          </div>
+        </div>
+        <div
+          class="card mb-4"
+          style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px"
+        >
+          <div class="card-body">
+            <h5 class="card-title text-capitalize">Shopee</h5>
+            <p class="card-text">
+              Shopee là sàn giao dịch thương mại điện tử có trụ sở đặt tại
+              Singapore, thuộc sở hữu của Sea Ltd, được thành lập vào năm 2009
+              bởi Lý Tiểu Đông.
+            </p>
             <a
-              class="text-decoration-none text-dark link_item"
-              href="allDaySacProducts.html"
-              >allDaySacProducts.html</a
-            >
-          </li>
-          <li class="ms-4">
-            |-
-            <a
-              class="text-decoration-none text-dark link_item"
-              href="allOtherProducts.html"
-              >allOtherProducts.html</a
-            >
-          </li>
-          <li class="ms-4">
-            |-
-            <a
-              class="text-decoration-none text-dark link_item"
-              href="allPinDuPhongProducts.html"
-              >allPinDuPhongProducts.html</a
-            >
-          </li>
-          <li class="ms-4">
-            |-
-            <a
-              class="text-decoration-none text-dark link_item"
-              href="allTaiNgheProducts.html"
-              >allTaiNgheProducts.html</a
-            >
-          </li>
-          <li class="ms-4">
-            |-
-            <a class="text-decoration-none text-dark link_item" href="cart.html"
-              >cart.html</a
-            >
-          </li>
-          <li class="ms-4">
-            |-
-            <a
-              class="text-decoration-none text-dark link_item"
-              href="detailProduct.html"
-              >detailProduct.html</a
-            >
-          </li>
-          <li class="ms-4">
-            |-
-            <a
-              class="text-decoration-none text-dark link_item"
-              href="login.html"
-              >login.html</a
-            >
-          </li>
-          <li class="ms-4">
-            |-
-            <a
-              class="text-decoration-none text-dark link_item"
-              href="searchProductResult.html"
-              >searchProductResult.html</a
-            >
-          </li>
-          <li class="ms-4">
-            |-
-            <a
-              class="text-decoration-none text-dark link_item"
-              href="userPage.html"
-              >userPage.html</a
-            >
-          </li>
-        </ul>
+              href="https://cellphones.com.vn/"
+              class="btn btn-primary border-0"
+              style="outline: none"
+              >Ghé thăm trang web
+            </a>
+          </div>
+        </div>
       </div>
     </div>
+
+    <footer
+      class="footer clearfix position-absolute bottom-0 w-100 text-light d-flex align-items-center justify-content-center"
+    >
+      <div
+        class="footer_container container d-flex align-items-center justify-content-center p-0"
+      >
+        <div class="copyright">
+          © 2024 - Bản quyền thuộc về Phukiendienthoai
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      $(document).ready(() => {
+        $(".link").each((index, item) => {
+          $(item).click((e) => {
+            $(".link").each((index, item) =>
+              item.classList.remove("active_link")
+            );
+            item.classList.add("active_link");
+          });
+        });
+      });
+    </script>
   </body>
 </html>

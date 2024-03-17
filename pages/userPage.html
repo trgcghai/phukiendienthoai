@@ -204,11 +204,11 @@
 
     <div class="header_wrapper"></div>
 
-    <main class="container mb-2 position-relative">
-      <div class="row gap-3 m-0 p-0">
-        <div class="col col-3"></div>
+    <main class="container mb-0 pb-0 position-relative">
+      <div class="row m-0 p-0">
+        <div class="col col-lg-3 col-md-2 col-sm-1 col-1"></div>
         <div
-          class="col col-6"
+          class="col col-lg-6 col-md-8 col-sm-10 col-10"
           style="
             background-color: #fff;
             border-radius: 12px;
@@ -272,37 +272,45 @@
                   </div>
                 </div>
               </div>
-              <div class="mb-3 row p-0 m-0 gap-2">
-                <button
-                  type="button"
-                  class="m-0 update_btn col btn btn-primary border-0"
-                >
-                  Cập nhật
-                </button>
-                <a
-                  href="./webInfo.html"
-                  type="button"
-                  class="m-0 web_detail col col-auto btn btn-primary border-0"
-                >
-                  Thông tin trang web
-                </a>
-                <button
-                  type="button"
-                  class="m-0 changepass_btn col btn btn-primary border-0"
-                >
-                  Đổi mật khẩu
-                </button>
-                <button
-                  type="button"
-                  class="m-0 logout_btn col btn btn-primary border-0"
-                >
-                  Đăng xuất
-                </button>
+              <div class="mb-1 row">
+                <div class="d-grid mb-2 col col-xxl-3 col-6">
+                  <button
+                    type="button"
+                    class="m-0 update_btn btn btn-primary border-0"
+                  >
+                    Cập nhật
+                  </button>
+                </div>
+                <div class="d-grid mb-2 col col-xxl-3 col-6">
+                  <a
+                    href="./webInfo.html"
+                    type="button"
+                    class="m-0 web_detail btn btn-primary border-0"
+                  >
+                    Thông tin trang web
+                  </a>
+                </div>
+                <div class="d-grid mb-2 col col-xxl-3 col-6">
+                  <button
+                    type="button"
+                    class="m-0 changepass_btn btn btn-primary border-0"
+                  >
+                    Đổi mật khẩu
+                  </button>
+                </div>
+                <div class="d-grid mb-2 col col-xxl-3 col-6">
+                  <button
+                    type="button"
+                    class="m-0 logout_btn btn btn-primary border-0"
+                  >
+                    Đăng xuất
+                  </button>
+                </div>
               </div>
             </form>
           </div>
         </div>
-        <div class="col col-3"></div>
+        <div class="col col-lg-3 col-md-2 col-sm-1 col-1"></div>
       </div>
 
       <div
@@ -456,7 +464,10 @@
         const userGenderFemale = $("#female-check");
         const showChangePass = $(".changepass_btn");
         const hideChangePass = $(".wrapper_icon");
+        const submitChangePass = $(".confirm_btn");
         const toast = new bootstrap.Toast($("#liveToast"));
+
+        document.title = JSON.parse(localStorage.getItem("user")).name;
 
         const validateDataUpdate = () => {
           const isUserNameValid = /^[a-zA-Z0-9_-]{8,}$/.test(userName.val());
@@ -512,9 +523,19 @@
           toast.hide();
         });
 
+        const resetChangePass = () => {
+          $("#reset-passwordHelp").text("");
+          $("#reset-cfpasswordHelp").text("");
+          $("#reset_password").css("border", "1px solid #ccc");
+          $("#reset_cfpassword").css("border", "1px solid #ccc");
+          $("#reset_password").val("");
+          $("#reset_cfpassword").val("");
+        };
+
         showChangePass.click(() => {
           $(".resetPassword_form").removeClass("d-none");
           $(".backdrop").addClass("d-block");
+          resetChangePass();
         });
 
         hideChangePass.click(() => {
@@ -570,6 +591,57 @@
           localStorage.removeItem("user");
           window.location.href = "./login.html";
         });
+
+        const handleResetPass = () => {
+          const password = $("#reset_password");
+          const cfpassword = $("#reset_cfpassword");
+
+          if (
+            password.val().trim().length < 8 ||
+            password.val().trim().length > 20
+          ) {
+            const passwordText = $("#reset-passwordHelp");
+            passwordText.css("color", "red");
+            passwordText.text("Mật khẩu phải từ 8 đến 20 kí tự");
+            password.css("border", "1px solid red");
+          } else {
+            const passwordText = $("#reset-passwordHelp");
+            passwordText.css("color", "green");
+            passwordText.text("Mật khẩu hợp lệ");
+            password.css("border", "1px solid green");
+          }
+          if (
+            cfpassword.val().trim().length < 8 ||
+            cfpassword.val().trim().length > 20
+          ) {
+            const cfpasswordText = $("#reset-cfpasswordHelp");
+            cfpasswordText.css("color", "red");
+            cfpasswordText.text("Mật khẩu phải từ 8 đến 20 kí tự");
+            cfpassword.css("border", "1px solid red");
+            return;
+          } else {
+            if (password.val().trim() !== cfpassword.val().trim()) {
+              const cfpasswordText = $("#reset-cfpasswordHelp");
+              cfpasswordText.css("color", "red");
+              cfpasswordText.text("Mật khẩu không trùng khớp");
+              cfpassword.css("border", "1px solid red");
+              return;
+            } else {
+              const cfpasswordText = $("#reset-cfpasswordHelp");
+              cfpasswordText.css("color", "green");
+              cfpasswordText.text("Mật khẩu trùng khớp");
+              cfpassword.css("border", "1px solid green");
+            }
+          }
+
+          $(".resetPassword_form").css("display", "none");
+          $(".login_form").css("display", "block");
+          resetLoginForm();
+
+          password.val("");
+          cfpassword.val("");
+        };
+        submitChangePass.click(handleResetPass);
       });
     </script>
 
