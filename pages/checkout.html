@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="../css/library.css" />
     <link rel="stylesheet" href="../css/header.css" />
     <link rel="stylesheet" href="../css/footer.css" />
-    <link rel="stylesheet" href="../css/cart.css" />
+    <link rel="stylesheet" href="../css/checkout.css" />
     <script src="../assets/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
     <script src="../js/jquery-3.7.1.min.js"></script>
-    <title>Giỏ hàng</title>
+    <title>Thanh toán</title>
   </head>
   <body class="position-relative">
     <header
@@ -202,14 +202,47 @@
       </div>
     </header>
 
-    <main class="container mb-4 position-relative">
+    <main
+      class="container border position-relative"
+      style="background-color: #fff"
+    >
+      <div class="title fs-4 px-3">Thanh toán</div>
+      <div class="border p-2 mb-4 mx-3" style="border-radius: 8px">
+        <div class="row m-0">
+          <div class="p-0 col col-auto">
+            <div class="fs-6">Họ và tên người nhận:</div>
+          </div>
+          <div class="p-0 col col-sm-7 col-md-8 col-lg-9 col-xl-10">
+            <div class="fs-6 ms-3" id="realName"></div>
+          </div>
+        </div>
+        <div class="row m-0">
+          <div class="p-0 col col-auto">
+            <div class="fs-6">SĐT người nhận:</div>
+          </div>
+          <div class="p-0 col col-sm-7 col-md-8 col-lg-9 col-xl-10">
+            <div class="fs-6 ms-3" id="phone"></div>
+          </div>
+        </div>
+        <div class="row m-0">
+          <div class="p-0 col col-auto">
+            <div class="fs-6">Địa chỉ nhận hàng:</div>
+          </div>
+          <div class="p-0 col col-sm-7 col-md-8 col-lg-9 col-xl-10">
+            <div class="fs-6 ms-3" id="address"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="title fs-4 px-3">Danh sách sản phẩm</div>
       <div
-        class="row mx-0 mb-4 p-2 bg-white"
+        class="row mx-3 mb-4 p-2 bg-white"
         style="border: 1px solid #ccc; border-radius: 8px"
       >
-        <div class="col p-0 fs-6 col-xxl-4 col-xl-4 col-lg-4 col-md-3">
-          <input type="checkbox" class="me-1" id="checkAllProduct" />
-          <span>Sản phẩm</span>
+        <div
+          class="col p-0 fs-6 col-xxl-6 col-xl-6 col-lg-6 col-md-5 d-none d-sm-none d-md-block"
+        >
+          <span class="d-inline-block ms-3">Sản phẩm</span>
         </div>
         <div
           class="col p-0 fs-6 text-center col-xxl-2 col-xl-2 col-lg-2 col-md-2 d-none d-sm-none d-md-block"
@@ -226,40 +259,38 @@
         >
           Thành tiền
         </div>
-        <div
-          class="col p-0 fs-6 text-center col-xxl-2 col-xl-2 col-lg-2 col-md-2 d-none d-sm-none d-md-block"
-        >
-          Thao tác
+
+        <div class="checkOut_product_container container p-2 my-2"></div>
+
+        <div class="pay_section row mx-0 p-0 mb-2 bg-white">
+          <div
+            class="col p-0 fs-5 col-xxl-10 col-xl-10 col-lg-10 col-md-10 col-sm-8 col-8 d-flex d-sm-flex align-items-center justify-content-start"
+          >
+            <div class="ms-3">Tổng tiền</div>
+          </div>
+          <div
+            class="col p-0 fs-5 col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-4 col-4"
+          >
+            <span class="total_price w-100 d-inline-block text-center"
+              >0 VNĐ</span
+            >
+          </div>
         </div>
       </div>
 
-      <div
-        class="cart_product_container container p-2 my-2 bg-white"
-        style="border-radius: 8px; border: 1px solid #ccc"
-      ></div>
-
-      <div
-        class="pay_section row mx-0 mb-4 p-2 bg-white"
-        style="border: 1px solid #ccc; border-radius: 8px"
-      >
+      <div class="pay_section row mx-0 p-0 px-4 mb-2 bg-white">
+        <div class="col p-0 fs-5 col-sm-10 col-8"></div>
         <div
-          class="col p-0 fs-5 col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-8 col-5 d-flex d-sm-flex align-items-center justify-content-start"
+          class="col p-0 fs-5 col-sm-2 col-4 d-flex align-items-center justify-content-center"
         >
-          Tổng tiền
-        </div>
-        <div
-          class="col p-0 fs-5 text-center col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-2 col-5 d-flex d-sm-flex align-items-center justify-content-center"
-        >
-          <span class="total_price">0 VNĐ</span>
-        </div>
-        <div
-          class="col p-0 text-center d-grid col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2"
-        >
-          <span
-            class="pay_btn py-2 text-white d-flex align-items-center justify-content-center"
-            style="cursor: pointer"
-            >Đặt hàng</span
+          <button
+            type="button"
+            class="btn btn-primary checkout_btn border-0 px-4 py-2"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
           >
+            Thanh toán
+          </button>
         </div>
       </div>
 
@@ -312,6 +343,39 @@
           </li>
         </ul>
       </div>
+
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header justify-content-center border-0">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Xác nhận đặt hàng ?
+              </h1>
+            </div>
+            <div class="modal-footer justify-content-center border-0">
+              <button
+                type="button"
+                class="btn btn-secondary border-0"
+                data-bs-dismiss="modal"
+              >
+                Hủy
+              </button>
+              <button
+                type="button"
+                class="btn confirm_btn btn-primary border-0"
+              >
+                Xác nhận
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 
     <footer
@@ -328,9 +392,11 @@
 
     <div class="backdrop"></div>
 
-    <script src="../js/checkLogin.js"></script>
-
     <script src="../js/handleCategoryModal.js"></script>
+
+    <script type="module" src="../js/handleSearchBar.js"></script>
+
+    <script src="../js/checkLogin.js"></script>
 
     <script>
       const categoriesShow = $(".categories");
@@ -351,295 +417,95 @@
 
     <script type="module">
       import { all } from "../assets/images/prepareData.js";
+      const checkOutList = JSON.parse(localStorage.getItem("checkOutList"));
 
       $(document).ready(() => {
-        function loadDataFromCart() {
-          const cart = JSON.parse(localStorage.getItem("cart"));
-          if (cart === null || cart.length === 0) {
-            $(".cart_product_container").html(
-              '<div class="d-flex align-items-center justify-content-center">' +
-                '<img src="../assets/images/empty-cart.png" class="w-100" style="max-width: 800px" alt="empty cart" /></div>'
-            );
-
-            $(".pay_section").addClass("d-none");
-          } else {
-            let html = "";
-
-            cart.forEach((item) => {
-              const product = all.find((prod) => prod.id == item.productId);
-              html += `
+        function loadDataCheckOut() {
+          let html = "";
+          checkOutList.forEach((item) => {
+            html += `
               <div class="product_container row mx-0 mb-2 py-2">
-                <div class="col p-0 col-xxl-4 col-xl-4 col-lg-4 col-md-3 col-sm-6 col-8 d-flex gap-1">
-                  <input type="checkbox" class="checkBoxProduct me-1" id="checkProduct-${
-                    product.id
-                  }" />
-                  <div class="product_info d-xxl-flex d-xl-flex d-lg-flex d-md-block d-sm-flex d-flex align-items-center">
+                <div class="col p-0 col-xxl-6 col-xl-6 col-lg-6 col-md-5 col-8 d-flex gap-1">
+                  <div class="product_info d-flex align-items-center">
                     <img
-                      src="../assets/images/${product.image}"
-                      class="product_image mx-3"
+                      src="../assets/images/${item.image}"
+                      class="product_image me-3"
                       height="80"
-                      alt="${product.ten}"
+                      alt="${item.ten}"
                     />
                     <div class="product_name" style="cursor:pointer;">
                       <a href="./detailProduct.html" aria-id="${
-                        product.id
+                        item.id
                       }" class="link_to_product text-dark text-decoration-none d-inline-block">${
-                product.ten
-              }</a>
+              item.ten
+            }</a>
                     </div>
                   </div>
                 </div>
-                <div class="col p-0 text-center col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-6 col-4">
+                <div class="col p-0 text-center col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-4 col-4">
                   <div
                     class="product_price d-flex align-items-center justify-content-center h-100"
                   >
                     ${
-                      product.gia.toLocaleString("en", {
+                      item.gia.toLocaleString("en", {
                         minimumFractionDigits: 0,
                         maximumFractionDigits: 3,
                       }) + " VND"
                     }
                   </div>
                 </div>
-                <div class="col p-0 text-center col-xxl-2 col-xl-2 col-lg-2 col-md-3 col-sm-4 col-6">
+                <div class="col p-0 text-center col-xxl-2 col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4">
                   <div
                     class="product_quantity d-flex align-items-center justify-content-center h-100"
                   >
-                    <div class="input-group d-flex align-items-center justify-content-center">
-                      <button class="btn btn-outline minus_btn" id="${
-                        product.id
-                      }-minus" type="button">
-                        -
-                      </button>
-                      <input
-                        type="text"
-                        class="form-control quantity_input"
-                        style="text-align: center"
-                        value="${item.quantity}"
-                        id="${product.id}-quantity"
-                        aria-label="Example text with two button addons"
-                      />
-                      <button class="btn btn-outline add_btn" id="${
-                        product.id
-                      }-add" type="button">
-                        +
-                      </button>
-                    </div>
+                    <span class="d-block d-md-none me-2">Số lượng:</span>
+                    ${item.quantity}
                   </div>
                 </div>
-                <div class="col p-0 text-center col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-4 col-4">
+                <div class="col p-0 text-center col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-8 col-8">
                   <div
                     class="product_total d-flex align-items-center justify-content-center h-100"
-                    id="${product.id}-total"
-                    aria-price="${product.gia}"
+                    id="${item.id}-total"
+                    aria-price="${item.gia}"
                   >
+                  <span class="d-block d-md-none me-2">Thành tiền:</span>
                   ${
-                    (product.gia * item.quantity).toLocaleString("en", {
+                    (item.gia * item.quantity).toLocaleString("en", {
                       minimumFractionDigits: 0,
                       maximumFractionDigits: 3,
                     }) + " VND"
                   }
                   </div>
                 </div>
-                <div class="col p-0 text-center col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-4 col-2">
-                  <div
-                    class="remove_btn_container d-flex align-items-center justify-content-center h-100"
-                  >
-                    <button
-                      type="button"
-                      class="remove_btn border-0 bg-white"
-                      style="outline: none; cursor-pointer"
-                      id="${product.id}"
-                    >
-                      Xóa
-                    </button>
-                  </div>
-                </div>
               </div>
               `;
-            });
+          });
 
-            $(".cart_product_container").html(html);
-          }
+          $(".checkOut_product_container").html(html);
         }
-        loadDataFromCart();
+        loadDataCheckOut();
 
-        const checkAllBtn = $("#checkAllProduct");
-        const removeBtns = $(".remove_btn");
-        const addBtns = $(".add_btn");
-        const minusBtns = $(".minus_btn");
-        const checkBoxProducts = $(".checkBoxProduct");
-        const linkToProducts = $(".link_to_product");
-        const checkOutBtn = $(".pay_btn");
-
-        removeBtns.each((index, button) => {
-          $(button).click(() => {
-            const id = button.id;
-            let cart = localStorage.getItem("cart");
-            if (cart !== null) {
-              cart = JSON.parse(cart);
-              cart = cart.filter((item) => item.productId !== id);
-              localStorage.setItem("cart", JSON.stringify(cart));
-            }
-
-            window.location.reload();
-          });
+        $(".confirm_btn").click(() => {
+          localStorage.removeItem("checkOutList");
+          window.location.href = "../index.html";
         });
 
-        linkToProducts.each((index, link) => {
-          $(link).on("click", () => {
-            localStorage.setItem("productId", link.getAttribute("aria-id"));
-            window.location.href = "./detailProduct.html";
-          });
-        });
+        const user = JSON.parse(localStorage.getItem("user"));
+        $("#realName").text(user.realName);
+        $("#phone").text(user.phone);
+        $("#address").text(user.address);
 
-        const updateTotalPrice = () => {
-          let totalPrice = 0;
-          const checkBoxProducts = $(".checkBoxProduct");
-          checkBoxProducts.each((index, item) => {
-            if (item.checked) {
-              const singlePrice = item.parentNode.parentNode
-                .querySelector(".product_total")
-                .getAttribute("aria-price");
-              const quantity =
-                item.parentNode.parentNode.querySelector(
-                  ".quantity_input"
-                ).value;
-              totalPrice += parseInt(singlePrice) * parseInt(quantity);
-            }
-          });
-          $(".total_price").text(
-            totalPrice.toLocaleString("en", {
-              minimumFractionDigits: 0,
-              maximumFractionDigits: 3,
-            }) + " VND"
-          );
-        };
-
-        addBtns.each((index, button) => {
-          $(button).click(() => {
-            const productId = button.id.split("-")[0];
-            const quantityInput = $(`#${productId}-quantity`);
-            quantityInput.val(parseInt(quantityInput.val()) + 1);
-
-            const productTotal = $(`#${productId}-total`);
-            productTotal.text(
-              (
-                parseInt(productTotal.attr("aria-price")) *
-                parseInt(quantityInput.val())
-              ).toLocaleString("en", {
-                minimumFractionDigits: 0,
-                maximumFractionDigits: 3,
-              }) + " VND"
-            );
-
-            let cart = JSON.parse(localStorage.getItem("cart"));
-            cart.forEach((item) => {
-              if (item.productId == productId) {
-                item.quantity = quantityInput.val();
-              }
-            });
-
-            localStorage.setItem("cart", JSON.stringify(cart));
-          });
-        });
-
-        minusBtns.each((index, button) => {
-          $(button).click(() => {
-            const productId = button.id.split("-")[0];
-            const quantityInput = $(`#${productId}-quantity`);
-            quantityInput.val(
-              parseInt(quantityInput.val()) - 1 <= 0
-                ? 1
-                : parseInt(quantityInput.val()) - 1
-            );
-
-            const productTotal = $(`#${productId}-total`);
-            productTotal.text(
-              (
-                parseInt(productTotal.attr("aria-price")) *
-                parseInt(quantityInput.val())
-              ).toLocaleString("en", {
-                minimumFractionDigits: 0,
-                maximumFractionDigits: 3,
-              }) + " VND"
-            );
-
-            let cart = JSON.parse(localStorage.getItem("cart"));
-            cart.forEach((item) => {
-              if (item.productId == productId) {
-                item.quantity = quantityInput.val();
-              }
-            });
-
-            localStorage.setItem("cart", JSON.stringify(cart));
-          });
-        });
-
-        checkAllBtn.change(() => {
-          if (checkAllBtn.prop("checked")) {
-            const checkBoxProducts = $(".checkBoxProduct");
-            checkBoxProducts.each((index, item) => {
-              item.checked = true;
-            });
-
-            updateTotalPrice();
-          } else {
-            const checkBoxProducts = $(".checkBoxProduct");
-            checkBoxProducts.each((index, item) => {
-              item.checked = false;
-            });
-            updateTotalPrice();
-          }
-        });
-
-        checkBoxProducts.each((index, item) => {
-          item.addEventListener("change", () => {
-            const allChecked =
-              checkBoxProducts.length ===
-              checkBoxProducts.filter((index, item) => item.checked).length;
-            checkAllBtn.prop("checked", allChecked);
-
-            updateTotalPrice();
-          });
-        });
-
-        checkOutBtn.click((e) => {
-          const user = JSON.parse(localStorage.getItem("user"));
-
-          if (
-            user.address === null ||
-            user.address.length === 0 ||
-            user.realName === null ||
-            user.realName.length === 0 ||
-            user.phone === null ||
-            user.phone.length === 0
-          ) {
-            alert("Cần phải cập nhật đầy đủ thông tin trước khi đặt hàng");
-            window.location.href = "./userPage.html";
-          }
-
-          let checkOutList = [];
-          Array.from(checkBoxProducts)
-            .filter((item) => item.checked)
-            .forEach((item) => {
-              checkOutList.push({
-                ...all
-                  .filter((prod) => prod.id == item.id.split("-")[1])
-                  .shift(),
-                quantity: JSON.parse(localStorage.getItem("cart"))
-                  .filter((prod) => prod.productId == item.id.split("-")[1])
-                  .shift().quantity,
-              });
-            });
-          if (checkOutList.length !== 0) {
-            localStorage.setItem("checkOutList", JSON.stringify(checkOutList));
-            window.location.href = "./checkout.html";
-          }
-        });
+        let totalPrice = 0;
+        checkOutList.forEach(
+          (item) => (totalPrice += item.gia * item.quantity)
+        );
+        $(".total_price").text(
+          totalPrice.toLocaleString("en", {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 3,
+          }) + " VND"
+        );
       });
     </script>
-
-    <script type="module" src="../js/handleSearchBar.js"></script>
   </body>
 </html>

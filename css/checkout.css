@@ -1,0 +1,12 @@
+.link_to_product {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 150px;
+}
+
+@media (max-width: 576px) {
+  .link_to_product {
+    width: 100px;
+  }
+}
