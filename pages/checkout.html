@@ -287,7 +287,7 @@
             type="button"
             class="btn btn-primary checkout_btn border-0 px-4 py-2"
             data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
+            data-bs-target="#confirmCheckout"
           >
             Thanh toán
           </button>
@@ -346,7 +346,7 @@
 
       <div
         class="modal fade"
-        id="exampleModal"
+        id="confirmCheckout"
         tabindex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
@@ -369,8 +369,63 @@
               <button
                 type="button"
                 class="btn confirm_btn btn-primary border-0"
+                data-bs-toggle="modal"
+                data-bs-target="#successModal"
               >
                 Xác nhận
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="modal fade"
+        id="successModal"
+        tabindex="-1"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header border-0">
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="d-flex align-items-center justify-content-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="150"
+                  fill="green"
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-111 111-47-47c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l64 64c9.4 9.4 24.6 9.4 33.9 0L369 209z"
+                  />
+                </svg>
+              </div>
+              <div class="fw-semibold text-center fs-4 mt-4">
+                Đặt hàng thành công !!
+              </div>
+              <p class="fw-normal text-center mb-1">
+                Mã đơn hàng của bạn là: <span class="orderId"></span>
+              </p>
+              <p class="fw-normal text-center mb-1">
+                Chúng tôi sẽ gửi email cho bạn về thông tin chi tiết đơn hàng
+              </p>
+            </div>
+            <div
+              class="modal-footer pt-0 border-0 d-flex align-items-center justify-content-center"
+            >
+              <button
+                type="button"
+                class="btn btn-primary goShoping_btn border-0"
+              >
+                Tiếp tục mua sắm
               </button>
             </div>
           </div>
@@ -485,10 +540,16 @@
         }
         loadDataCheckOut();
 
-        $(".confirm_btn").click(() => {
+        $(".goShoping_btn").click(() => {
           localStorage.removeItem("checkOutList");
           window.location.href = "../index.html";
         });
+
+        let orderId = "#";
+        for (let i = 0; i < 8; i++) {
+          orderId += Math.floor(Math.random() * 10);
+        }
+        $(".orderId").text(orderId);
 
         const user = JSON.parse(localStorage.getItem("user"));
         $("#realName").text(user.realName);
