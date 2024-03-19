@@ -10,7 +10,7 @@ if (user !== null) {
   userLink.forEach((elem, index) => {
     elem.addEventListener("click", (e) => {
       e.preventDefault();
-      window.location.href = "./userPage.html";
+      window.location.href = "userPage.html";
     });
     if (index !== 0) {
       elem.textContent = user.name.length >= 10 ? user.name.substring(0, 11) + "..." : user.name;
@@ -20,7 +20,7 @@ if (user !== null) {
   cartLink.forEach((elem) => {
     elem.addEventListener("click", (e) => {
       e.preventDefault();
-      window.location.href = "./login.html";
+      window.location.href = "login.html";
     });
   });
 }
