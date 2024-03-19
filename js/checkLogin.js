@@ -8,21 +8,19 @@ if (user !== null) {
     elem.textContent = user.name.length >= 10 ? user.name.substring(0, 11) + "..." : user.name;
   });
   userLink.forEach((elem, index) => {
-    elem.setAttribute('href', "./pages/userPage.html")
-    // elem.addEventListener("click", (e) => {
-    //   e.preventDefault();
-    //   window.location.href = "";
-    // });
+    elem.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.location.href = "../pages/userPage.html";
+    });
     if (index !== 0) {
       elem.textContent = user.name.length >= 10 ? user.name.substring(0, 11) + "..." : user.name;
     }
   });
 } else {
   cartLink.forEach((elem) => {
-    elem.setAttribute('href', "./pages/login.html")
-    // elem.addEventListener("click", (e) => {
-    //   e.preventDefault();
-    //   window.location.href = ;
-    // });
+    elem.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.location.href = "../pages/login.html";
+    });
   });
 }
