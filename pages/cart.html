@@ -607,12 +607,14 @@
         checkOutBtn.click((e) => {
           const user = JSON.parse(localStorage.getItem("user"));
 
+          console.log(user);
+
           if (
-            user.address === null ||
+            user.address === undefined ||
+            user.realName === undefined ||
+            user.phone === undefined ||
             user.address.length === 0 ||
-            user.realName === null ||
             user.realName.length === 0 ||
-            user.phone === null ||
             user.phone.length === 0
           ) {
             alert("Cần phải cập nhật đầy đủ thông tin trước khi đặt hàng");
