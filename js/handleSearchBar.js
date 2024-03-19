@@ -39,6 +39,9 @@ const searchItem = (string) => {
     } 
     
     localStorage.setItem('searchResult', JSON.stringify(result))
-
-    window.location.href = "../pages/searchProductResult.html"
+    if (window.location.href.split('/').pop() == 'index.html') {
+        window.location.href = "./pages/searchProductResult.html"
+    } else {
+        window.location.href = "../pages/searchProductResult.html"
+    }
 }
