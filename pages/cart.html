@@ -606,9 +606,6 @@
 
         checkOutBtn.click((e) => {
           const user = JSON.parse(localStorage.getItem("user"));
-
-          console.log(user);
-
           if (
             user.address === undefined ||
             user.realName === undefined ||
@@ -619,25 +616,27 @@
           ) {
             alert("Cần phải cập nhật đầy đủ thông tin trước khi đặt hàng");
             window.location.href = "./userPage.html";
-            return;
-          }
-
-          let checkOutList = [];
-          Array.from(checkBoxProducts)
-            .filter((item) => item.checked)
-            .forEach((item) => {
-              checkOutList.push({
-                ...all
-                  .filter((prod) => prod.id == item.id.split("-")[1])
-                  .shift(),
-                quantity: JSON.parse(localStorage.getItem("cart"))
-                  .filter((prod) => prod.productId == item.id.split("-")[1])
-                  .shift().quantity,
+          } else {
+            let checkOutList = [];
+            Array.from(checkBoxProducts)
+              .filter((item) => item.checked)
+              .forEach((item) => {
+                checkOutList.push({
+                  ...all
+                    .filter((prod) => prod.id == item.id.split("-")[1])
+                    .shift(),
+                  quantity: JSON.parse(localStorage.getItem("cart"))
+                    .filter((prod) => prod.productId == item.id.split("-")[1])
+                    .shift().quantity,
+                });
               });
-            });
-          if (checkOutList.length !== 0) {
-            localStorage.setItem("checkOutList", JSON.stringify(checkOutList));
-            window.location.href = "./checkout.html";
+            if (checkOutList.length !== 0) {
+              localStorage.setItem(
+                "checkOutList",
+                JSON.stringify(checkOutList)
+              );
+              window.location.href = "./checkout.html";
+            }
           }
         });
       });
