@@ -274,7 +274,7 @@ const other = [
     id: 32,
     ten: "Tay cầm chơi game có dây Rappo V600",
     loai: ["other"],
-    image: "other/_0000_46216_tay_gamerapoo_v600_0000_1.webp",
+    image: "other/v600_0000_1.webp",
     gia: 460000,
     mota: " Tay cầm chơi game có dây RAPOO V600 – Thiết kế hiện đại \nTay cầm chơi game có dây RAPOO V600 mang diện mạo và chức năng đáng mong đợi. Nhanh tay sở hữu sản phẩm công nghệ Gaming Gear Pad này để thỏa sức chơi các tựa game sinh tồn, thịnh hành hiện nay cực đã.",
   },
