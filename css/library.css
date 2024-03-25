@@ -7,7 +7,6 @@
 body {
   position: relative;
   min-height: calc(100vh - 50px);
-  padding-bottom: 30px;
   background-color: #f0f0f0;
 }
 
@@ -86,8 +85,8 @@ body {
 .btn-primary:active,
 .btn-outline:hover {
   background-color: var(--main-color) !important;
-  color: #fff;
-  outline: none;
+  color: #fff !important;
+  outline: none !important;
 }
 
 .btn-outline:active {
