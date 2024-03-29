@@ -315,7 +315,7 @@
     </main>
 
     <footer
-      class="footer clearfix bottom-0 w-100 text-light d-flex align-items-center justify-content-center"
+      class="footer position-absolute clearfix bottom-0 w-100 text-light d-flex align-items-center justify-content-center"
     >
       <div class="footer_container container m-0 p-0">
         <div class="row p-0 pt-3 m-0 mb-4">
@@ -553,6 +553,10 @@
           const cart = JSON.parse(localStorage.getItem("cart"));
           if (cart.length < 3) {
             $("footer").addClass("position-absolute");
+            $("footer").removeClass("position-relative");
+          } else {
+            $("footer").addClass("position-relative");
+            $("footer").removeClass("position-absolute");
           }
 
           if (cart === null || cart.length === 0) {

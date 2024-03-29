@@ -26,3 +26,9 @@
 .link {
   padding: 2px 0;
 }
+
+@media only screen and (max-width: 992px) {
+  .footer {
+    position: relative !important;
+  }
+}
