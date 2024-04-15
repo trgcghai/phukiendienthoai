@@ -551,7 +551,11 @@
       $(document).ready(() => {
         function loadDataFromCart() {
           const cart = JSON.parse(localStorage.getItem("cart"));
-          if (cart.length < 3) {
+
+          if (cart.length == 0) {
+            $("footer").addClass("position-relative");
+            $("footer").removeClass("position-absolute");
+          } else if (cart.length < 3) {
             $("footer").addClass("position-absolute");
             $("footer").removeClass("position-relative");
           } else {
