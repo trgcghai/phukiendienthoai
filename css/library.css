@@ -110,3 +110,31 @@ body {
   background-color: var(--main-color) !important;
   color: #fff !important;
 }
+
+.slideToRight {
+  animation: slideToRight 0.5s ease-in-out;
+}
+
+.slideToLeft {
+  animation: slideToLeft 0.5s ease-in-out;
+}
+
+@keyframes slideToRight {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideToLeft {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}

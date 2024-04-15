@@ -17,7 +17,8 @@
   </head>
   <body>
     <header
-      class="header position-fixed top-0 start-0 end-0 z-1 d-flex align-items-center justify-content-center"
+      class="header container-fluid position-fixed top-0 start-0 end-0 d-flex align-items-center justify-content-center"
+      style="z-index: 1000"
     >
       <div
         class="header_container container p-0 d-flex align-items-center justify-content-between"
@@ -32,166 +33,318 @@
       </div>
     </header>
 
-    <main class="main">
-      <div class="form login_form">
-        <h2 class="form_title">Đăng nhập</h2>
-        <div class="form_ask">
-          Chưa có tài khoản ?
-          <button class="form_link toSignUp">Đăng ký tại đây</button>
-        </div>
-        <form>
-          <div class="form_section mb-3">
-            <label for="login_username" class="form-label">Username</label>
-            <input
-              required
-              type="text"
-              class="form-control"
-              id="login_username"
-              aria-describedby="login-usernameHelp"
-            />
-            <div id="login-usernameHelp" class="form-text"></div>
-          </div>
-          <div class="form_section mb-3">
-            <label for="login_password" class="form-label">Mật khẩu</label>
-            <input
-              required
-              type="password"
-              class="form-control"
-              id="login_password"
-              aria-describedby="passwordHelp"
-            />
-            <div id="passwordHelp" class="form-text"></div>
-          </div>
-          <div class="form_section mb-3">
-            <span class="form_forgetPassword">Quên mật khẩu ?</span>
-          </div>
-          <div class="form_section d-grid">
-            <button class="btn btn-primary submit_btn login_btn">
-              Đăng nhập
-            </button>
-          </div>
-        </form>
-      </div>
-
-      <div class="form signup_form">
-        <h2 class="form_title">Đăng ký</h2>
-        <div class="form_ask">
-          Đã có tài khoản ?
-          <button class="form_link toLogin">Đăng nhập tại đây</button>
-        </div>
-        <form class="row p-0 m-0">
-          <div class="form_section mb-3">
-            <label for="signup_email" class="form-label">Email</label>
-            <input
-              required
-              type="email"
-              class="form-control"
-              id="signup_email"
-              aria-describedby="signup-emailHelp"
-            />
-            <div id="signup-emailHelp" class="form-text"></div>
-          </div>
-          <div class="form_section mb-3">
-            <label for="signup_username" class="form-label">Username</label>
-            <input
-              required
-              type="text"
-              class="form-control"
-              id="signup_username"
-              aria-describedby="signup-usernameHelp"
-            />
-            <div id="signup-usernameHelp" class="form-text"></div>
-          </div>
-          <div class="form_section mb-3">
-            <label for="signup_password" class="form-label">Mật khẩu</label>
-            <input
-              required
-              type="password"
-              class="form-control"
-              id="signup_password"
-              aria-describedby="signup-passwordHelp"
-            />
-            <div id="signup-passwordHelp" class="form-text"></div>
-          </div>
-          <div class="form_section mb-3">
-            <label for="signup_cfpassword" class="form-label"
-              >Nhập lại mật khẩu</label
-            >
-            <input
-              required
-              type="password"
-              class="form-control"
-              id="signup_cfpassword"
-              aria-describedby="cfpasswordHelp"
-            />
-            <div id="cfpasswordHelp" class="form-text"></div>
-          </div>
-          <div class="form_section mb-3 d-grid">
-            <button class="btn btn-primary submit_btn signup_btn">
-              Đăng ký
-            </button>
-          </div>
-          <div class="form_section">
-            <span class="form_policy"
-              >Bằng việc đăng ký, bạn đã đồng ý với chúng tôi về
-              <span class="policy">Điều khoản dịch vụ</span> &
-              <span class="policy">Chính sách bảo mật</span>
-            </span>
-          </div>
-        </form>
-      </div>
-
-      <div class="form resetPassword_form">
-        <div class="form_back_btn">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="22"
-            width="22"
-            viewBox="0 0 448 512"
-            class="form_icon"
+    <div class="container">
+      <main
+        class="main bg-white border position-relative"
+        style="
+          border-radius: 8px;
+          box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        "
+      >
+        <div
+          class="d-flex align-items-center justify-content-around position-relative z-2"
+        >
+          <div
+            class="w-50 p-3 bg-white login-display"
+            style="border-radius: 8px"
           >
-            <path
-              d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
-            />
-          </svg>
+            <div class="fs-2 text-center my-2">Đăng nhập</div>
+            <form class="mx-auto w-75">
+              <div class="mb-3">
+                <label for="loginUsername" class="d-block mb-1">Username</label>
+                <input
+                  type="text"
+                  class="d-block border px-2 py-1 w-100"
+                  style="outline: none; border-radius: 4px"
+                  id="loginUsername"
+                />
+                <small id="loginUsernameMessage" class="text-danger"></small>
+              </div>
+              <div class="mb-3">
+                <label for="loginPwd" class="d-block mb-1">Mật khẩu</label>
+                <input
+                  type="password"
+                  class="d-block border px-2 py-1 w-100"
+                  style="outline: none; border-radius: 4px"
+                  id="loginPwd"
+                />
+                <small id="loginPwdMessage" class="text-danger"></small>
+              </div>
+              <div class="mb-3 d-grid">
+                <button
+                  type="button"
+                  class="border-0 text-light py-2"
+                  style="
+                    background-color: var(--main-color);
+                    border-radius: 8px;
+                  "
+                  id="loginBtn"
+                >
+                  Đăng nhập
+                </button>
+              </div>
+              <div class="mb-3 text-secondary position-relative text-center">
+                <div
+                  class="border-bottom position-absolute"
+                  style="width: 44%; top: 50%; left: 0"
+                ></div>
+                Hoặc
+                <div
+                  class="border-bottom position-absolute"
+                  style="width: 44%; bottom: 50%; right: 0"
+                ></div>
+              </div>
+              <div class="mb-3 d-grid">
+                <div
+                  class="p-2 border third-party-btn mb-2"
+                  style="border-radius: 8px; cursor: pointer"
+                >
+                  <div class="d-flex align-items-center gap-2">
+                    <img src="../assets/icon/google.jpg" height="25px" alt="" />
+                    Đăng nhập với Google
+                  </div>
+                </div>
+                <div
+                  class="p-2 border third-party-btn"
+                  style="border-radius: 8px; cursor: pointer"
+                >
+                  <div class="d-flex align-items-center gap-2">
+                    <img
+                      src="../assets/icon/facebook.png"
+                      height="25px"
+                      alt=""
+                    />
+                    Đăng nhập với Facebook
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div
+            class="w-50 p-3 bg-white signUp-display"
+            style="border-radius: 8px"
+          >
+            <div class="fs-2 text-center my-2">Đăng ký</div>
+            <form class="mx-auto w-75">
+              <div class="mb-3">
+                <label for="email" class="d-block mb-1">Email</label>
+                <input
+                  type="email"
+                  class="d-block border px-2 py-1 w-100"
+                  style="outline: none; border-radius: 4px"
+                  id="email"
+                />
+                <small id="emailMessage" class="text-danger"></small>
+              </div>
+              <div class="mb-3">
+                <label for="realName" class="d-block mb-1">Họ tên</label>
+                <input
+                  type="text"
+                  class="d-block border px-2 py-1 w-100"
+                  style="outline: none; border-radius: 4px"
+                  id="realName"
+                />
+                <small id="realNameMessage" class="text-danger"></small>
+              </div>
+              <div class="mb-3">
+                <label for="signUpUserName" class="d-block mb-1"
+                  >Username</label
+                >
+                <input
+                  type="text"
+                  class="d-block border px-2 py-1 w-100"
+                  style="outline: none; border-radius: 4px"
+                  id="signUpUserName"
+                />
+                <small id="signUpUserNameMessage" class="text-danger"></small>
+              </div>
+              <div class="mb-3">
+                <label for="signUpPwd" class="d-block mb-1">Mật khẩu</label>
+                <input
+                  type="password"
+                  class="d-block border px-2 py-1 w-100"
+                  style="outline: none; border-radius: 4px"
+                  id="signUpPwd"
+                />
+                <small id="signUpPwdMessage" class="text-danger"></small>
+              </div>
+              <div class="mb-3">
+                <label for="confirmPwd" class="d-block mb-1"
+                  >Xác nhận mật khẩu</label
+                >
+                <input
+                  type="password"
+                  class="d-block border px-2 py-1 w-100"
+                  style="outline: none; border-radius: 4px"
+                  id="confirmPwd"
+                />
+                <small id="confirmPwdMessage" class="text-danger"></small>
+              </div>
+              <div class="mb-3">
+                <label for="address" class="d-block mb-1">Địa chỉ</label>
+                <input
+                  type="text"
+                  class="d-block border px-2 py-1 w-100"
+                  style="outline: none; border-radius: 4px"
+                  id="address"
+                />
+                <small id="addressMessage" class="text-danger"></small>
+              </div>
+              <div class="mb-3">
+                <label for="birthday" class="d-block mb-1">Ngày sinh</label>
+                <input
+                  type="date"
+                  class="d-block border px-2 py-1 w-100"
+                  style="outline: none; border-radius: 4px"
+                  id="birthday"
+                />
+                <small id="birthdayMessage" class="text-danger"></small>
+              </div>
+              <div class="mb-3">
+                <label for="phone" class="d-block mb-1">Số điện thoại</label>
+                <input
+                  type="text"
+                  class="d-block border px-2 py-1 w-100"
+                  style="outline: none; border-radius: 4px"
+                  id="phone"
+                />
+                <small id="phoneMessage" class="text-danger"></small>
+              </div>
+              <div class="mb-3">
+                <label for="" class="d-block mb-1">Giới tính</label>
+                <div class="wrapper">
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="gender"
+                      id="male-check"
+                      value="male"
+                      checked
+                    />
+                    <label class="form-check-label" for="male-check">Nam</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="gender"
+                      id="female-check"
+                      value="female"
+                    />
+                    <label class="form-check-label" for="female-check"
+                      >Nữ</label
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3 d-grid">
+                <button
+                  type="button"
+                  class="border-0 text-light py-2"
+                  style="
+                    background-color: var(--main-color);
+                    border-radius: 8px;
+                  "
+                  id="signUpBtn"
+                >
+                  Đăng ký
+                </button>
+              </div>
+              <div class="mb-3 text-secondary position-relative text-center">
+                <div
+                  class="border-bottom position-absolute"
+                  style="width: 44%; top: 50%; left: 0"
+                ></div>
+                Hoặc
+                <div
+                  class="border-bottom position-absolute"
+                  style="width: 44%; bottom: 50%; right: 0"
+                ></div>
+              </div>
+              <div
+                class="mb-3 d-flex align-items-center justify-content-center gap-3"
+              >
+                <div
+                  class="p-2 border third-party-btn"
+                  style="border-radius: 8px; cursor: pointer; width: 48%"
+                >
+                  <img src="../assets/icon/google.jpg" height="25px" alt="" />
+                  Đăng ký với Google
+                </div>
+                <div
+                  class="p-2 border third-party-btn"
+                  style="border-radius: 8px; cursor: pointer; width: 48%"
+                >
+                  <img src="../assets/icon/facebook.png" height="25px" alt="" />
+                  Đăng ký với Facebook
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
-        <h2 class="form_title mb-3">Đặt lại mật khẩu</h2>
-        <form>
-          <div class="form_section mb-3">
-            <label for="reset_password" class="form-label">Mật khẩu mới</label>
-            <input
-              required
-              type="password"
-              class="form-control"
-              id="reset_password"
-              aria-describedby="reset-passwordHelp"
-            />
-            <div id="reset-passwordHelp" class="form-text"></div>
-          </div>
-          <div class="form_section mb-3">
-            <label for="reset_cfpassword" class="form-label"
-              >Nhập lại mật khẩu</label
+
+        <div class="position-absolute w-100 h-100 top-0 start-0 row p-0 m-0">
+          <div
+            class="col col-6 w-50 h-100 d-flex align-items-center justify-content-center flex-column login-layer position-absolute top-0 start-0 z-2 d-none"
+            style="background-color: var(--main-color); border-radius: 8px"
+          >
+            <div
+              class="fs-2 text-light text-uppercase fw-bold text-center"
+              style="letter-spacing: 2px"
             >
-            <input
-              required
-              type="password"
-              class="form-control"
-              id="reset_cfpassword"
-              aria-describedby="reset-cfpasswordHelp"
-            />
-            <div id="reset-cfpasswordHelp" class="form-text"></div>
-          </div>
-          <div class="form_section mb-3 mt-4 d-grid">
-            <button class="btn btn-primary submit_btn confirm_btn">
-              Xác nhận
+              Chào mừng trở lại
+            </div>
+            <div class="fs-5 text-light w-50 mt-3 text-center">
+              Giữ kết nối với chúng tôi bằng cách đăng nhập với thông tin của
+              bạn
+            </div>
+            <button
+              type="button"
+              id="changeToLogin"
+              class="border-white text-light mt-3 px-4 py-3"
+              style="
+                background-color: var(--main-color);
+                border-radius: 32px;
+                border: 3px #fff solid;
+              "
+            >
+              Đăng nhập ngay
             </button>
           </div>
-        </form>
-      </div>
-    </main>
+          <div
+            class="col col-6 w-50 h-100 d-flex align-items-center justify-content-center flex-column signUp-layer position-absolute top-0 end-0 z-3"
+            style="background-color: var(--main-color); border-radius: 8px"
+          >
+            <div
+              class="fs-2 text-light text-uppercase fw-bold text-center"
+              style="letter-spacing: 2px"
+            >
+              Chào mừng đến với Phukiendienthoai
+            </div>
+            <div class="fs-5 text-light w-50 mt-3 text-center">
+              Tham gia vào cộng đồng của chúng tôi và bắt đầu cuộc hành trình
+              của bạn bằng cách đăng ký
+            </div>
+            <button
+              type="button"
+              id="changeToSignUp"
+              class="border-white text-light mt-3 px-4 py-3"
+              style="
+                background-color: var(--main-color);
+                border-radius: 32px;
+                border: 3px #fff solid;
+              "
+            >
+              Đăng ký ngay
+            </button>
+          </div>
+        </div>
+      </main>
+    </div>
 
     <footer
-      class="footer clearfix position-absolute bottom-0 w-100 text-light d-flex align-items-center justify-content-center"
+      class="footer container-fluid bottom-0 w-100 text-light d-flex align-items-center justify-content-center"
       style="background-color: var(--main-color)"
     >
       <div
@@ -203,271 +356,341 @@
       </div>
     </footer>
 
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+      <div
+        id="liveToast"
+        class="toast"
+        style="background-color: rgba(255, 255, 255, 1) !important"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+        data-bs-autohide="true"
+        data-bs-delay="5000"
+      >
+        <div class="d-flex">
+          <div class="toast-body fs-6">Chức năng hiện chưa sẵn sàng !!</div>
+          <button
+            type="button"
+            class="btn-close me-2 m-auto"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+      </div>
+    </div>
+
     <script>
       $(document).ready(() => {
-        const redirectLoginBtn = $(".toLogin");
-        const redirectSignUpBtn = $(".toSignUp");
-        const resetPasswordBtn = $(".form_forgetPassword");
-        const submitLogin = $(".login_btn");
-        const submitSignUp = $(".signup_btn");
-        const backBtn = $(".form_back_btn");
-        const submitReset = $(".confirm_btn");
+        const toast = new bootstrap.Toast($("#liveToast"));
+
+        $(".third-party-btn").each((index, item) => {
+          $(item).click(() => {
+            toast.show();
+          });
+        });
+
+        const closeToast = $(".btn-close");
+        closeToast.click(() => {
+          toast.hide();
+        });
+      });
+    </script>
+
+    <script>
+      $(document).ready(() => {
+        const loginUsername = $("#loginUsername");
+        const loginPwd = $("#loginPwd");
+
+        const signUpUsername = $("#signUpUserName");
+        const email = $("#email");
+        const signUpPwd = $("#signUpPwd");
+        const confirmPwd = $("#confirmPwd");
+        const address = $("#address");
+        const birthday = $("#birthday");
+        const phone = $("#phone");
+        const realName = $("#realName");
+        const genderMale = $("male-check");
+        const genderFemale = $("female-check");
+
+        const loginBtn = $("#loginBtn");
+        const signUpBtn = $("#signUpBtn");
 
         const resetLoginForm = () => {
-          $("#login-usernameHelp").text("");
-          $("#passwordHelp").text("");
-          $("#login_username").css("border", "1px solid #ccc");
-          $("#login_password").css("border", "1px solid #ccc");
-          $("#login_username").val("");
-          $("#login_password").val("");
+          loginUsername.val("");
+          loginPwd.val("");
+
+          $(`#${loginUsername.attr("id") + "Message"}`).text("");
+          $(`#${loginPwd.attr("id") + "Message"}`).text("");
         };
 
         const resetSignUpForm = () => {
-          $("#signup-emailHelp").text("");
-          $("#signup-usernameHelp").text("");
-          $("#signup-passwordHelp").text("");
-          $("#cfpasswordHelp").text("");
+          signUpUsername.val("");
+          email.val("");
+          signUpPwd.val("");
+          confirmPwd.val("");
+          address.val("");
+          birthday.val("");
+          phone.val("");
+          realName.val("");
+          genderMale.attr("checked", true);
 
-          $("#signup_username").css("border", "1px solid #ccc");
-          $("#signup_email").css("border", "1px solid #ccc");
-          $("#signup_password").css("border", "1px solid #ccc");
-          $("#signup_cfpassword").css("border", "1px solid #ccc");
-
-          $("#signup_username").val("");
-          $("#signup_email").val("");
-          $("#signup_password").val("");
-          $("#signup_cfpassword").val("");
+          $(`#${signUpUsername.attr("id") + "Message"}`).text("");
+          $(`#${email.attr("id") + "Message"}`).text("");
+          $(`#${signUpPwd.attr("id") + "Message"}`).text("");
+          $(`#${confirmPwd.attr("id") + "Message"}`).text("");
+          $(`#${address.attr("id") + "Message"}`).text("");
+          $(`#${birthday.attr("id") + "Message"}`).text("");
+          $(`#${phone.attr("id") + "Message"}`).text("");
+          $(`#${realName.attr("id") + "Message"}`).text("");
         };
 
-        const resetChangePassForm = () => {
-          $("#reset-passwordHelp").text("");
-          $("#reset-cfpasswordHelp").text("");
-          $("#reset_password").css("border", "1px solid #ccc");
-          $("#reset_cfpassword").css("border", "1px solid #ccc");
-          $("#reset_password").val("");
-          $("#reset_cfpassword").val("");
-        };
+        $("#changeToLogin").click(() => {
+          $(".login-layer").addClass("d-none");
+          $(".login-layer").addClass("z-2");
+          $(".login-layer").removeClass("z-3");
 
-        backBtn.click(() => {
-          $(".resetPassword_form").css("display", "none");
-          $(".login_form").css("display", "block");
+          $(".signUp-layer").removeClass("d-none");
+          $(".signUp-layer").removeClass("z-2");
+          $(".signUp-layer").addClass("z-3");
+          $(".signUp-layer").addClass("slideToRight");
+
           resetLoginForm();
         });
 
-        resetPasswordBtn.click(() => {
-          $(".login_form").css("display", "none");
-          $(".resetPassword_form").css("display", "block");
-          resetChangePassForm();
-        });
+        $("#changeToSignUp").click(() => {
+          $(".login-layer").addClass("slideToLeft");
+          $(".login-layer").removeClass("d-none");
+          $(".login-layer").removeClass("z-2");
+          $(".login-layer").addClass("z-3");
 
-        redirectSignUpBtn.click(() => {
-          $(".login_form").css("display", "none");
-          $(".signup_form").css("display", "block");
+          $(".signUp-layer").addClass("d-none");
+          $(".signUp-layer").addClass("z-2");
+          $(".signUp-layer").removeClass("z-3");
+
           resetSignUpForm();
         });
 
-        redirectLoginBtn.click(() => {
-          $(".login_form").css("display", "block");
-          $(".signup_form").css("display", "none");
-          resetLoginForm();
+        const checkUserName = (userNameTxt) => {
+          const userName = userNameTxt.val().trim();
+          if (userName.length === 0) {
+            $(`#${userNameTxt.attr("id") + "Message"}`).text(
+              "Không được để trống"
+            );
+            return false;
+          }
+          if (!/^[\w\s\d]+$/.test(userName)) {
+            $(`#${userNameTxt.attr("id") + "Message"}`).text(
+              "Username không hợp lệ"
+            );
+            return false;
+          }
+
+          $(`#${userNameTxt.attr("id") + "Message"}`).text("");
+          return true;
+        };
+        loginUsername.blur(() => {
+          checkUserName(loginUsername);
         });
 
-        const handleLogin = () => {
-          const username = $("#login_username");
-          const password = $("#login_password");
-
-          let valid = true;
-
-          if (
-            username.val().trim().length === 0 ||
-            !/^[a-zA-Z0-9]+$/.test(username.val())
-          ) {
-            const usernameText = $("#login-usernameHelp");
-            usernameText.css("color", "red");
-            usernameText.text("Username không hợp lệ!! Vui lòng thử lại");
-            username.css("border", "1px solid red");
-            valid = false;
-          } else {
-            const usernameText = $("#login-usernameHelp");
-            usernameText.css("color", "green");
-            usernameText.text("Chính xác !!");
-            username.css("border", "1px solid green");
+        const checkLoginPwd = () => {
+          const pwd = loginPwd.val().trim();
+          if (pwd.length === 0) {
+            $(`#${loginPwd.attr("id") + "Message"}`).text(
+              "Không được để trống"
+            );
+            return false;
           }
 
-          if (password.val() !== "12345678") {
-            const passwordText = $("#passwordHelp");
-            passwordText.css("color", "red");
-            passwordText.text("Mật khẩu không chính xác!! Vui lòng thử lại");
-            password.css("border", "1px solid red");
-            valid = false;
-          } else {
-            const passwordText = $("#passwordHelp");
-            passwordText.css("color", "green");
-            passwordText.text("Chính xác !!");
-            password.css("border", "1px solid green");
+          if (!/^[a-zA-Z0-9]{8,}$/.test(pwd)) {
+            $(`#${loginPwd.attr("id") + "Message"}`).text(
+              "Không chứa ký tự đặc biệt và tối thiểu 8 ký tự"
+            );
+            return false;
           }
 
-          if (!valid) {
-            return;
+          if (pwd != "12345678") {
+            $(`#${loginPwd.attr("id") + "Message"}`).text("Sai mật khẩu");
+            return false;
           }
 
-          localStorage.setItem(
-            "user",
-            JSON.stringify({ name: username.val() })
-          );
-          window.location.href = "../index.html";
-          username.val("");
-          password.val("");
+          $(`#${loginPwd.attr("id") + "Message"}`).text("");
+          return true;
         };
-        submitLogin.click((e) => {
-          console.log("login..");
-          e.preventDefault();
-          handleLogin();
+        loginPwd.blur(() => {
+          checkLoginPwd();
         });
 
-        const handleSignUp = () => {
-          const email = $("#signup_email");
-          const username = $("#signup_username");
-          const password = $("#signup_password");
-          const cfpassword = $("#signup_cfpassword");
-          let valid = true;
-
-          if (!/\S+@\S+\.\S+/.test(email.val())) {
-            const emailText = $("#signup-emailHelp");
-            emailText.css("color", "red");
-            emailText.text("Email không hợp lệ!! Vui lòng thử lại");
-            email.css("border", "1px solid red");
-            valid = false;
-          } else {
-            const emailText = $("#signup-emailHelp");
-            emailText.css("color", "green");
-            emailText.text("Email hợp lệ");
-            email.css("border", "1px solid green");
+        loginBtn.click(() => {
+          if (checkUserName(loginUsername) && checkLoginPwd()) {
+            const userName = loginUsername.val().trim();
+            localStorage.setItem(
+              "user",
+              JSON.stringify({
+                name: userName,
+              })
+            );
+            window.location.href = "../index.html";
           }
-          if (
-            username.val().trim().length === 0 ||
-            !/^[a-zA-Z0-9]+$/.test(username.val())
-          ) {
-            const usernameText = $("#signup-usernameHelp");
-            usernameText.css("color", "red");
-            usernameText.text("Username không hợp lệ!! Vui lòng thử lại");
-            username.css("border", "1px solid red");
-            valid = false;
-          } else {
-            const usernameText = $("#signup-usernameHelp");
-            usernameText.css("color", "green");
-            usernameText.text("Username hợp lệ");
-            username.css("border", "1px solid green");
-          }
-          if (
-            password.val().trim().length < 8 ||
-            password.val().trim().length > 20
-          ) {
-            const passwordText = $("#signup-passwordHelp");
-            passwordText.css("color", "red");
-            passwordText.text("Mật khẩu phải từ 8 đến 20 kí tự");
-            password.css("border", "1px solid red");
-            valid = false;
-          } else {
-            const passwordText = $("#signup-passwordHelp");
-            passwordText.css("color", "green");
-            passwordText.text("Mật khẩu hợp lệ");
-            password.css("border", "1px solid green");
-          }
-          if (
-            cfpassword.val().trim().length < 8 ||
-            cfpassword.val().trim().length > 20
-          ) {
-            const cfpasswordText = $("#cfpasswordHelp");
-            cfpasswordText.css("color", "red");
-            cfpasswordText.text("Mật khẩu phải từ 8 đến 20 kí tự");
-            cfpassword.css("border", "1px solid red");
-            valid = false;
-          } else {
-            if (password.val().trim() !== cfpassword.val().trim()) {
-              const cfpasswordText = $("#cfpasswordHelp");
-              cfpasswordText.css("color", "red");
-              cfpasswordText.text("Mật khẩu không trùng khớp");
-              cfpassword.css("border", "1px solid red");
-              valid = false;
-            } else {
-              const cfpasswordText = $("#cfpasswordHelp");
-              cfpasswordText.css("color", "green");
-              cfpasswordText.text("Mật khẩu trùng khớp");
-              cfpassword.css("border", "1px solid green");
-            }
-          }
-
-          if (!valid) {
-            return;
-          }
-
-          localStorage.setItem(
-            "user",
-            JSON.stringify({ name: username.val(), email: email.val() })
-          );
-          window.location.href = "../index.html";
-          email.val("");
-          password.val("");
-          cfpassword.val("");
-        };
-        submitSignUp.click((e) => {
-          e.preventDefault();
-          handleSignUp();
         });
 
-        const handleResetPass = () => {
-          const password = $("#reset_password");
-          const cfpassword = $("#reset_cfpassword");
+        signUpUsername.blur(() => {
+          checkUserName(signUpUsername);
+        });
 
-          if (
-            password.val().trim().length < 8 ||
-            password.val().trim().length > 20
-          ) {
-            const passwordText = $("#reset-passwordHelp");
-            passwordText.css("color", "red");
-            passwordText.text("Mật khẩu phải từ 8 đến 20 kí tự");
-            password.css("border", "1px solid red");
-          } else {
-            const passwordText = $("#reset-passwordHelp");
-            passwordText.css("color", "green");
-            passwordText.text("Mật khẩu hợp lệ");
-            password.css("border", "1px solid green");
-          }
-          if (
-            cfpassword.val().trim().length < 8 ||
-            cfpassword.val().trim().length > 20
-          ) {
-            const cfpasswordText = $("#reset-cfpasswordHelp");
-            cfpasswordText.css("color", "red");
-            cfpasswordText.text("Mật khẩu phải từ 8 đến 20 kí tự");
-            cfpassword.css("border", "1px solid red");
-            return;
-          } else {
-            if (password.val().trim() !== cfpassword.val().trim()) {
-              const cfpasswordText = $("#reset-cfpasswordHelp");
-              cfpasswordText.css("color", "red");
-              cfpasswordText.text("Mật khẩu không trùng khớp");
-              cfpassword.css("border", "1px solid red");
-              return;
-            } else {
-              const cfpasswordText = $("#reset-cfpasswordHelp");
-              cfpasswordText.css("color", "green");
-              cfpasswordText.text("Mật khẩu trùng khớp");
-              cfpassword.css("border", "1px solid green");
-            }
+        const checkEmail = () => {
+          const emailVal = email.val().trim();
+          if (emailVal.length === 0) {
+            $(`#${email.attr("id") + "Message"}`).text("Không được để trống");
+            return false;
           }
 
-          $(".resetPassword_form").css("display", "none");
-          $(".login_form").css("display", "block");
-          resetLoginForm();
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
+            $(`#${email.attr("id") + "Message"}`).text("Email không hợp lệ");
+            return false;
+          }
 
-          password.val("");
-          cfpassword.val("");
+          $(`#${email.attr("id") + "Message"}`).text("");
+          return true;
         };
-        submitReset.click((e) => {
-          e.preventDefault();
-          handleResetPass();
+        email.blur(checkEmail);
+
+        const checkRealName = () => {
+          const realNameVal = realName.val().trim();
+          if (realNameVal.length === 0) {
+            $(`#${realName.attr("id") + "Message"}`).text(
+              "Không được để trống"
+            );
+            return false;
+          }
+
+          if (!/^[A-Z][a-z]+(\s[A-Z][a-z]+)*$/.test(realNameVal)) {
+            $(`#${realName.attr("id") + "Message"}`).text(
+              "Họ tên không hợp lệ !! Phải viết hoa sau dấu cách"
+            );
+            return false;
+          }
+
+          $(`#${realName.attr("id") + "Message"}`).text("");
+          return true;
+        };
+        realName.blur(checkRealName);
+
+        const checkPwd = () => {
+          const pwd = signUpPwd.val().trim();
+          if (pwd.length === 0) {
+            $(`#${signUpPwd.attr("id") + "Message"}`).text(
+              "Không được để trống"
+            );
+            return false;
+          }
+
+          if (!/^[a-zA-Z0-9]{8,}$/.test(pwd)) {
+            $(`#${signUpPwd.attr("id") + "Message"}`).text(
+              "Không chứa ký tự đặc biệt và tối thiểu 8 ký tự"
+            );
+            return false;
+          }
+
+          $(`#${signUpPwd.attr("id") + "Message"}`).text("");
+          return true;
+        };
+        signUpPwd.blur(checkPwd);
+
+        const checkConfirmPwd = () => {
+          const pwd = confirmPwd.val().trim();
+          if (pwd.length === 0) {
+            $(`#${confirmPwd.attr("id") + "Message"}`).text(
+              "Không được để trống"
+            );
+            return false;
+          }
+
+          if (pwd != signUpPwd.val().trim()) {
+            $(`#${confirmPwd.attr("id") + "Message"}`).text(
+              "Mật khẩu không trùng khớp"
+            );
+            return false;
+          }
+
+          $(`#${confirmPwd.attr("id") + "Message"}`).text("");
+          return true;
+        };
+        confirmPwd.blur(checkConfirmPwd);
+
+        const checkAddress = () => {
+          const addressVal = address.val().trim();
+          if (addressVal.length === 0) {
+            $(`#${address.attr("id") + "Message"}`).text("Không được để trống");
+            return false;
+          }
+          if (!/^[0-9a-zA-Z\s]+$/.test(addressVal)) {
+            $(`#${address.attr("id") + "Message"}`).text(
+              "Địa chỉ không chứa ký tự đặc biệt"
+            );
+            return false;
+          }
+          $(`#${address.attr("id") + "Message"}`).text("");
+          return true;
+        };
+        address.blur(checkAddress);
+
+        const checkBirthday = () => {
+          const birthdayVal = birthday.val().trim();
+          if (birthdayVal.length === 0) {
+            $(`#${birthday.attr("id") + "Message"}`).text(
+              "Không được để trống"
+            );
+            return false;
+          }
+          $(`#${birthday.attr("id") + "Message"}`).text("");
+          return true;
+        };
+        birthday.blur(checkBirthday);
+
+        const checkPhone = () => {
+          const phoneVal = phone.val().trim();
+          if (phoneVal.length === 0) {
+            $(`#${phone.attr("id") + "Message"}`).text("Không được để trống");
+            return false;
+          }
+          if (!/^[0][0-9]{9}$/.test(phoneVal)) {
+            $(`#${phone.attr("id") + "Message"}`).text(
+              "Số điện thoại không hợp lệ, tối đa 10 kí tự bắt đầu bằng số 0"
+            );
+            return false;
+          }
+          $(`#${phone.attr("id") + "Message"}`).text("");
+          return true;
+        };
+        phone.blur(checkPhone);
+
+        signUpBtn.click(() => {
+          if (
+            checkUserName(signUpUsername) ||
+            checkEmail() ||
+            checkPwd() ||
+            checkConfirmPwd() ||
+            checkAddress() ||
+            checkBirthday() ||
+            checkPhone() ||
+            checkRealName()
+          ) {
+            localStorage.setItem(
+              "user",
+              JSON.stringify({
+                name: signUpUsername.val().trim(),
+                email: email.val().trim(),
+                realName: realName.val().trim(),
+                address: address.val().trim(),
+                birthday: birthday.val().trim(),
+                phone: phone.val().trim(),
+                gender: genderMale.prop("checked")
+                  ? genderMale.val()
+                  : genderFemale.val(),
+              })
+            );
+            window.location.href = "../index.html";
+          }
         });
       });
     </script>
