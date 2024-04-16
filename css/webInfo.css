@@ -29,3 +29,9 @@
   right: 20%;
   color: #757575;
 }
+
+@media (max-width: 576px) {
+  .image {
+    width: 100% !important;
+  }
+}
