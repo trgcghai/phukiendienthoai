@@ -42,14 +42,22 @@
         "
       >
         <div
-          class="d-flex align-items-center justify-content-around position-relative z-2"
+          class="d-flex w-100 align-items-center justify-content-around position-relative z-2"
         >
           <div
             class="w-50 p-3 bg-white login-display"
             style="border-radius: 8px"
           >
             <div class="fs-2 text-center my-2">Đăng nhập</div>
-            <form class="mx-auto w-75">
+            <div class="fs-6 text-secondary text-center d-lg-none d-block my-2">
+              Lần đầu biết đến chúng tôi ?
+              <span
+                id="linkToSignUp"
+                style="color: var(--main-color); cursor: pointer"
+                >Đăng ký ngay !!</span
+              >
+            </div>
+            <form class="mx-auto w-100">
               <div class="mb-3">
                 <label for="loginUsername" class="d-block mb-1">Username</label>
                 <input
@@ -121,11 +129,19 @@
             </form>
           </div>
           <div
-            class="w-50 p-3 bg-white signUp-display"
+            class="w-50 p-3 bg-white signUp-display d-lg-block d-none"
             style="border-radius: 8px"
           >
             <div class="fs-2 text-center my-2">Đăng ký</div>
-            <form class="mx-auto w-75">
+            <div class="fs-6 text-secondary text-center d-lg-none d-block my-2">
+              Đã có tài khoản ?
+              <span
+                id="linkToLogin"
+                style="color: var(--main-color); cursor: pointer"
+                >Đăng nhập ngay !!</span
+              >
+            </div>
+            <form class="mx-auto w-100">
               <div class="mb-3">
                 <label for="email" class="d-block mb-1">Email</label>
                 <input
@@ -284,7 +300,9 @@
           </div>
         </div>
 
-        <div class="position-absolute w-100 h-100 top-0 start-0 row p-0 m-0">
+        <div
+          class="position-absolute w-100 h-100 top-0 start-0 row p-0 m-0 d-lg-block d-none"
+        >
           <div
             class="col col-6 w-50 h-100 d-flex align-items-center justify-content-center flex-column login-layer position-absolute top-0 start-0 z-2 d-none"
             style="background-color: var(--main-color); border-radius: 8px"
@@ -345,7 +363,6 @@
 
     <footer
       class="footer container-fluid bottom-0 w-100 text-light d-flex align-items-center justify-content-center"
-      style="background-color: var(--main-color)"
     >
       <div
         class="footer_container p-0 m-0 container d-flex align-items-center justify-content-center p-0"
@@ -414,6 +431,20 @@
 
         const loginBtn = $("#loginBtn");
         const signUpBtn = $("#signUpBtn");
+        const linkToLogin = $("#linkToLogin");
+        const linkToSignUp = $("#linkToSignUp");
+
+        linkToLogin.click(() => {
+          $(".signUp-display").addClass("d-none");
+          $(".login-display").removeClass("d-none");
+          $(".footer").attr("style", "");
+        });
+
+        linkToSignUp.click(() => {
+          $(".signUp-display").removeClass("d-none");
+          $(".login-display").addClass("d-none");
+          $(".footer").attr("style", "position: relative !important");
+        });
 
         const resetLoginForm = () => {
           loginUsername.val("");

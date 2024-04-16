@@ -17,5 +17,38 @@ body {
   border-color: var(--main-color);
 }
 
+#linkToLogin:hover,
+#linkToSignUp:hover {
+  text-decoration: underline;
+}
+
+.footer {
+  background-color: var(--main-color);
+}
+
+@media (max-width: 992px) {
+  .footer {
+    position: absolute !important;
+  }
+
+  .login-display {
+    width: 75% !important;
+  }
+
+  .signUp-display {
+    width: 75% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .login-display {
+    width: 100% !important;
+  }
+
+  .signUp-display {
+    width: 100% !important;
+  }
+}
+
 @media (max-width: 576px) {
 }

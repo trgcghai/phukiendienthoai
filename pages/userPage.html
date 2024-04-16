@@ -729,6 +729,27 @@
           $("#reset_cfpassword").val("");
         };
 
+        $(".update_btn").click(() => {
+          if (validateDataUpdate()) {
+            toast.show();
+          }
+
+          localStorage.setItem(
+            "user",
+            JSON.stringify({
+              name: userName.val().trim(),
+              email: userEmail.val().trim(),
+              realName: userRealName.val().trim(),
+              address: userAddress.val().trim(),
+              birthday: userBirthday.val().trim(),
+              phone: userPhone.val().trim(),
+              gender: userGenderMale.prop("checked")
+                ? userGenderMale.val()
+                : userGenderFemale.val(),
+            })
+          );
+        });
+
         showChangePass.click(() => {
           $(".resetPassword_form").removeClass("d-none");
           $(".backdrop").addClass("d-block");
@@ -761,27 +782,6 @@
         } else {
           userGenderMale.prop("checked", true);
         }
-
-        $(".update_btn").click(() => {
-          if (validateDataUpdate()) {
-            toast.show();
-          }
-
-          localStorage.setItem(
-            "user",
-            JSON.stringify({
-              name: userName.val().trim(),
-              email: userEmail.val().trim(),
-              realName: userRealName.val().trim(),
-              address: userAddress.val().trim(),
-              birthday: userBirthday.val().trim(),
-              phone: userPhone.val().trim(),
-              gender: userGenderMale.prop("checked")
-                ? userGenderMale.val()
-                : userGenderFemale.val(),
-            })
-          );
-        });
 
         $(".logout_btn").click((e) => {
           e.preventDefault();
